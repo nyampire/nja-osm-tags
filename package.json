@@ -7,7 +7,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "normalize": "node scripts/normalize.ts",
-    "fixtures": "node scripts/make-fixtures.ts"
+    "fixtures": "node scripts/make-fixtures.ts",
+    "fixtures:chiban": "node scripts/make-chiban-fixtures.ts"
   },
   "keywords": [],
   "author": "",

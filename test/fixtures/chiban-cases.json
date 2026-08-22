@@ -1,0 +1,5777 @@
+[
+  {
+    "label": "chiban/0",
+    "input": "北海道北斗市開発２２５番地７",
+    "result": {
+      "pref": "北海道",
+      "city": "北斗市",
+      "town": "開発",
+      "addr": "225-7",
+      "level": 8,
+      "point": {
+        "lat": 41.858562793,
+        "lng": 140.669557547,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道北斗市開発２２５番地７",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12360,
+          "city": "北斗市",
+          "city_k": "ホクトシ",
+          "city_r": "Hokuto-shi",
+          "point": [
+            140.653067,
+            41.824174
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0008000",
+          "oaza_cho": "開発",
+          "oaza_cho_k": "カイハツ",
+          "oaza_cho_r": "Kaihatsu",
+          "point": [
+            140.669665,
+            41.868659
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/1",
+    "input": "北海道上川郡愛別町本町１５７－１",
+    "result": {
+      "pref": "北海道",
+      "city": "上川郡愛別町",
+      "town": "字本町",
+      "addr": "157-1",
+      "level": 8,
+      "point": {
+        "lat": 43.908078507,
+        "lng": 142.574796541,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道上川郡愛別町本町１５７－１",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14567,
+          "county": "上川郡",
+          "county_k": "カミカワグン",
+          "county_r": "Kamikawa-gun",
+          "city": "愛別町",
+          "city_k": "アイベツチョウ",
+          "city_r": "Aibetsu-cho",
+          "point": [
+            142.577822,
+            43.906679
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0013000",
+          "oaza_cho": "字本町",
+          "oaza_cho_k": "アザホンチョウ",
+          "oaza_cho_r": "Honcho",
+          "point": [
+            142.574488,
+            43.908043
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/2",
+    "input": "北海道岩見沢市６条西１丁目７番地３",
+    "result": {
+      "pref": "北海道",
+      "city": "岩見沢市",
+      "town": "六条西一丁目",
+      "addr": "7-3",
+      "level": 8,
+      "point": {
+        "lat": 43.201912939,
+        "lng": 141.768001734,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道岩見沢市６条西１丁目７番地３",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12106,
+          "city": "岩見沢市",
+          "city_k": "イワミザワシ",
+          "city_r": "Iwamizawa-shi",
+          "point": [
+            141.775857,
+            43.196169
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0018001",
+          "oaza_cho": "六条西",
+          "oaza_cho_k": "６ジョウニシ",
+          "oaza_cho_r": "6-Jo Nishi",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "point": [
+            141.767698,
+            43.201822
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/3",
+    "input": "北海道岩見沢市東町１条８丁目９３２－１１６",
+    "result": {
+      "pref": "北海道",
+      "city": "岩見沢市",
+      "town": "東町一条八丁目",
+      "addr": "932-116",
+      "level": 8,
+      "point": {
+        "lat": 43.222993261,
+        "lng": 141.798167035,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道岩見沢市東町１条８丁目９３２－１１６",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12106,
+          "city": "岩見沢市",
+          "city_k": "イワミザワシ",
+          "city_r": "Iwamizawa-shi",
+          "point": [
+            141.775857,
+            43.196169
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0128008",
+          "oaza_cho": "東町一条",
+          "oaza_cho_k": "ヒガシチョウ１ジョウ",
+          "oaza_cho_r": "Higashimachi 1-Jo",
+          "chome": "八丁目",
+          "chome_n": 8,
+          "point": [
+            141.800485,
+            43.22284
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/4",
+    "input": "北海道石狩市花川北３条１丁目４－２",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川北三条一丁目",
+      "addr": "4-2",
+      "level": 8,
+      "point": {
+        "lat": 43.164457000000006,
+        "lng": 141.30627,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市花川北３条１丁目４－２",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0037001",
+          "oaza_cho": "花川北三条",
+          "oaza_cho_k": "ハナカワキタ３ジョウ",
+          "oaza_cho_r": "Hanakawakita 3-Jo",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "point": [
+            141.30627,
+            43.164457000000006
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/5",
+    "input": "北海道北見市中央三輪２丁目３１３－１",
+    "result": {
+      "pref": "北海道",
+      "city": "北見市",
+      "town": "中央三輪二丁目",
+      "addr": "313-1",
+      "level": 8,
+      "point": {
+        "lat": 43.802213105,
+        "lng": 143.850313947,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道北見市中央三輪２丁目３１３－１",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12084,
+          "city": "北見市",
+          "city_k": "キタミシ",
+          "city_r": "Kitami-shi",
+          "point": [
+            143.894806,
+            43.803066
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0071002",
+          "oaza_cho": "中央三輪",
+          "oaza_cho_k": "チュウオウミワ",
+          "oaza_cho_r": "Chuomiwa",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "point": [
+            143.851786,
+            43.800646
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/6",
+    "input": "北海道松前郡松前町字大磯１９０番１",
+    "result": {
+      "pref": "北海道",
+      "city": "松前郡松前町",
+      "town": "字大磯",
+      "addr": "190-1",
+      "level": 8,
+      "point": {
+        "lat": 41.426617422,
+        "lng": 140.096328237,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道松前郡松前町字大磯１９０番１",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13315,
+          "county": "松前郡",
+          "county_k": "マツマエグン",
+          "county_r": "Matsumae-gun",
+          "city": "松前町",
+          "city_k": "マツマエチョウ",
+          "city_r": "Matsumae-cho",
+          "point": [
+            140.110403,
+            41.429981
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0006000",
+          "oaza_cho": "字大磯",
+          "oaza_cho_k": "アザオオイソ",
+          "oaza_cho_r": "Oiso",
+          "point": [
+            140.094634,
+            41.426343
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/7",
+    "input": "北海道松前郡松前町字博多２３１－１",
+    "result": {
+      "pref": "北海道",
+      "city": "松前郡松前町",
+      "town": "字博多",
+      "addr": "231-1",
+      "level": 8,
+      "point": {
+        "lat": 41.427511767000006,
+        "lng": 140.097687648,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道松前郡松前町字博多２３１－１",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13315,
+          "county": "松前郡",
+          "county_k": "マツマエグン",
+          "county_r": "Matsumae-gun",
+          "city": "松前町",
+          "city_k": "マツマエチョウ",
+          "city_r": "Matsumae-cho",
+          "point": [
+            140.110403,
+            41.429981
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0027000",
+          "oaza_cho": "字博多",
+          "oaza_cho_k": "アザハカタ",
+          "oaza_cho_r": "Hakata",
+          "point": [
+            140.100242,
+            41.428658
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/8",
+    "input": "北海道茅部郡鹿部町鹿部１００番１１４",
+    "result": {
+      "pref": "北海道",
+      "city": "茅部郡鹿部町",
+      "town": "字鹿部",
+      "addr": "100-114",
+      "level": 8,
+      "point": {
+        "lat": 42.030641607,
+        "lng": 140.822829661,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道茅部郡鹿部町鹿部１００番１１４",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13439,
+          "county": "茅部郡",
+          "county_k": "カヤベグン",
+          "county_r": "Kayabe-gun",
+          "city": "鹿部町",
+          "city_k": "シカベチョウ",
+          "city_r": "Shikabe-cho",
+          "point": [
+            140.831691,
+            42.026623
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0003000",
+          "oaza_cho": "字鹿部",
+          "oaza_cho_k": "アザシカベ",
+          "oaza_cho_r": "Shikabe",
+          "point": [
+            140.81967,
+            42.011153
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/9",
+    "input": "北海道茅部郡森町字港町１８６番地の１０",
+    "result": {
+      "pref": "北海道",
+      "city": "茅部郡森町",
+      "town": "字港町",
+      "addr": "186-10",
+      "level": 8,
+      "point": {
+        "lat": 42.109907,
+        "lng": 140.597313,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道茅部郡森町字港町１８６番地の１０",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13455,
+          "county": "茅部郡",
+          "county_k": "カヤベグン",
+          "county_r": "Kayabe-gun",
+          "city": "森町",
+          "city_k": "モリマチ",
+          "city_r": "Mori-machi",
+          "point": [
+            140.576446,
+            42.104992
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0032000",
+          "oaza_cho": "字港町",
+          "oaza_cho_k": "アザミナトマチ",
+          "oaza_cho_r": "Minatomachi",
+          "point": [
+            140.597313,
+            42.109907
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/10",
+    "input": "北海道茅部郡森町字森川町２７８番１３０",
+    "result": {
+      "pref": "北海道",
+      "city": "茅部郡森町",
+      "town": "字森川町",
+      "addr": "278-130",
+      "level": 8,
+      "point": {
+        "lat": 42.090051,
+        "lng": 140.577076,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道茅部郡森町字森川町２７８番１３０",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13455,
+          "county": "茅部郡",
+          "county_k": "カヤベグン",
+          "county_r": "Kayabe-gun",
+          "city": "森町",
+          "city_k": "モリマチ",
+          "city_r": "Mori-machi",
+          "point": [
+            140.576446,
+            42.104992
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0034000",
+          "oaza_cho": "字森川町",
+          "oaza_cho_k": "アザモリカワチョウ",
+          "oaza_cho_r": "Morikawacho",
+          "point": [
+            140.577076,
+            42.090051
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/11",
+    "input": "北海道茅部郡森町砂原１丁目３０番６２",
+    "result": {
+      "pref": "北海道",
+      "city": "茅部郡森町",
+      "town": "字砂原一丁目",
+      "addr": "30-62",
+      "level": 8,
+      "point": {
+        "lat": 42.12363400000001,
+        "lng": 140.664961,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道茅部郡森町砂原１丁目３０番６２",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13455,
+          "county": "茅部郡",
+          "county_k": "カヤベグン",
+          "county_r": "Kayabe-gun",
+          "city": "森町",
+          "city_k": "モリマチ",
+          "city_r": "Mori-machi",
+          "point": [
+            140.576446,
+            42.104992
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0013001",
+          "oaza_cho": "字砂原",
+          "oaza_cho_k": "アザサワラ",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "point": [
+            140.664961,
+            42.12363400000001
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/12",
+    "input": "北海道松前郡松前町字建石４９－５１",
+    "result": {
+      "pref": "北海道",
+      "city": "松前郡松前町",
+      "town": "字建石",
+      "addr": "49-51",
+      "level": 8,
+      "point": {
+        "lat": 41.425623293,
+        "lng": 140.08525971,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道松前郡松前町字建石４９－５１",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13315,
+          "county": "松前郡",
+          "county_k": "マツマエグン",
+          "county_r": "Matsumae-gun",
+          "city": "松前町",
+          "city_k": "マツマエチョウ",
+          "city_r": "Matsumae-cho",
+          "point": [
+            140.110403,
+            41.429981
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0022000",
+          "oaza_cho": "字建石",
+          "oaza_cho_k": "アザタテイシ",
+          "oaza_cho_r": "Tateishi",
+          "point": [
+            140.076647,
+            41.431952
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/13",
+    "input": "北海道茅部郡森町字御幸町３１－９",
+    "result": {
+      "pref": "北海道",
+      "city": "茅部郡森町",
+      "town": "字御幸町",
+      "addr": "31-9",
+      "level": 8,
+      "point": {
+        "lat": 42.10578300000001,
+        "lng": 140.57619900000003,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道茅部郡森町字御幸町３１－９",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13455,
+          "county": "茅部郡",
+          "county_k": "カヤベグン",
+          "county_r": "Kayabe-gun",
+          "city": "森町",
+          "city_k": "モリマチ",
+          "city_r": "Mori-machi",
+          "point": [
+            140.576446,
+            42.104992
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0033000",
+          "oaza_cho": "字御幸町",
+          "oaza_cho_k": "アザミユキチョウ",
+          "oaza_cho_r": "Miyukicho",
+          "point": [
+            140.57619900000003,
+            42.10578300000001
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/14",
+    "input": "北海道茅部郡森町字上台町３２６番地１６２",
+    "result": {
+      "pref": "北海道",
+      "city": "茅部郡森町",
+      "town": "字上台町",
+      "addr": "326-162",
+      "level": 8,
+      "point": {
+        "lat": 42.102923558,
+        "lng": 140.567892809,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道茅部郡森町字上台町３２６番地１６２",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13455,
+          "county": "茅部郡",
+          "county_k": "カヤベグン",
+          "county_r": "Kayabe-gun",
+          "city": "森町",
+          "city_k": "モリマチ",
+          "city_r": "Mori-machi",
+          "point": [
+            140.576446,
+            42.104992
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0003000",
+          "oaza_cho": "字上台町",
+          "oaza_cho_k": "アザウワダイチョウ",
+          "oaza_cho_r": "Uwadaicho",
+          "point": [
+            140.564475,
+            42.098198
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/15",
+    "input": "北海道上磯郡知内町字重内３１番１４８",
+    "result": {
+      "pref": "北海道",
+      "city": "上磯郡知内町",
+      "town": "字重内",
+      "addr": "31-148",
+      "level": 8,
+      "point": {
+        "lat": 41.601281204,
+        "lng": 140.419167209,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道上磯郡知内町字重内３１番１４８",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13331,
+          "county": "上磯郡",
+          "county_k": "カミイソグン",
+          "county_r": "Kamiiso-gun",
+          "city": "知内町",
+          "city_k": "シリウチチョウ",
+          "city_r": "Shiriuchi-cho",
+          "point": [
+            140.418861,
+            41.598377
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0001000",
+          "oaza_cho": "字重内",
+          "oaza_cho_k": "アザオモナイ",
+          "oaza_cho_r": "Omonai",
+          "point": [
+            140.383354,
+            41.614634
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/16",
+    "input": "北海道上磯郡木古内町字本町７０７番７",
+    "result": {
+      "pref": "北海道",
+      "city": "上磯郡木古内町",
+      "town": "字本町",
+      "addr": "707-7",
+      "level": 8,
+      "point": {
+        "lat": 41.674542381,
+        "lng": 140.437149183,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道上磯郡木古内町字本町７０７番７",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13340,
+          "county": "上磯郡",
+          "county_k": "カミイソグン",
+          "county_r": "Kamiiso-gun",
+          "city": "木古内町",
+          "city_k": "キコナイチョウ",
+          "city_r": "Kikonai-cho",
+          "point": [
+            140.437635,
+            41.678332
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0018000",
+          "oaza_cho": "字本町",
+          "oaza_cho_k": "アザホンチョウ",
+          "oaza_cho_r": "Honcho",
+          "point": [
+            140.436056,
+            41.676733
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/17",
+    "input": "北海道北斗市当別６９７番１２８",
+    "result": {
+      "pref": "北海道",
+      "city": "北斗市",
+      "town": "当別",
+      "addr": "697-128",
+      "level": 8,
+      "point": {
+        "lat": 41.750244338,
+        "lng": 140.582940563,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道北斗市当別６９７番１２８",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12360,
+          "city": "北斗市",
+          "city_k": "ホクトシ",
+          "city_r": "Hokuto-shi",
+          "point": [
+            140.653067,
+            41.824174
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0025000",
+          "oaza_cho": "当別",
+          "oaza_cho_k": "トウベツ",
+          "oaza_cho_r": "Tobetsu",
+          "point": [
+            140.544339,
+            41.768215
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/18",
+    "input": "北海道帯広市柏林台中町２丁目２番地９",
+    "result": {
+      "pref": "北海道",
+      "city": "帯広市",
+      "town": "柏林台中町二丁目",
+      "addr": "2-9",
+      "level": 8,
+      "point": {
+        "lat": 42.923954712,
+        "lng": 143.170789621,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道帯広市柏林台中町２丁目２番地９",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12076,
+          "city": "帯広市",
+          "city_k": "オビヒロシ",
+          "city_r": "Obihiro-shi",
+          "point": [
+            143.196195,
+            42.924014
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0248002",
+          "oaza_cho": "柏林台中町",
+          "oaza_cho_k": "ハクリンダイナカマチ",
+          "oaza_cho_r": "Hakurindai Nakamachi",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "point": [
+            143.169789,
+            42.92404
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/19",
+    "input": "北海道帯広市西９条南１３丁目４番１５",
+    "result": {
+      "pref": "北海道",
+      "city": "帯広市",
+      "town": "西九条南十三丁目",
+      "addr": "4-15",
+      "level": 8,
+      "point": {
+        "lat": 42.916306818,
+        "lng": 143.191127798,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道帯広市西９条南１３丁目４番１５",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12076,
+          "city": "帯広市",
+          "city_k": "オビヒロシ",
+          "city_r": "Obihiro-shi",
+          "point": [
+            143.196195,
+            42.924014
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0246013",
+          "oaza_cho": "西九条南",
+          "oaza_cho_k": "ニシ９ジョウミナミ",
+          "oaza_cho_r": "Nishi9-Jominami",
+          "chome": "十三丁目",
+          "chome_n": 13,
+          "point": [
+            143.191541,
+            42.916501
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/20",
+    "input": "北海道松前郡福島町字福島１３７－１",
+    "result": {
+      "pref": "北海道",
+      "city": "松前郡福島町",
+      "town": "字福島",
+      "addr": "137-1",
+      "level": 8,
+      "point": {
+        "lat": 41.480065395,
+        "lng": 140.255732952,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道松前郡福島町字福島１３７－１",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13323,
+          "county": "松前郡",
+          "county_k": "マツマエグン",
+          "county_r": "Matsumae-gun",
+          "city": "福島町",
+          "city_k": "フクシマチョウ",
+          "city_r": "Fukushima-cho",
+          "point": [
+            140.251315,
+            41.483783
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0012000",
+          "oaza_cho": "字福島",
+          "oaza_cho_k": "アザフクシマ",
+          "oaza_cho_r": "Fukushima",
+          "point": [
+            140.245902,
+            41.482704
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/21",
+    "input": "北海道檜山郡江差町字伏木戸町５３１－７",
+    "result": {
+      "pref": "北海道",
+      "city": "檜山郡江差町",
+      "town": "字伏木戸町",
+      "addr": "531-7",
+      "level": 8,
+      "point": {
+        "lat": 41.913973128,
+        "lng": 140.143966844,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道檜山郡江差町字伏木戸町５３１－７",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13617,
+          "county": "檜山郡",
+          "county_k": "ヒヤマグン",
+          "county_r": "Hiyama-gun",
+          "city": "江差町",
+          "city_k": "エサシチョウ",
+          "city_r": "Esashi-cho",
+          "point": [
+            140.12756,
+            41.869244
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0029000",
+          "oaza_cho": "字伏木戸町",
+          "oaza_cho_k": "アザフシキドチョウ",
+          "oaza_cho_r": "Fushikidocho",
+          "point": [
+            140.144078,
+            41.91129
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/22",
+    "input": "北海道檜山郡江差町字伏木戸町５５４番地２",
+    "result": {
+      "pref": "北海道",
+      "city": "檜山郡江差町",
+      "town": "字伏木戸町",
+      "addr": "554-2",
+      "level": 8,
+      "point": {
+        "lat": 41.915049832,
+        "lng": 140.144935043,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道檜山郡江差町字伏木戸町５５４番地２",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13617,
+          "county": "檜山郡",
+          "county_k": "ヒヤマグン",
+          "county_r": "Hiyama-gun",
+          "city": "江差町",
+          "city_k": "エサシチョウ",
+          "city_r": "Esashi-cho",
+          "point": [
+            140.12756,
+            41.869244
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0029000",
+          "oaza_cho": "字伏木戸町",
+          "oaza_cho_k": "アザフシキドチョウ",
+          "oaza_cho_r": "Fushikidocho",
+          "point": [
+            140.144078,
+            41.91129
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/23",
+    "input": "北海道爾志郡乙部町字緑町７０４番地の１４",
+    "result": {
+      "pref": "北海道",
+      "city": "爾志郡乙部町",
+      "town": "字緑町",
+      "addr": "704-14",
+      "level": 8,
+      "point": {
+        "lat": 41.968365218,
+        "lng": 140.139839648,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道爾志郡乙部町字緑町７０４番地の１４",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13641,
+          "county": "爾志郡",
+          "county_k": "ニシグン",
+          "county_r": "Nishi-gun",
+          "city": "乙部町",
+          "city_k": "オトベチョウ",
+          "city_r": "Otobe-cho",
+          "point": [
+            140.13546,
+            41.968504
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0014000",
+          "oaza_cho": "字緑町",
+          "oaza_cho_k": "アザミドリチョウ",
+          "oaza_cho_r": "Midorimachi",
+          "point": [
+            140.144251,
+            41.96636900000001
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/24",
+    "input": "北海道檜山郡江差町字姥神町８５番１号",
+    "result": {
+      "pref": "北海道",
+      "city": "檜山郡江差町",
+      "town": "字姥神町",
+      "addr": "85-1",
+      "level": 8,
+      "point": {
+        "lat": 41.866397647,
+        "lng": 140.123916873,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道檜山郡江差町字姥神町８５番１号",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13617,
+          "county": "檜山郡",
+          "county_k": "ヒヤマグン",
+          "county_r": "Hiyama-gun",
+          "city": "江差町",
+          "city_k": "エサシチョウ",
+          "city_r": "Esashi-cho",
+          "point": [
+            140.12756,
+            41.869244
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0005000",
+          "oaza_cho": "字姥神町",
+          "oaza_cho_k": "アザウバガミチョウ",
+          "oaza_cho_r": "Ubagamicho",
+          "point": [
+            140.123889,
+            41.867232
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/25",
+    "input": "北海道檜山郡江差町字中歌町１９９番地１０",
+    "result": {
+      "pref": "北海道",
+      "city": "檜山郡江差町",
+      "town": "字中歌町",
+      "addr": "199-10",
+      "level": 8,
+      "point": {
+        "lat": 41.869686605,
+        "lng": 140.128400809,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道檜山郡江差町字中歌町１９９番地１０",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13617,
+          "county": "檜山郡",
+          "county_k": "ヒヤマグン",
+          "county_r": "Hiyama-gun",
+          "city": "江差町",
+          "city_k": "エサシチョウ",
+          "city_r": "Esashi-cho",
+          "point": [
+            140.12756,
+            41.869244
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0024000",
+          "oaza_cho": "字中歌町",
+          "oaza_cho_k": "アザナカウタチョウ",
+          "oaza_cho_r": "Nakautacho",
+          "point": [
+            140.131668,
+            41.868977
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/26",
+    "input": "北海道檜山郡上ノ国町字上ノ国２４８－２２",
+    "result": {
+      "pref": "北海道",
+      "city": "檜山郡上ノ国町",
+      "town": "字上ノ国",
+      "addr": "248-22",
+      "level": 8,
+      "point": {
+        "lat": 41.801846827000006,
+        "lng": 140.109919724,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道檜山郡上ノ国町字上ノ国２４８－２２",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13625,
+          "county": "檜山郡",
+          "county_k": "ヒヤマグン",
+          "county_r": "Hiyama-gun",
+          "city": "上ノ国町",
+          "city_k": "カミノクニチョウ",
+          "city_r": "Kaminokuni-cho",
+          "point": [
+            140.121398,
+            41.80104200000001
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0009000",
+          "oaza_cho": "字上ノ国",
+          "oaza_cho_k": "アザカミノクニ",
+          "oaza_cho_r": "Kaminokuni",
+          "point": [
+            140.10861,
+            41.802894
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/27",
+    "input": "北海道二海郡八雲町富士見町４４番地",
+    "result": {
+      "pref": "北海道",
+      "city": "二海郡八雲町",
+      "town": "富士見町",
+      "addr": "44",
+      "level": 8,
+      "point": {
+        "lat": 42.254454195,
+        "lng": 140.274417331,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道二海郡八雲町富士見町４４番地",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13463,
+          "county": "二海郡",
+          "county_k": "フタミグン",
+          "county_r": "Futami-gun",
+          "city": "八雲町",
+          "city_k": "ヤクモチョウ",
+          "city_r": "Yakumo-cho",
+          "point": [
+            140.265224,
+            42.255918
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0045000",
+          "oaza_cho": "富士見町",
+          "oaza_cho_k": "フジミチョウ",
+          "oaza_cho_r": "Fujimicho",
+          "point": [
+            140.275,
+            42.255309
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/28",
+    "input": "北海道二海郡八雲町東雲町５１番地４",
+    "result": {
+      "pref": "北海道",
+      "city": "二海郡八雲町",
+      "town": "東雲町",
+      "addr": "51-4",
+      "level": 8,
+      "point": {
+        "lat": 42.251962924,
+        "lng": 140.278535196,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道二海郡八雲町東雲町５１番地４",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13463,
+          "county": "二海郡",
+          "county_k": "フタミグン",
+          "county_r": "Futami-gun",
+          "city": "八雲町",
+          "city_k": "ヤクモチョウ",
+          "city_r": "Yakumo-cho",
+          "point": [
+            140.265224,
+            42.255918
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0032000",
+          "oaza_cho": "東雲町",
+          "oaza_cho_k": "シノノメチョウ",
+          "oaza_cho_r": "Shinonomecho",
+          "point": [
+            140.280476,
+            42.253494
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/29",
+    "input": "北海道久遠郡せたな町大成区久遠１５５－１",
+    "result": {
+      "pref": "北海道",
+      "city": "久遠郡せたな町",
+      "town": "大成区久遠",
+      "addr": "155-1",
+      "level": 8,
+      "point": {
+        "lat": 42.224068033,
+        "lng": 139.831273842,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道久遠郡せたな町大成区久遠１５５－１",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13714,
+          "county": "久遠郡",
+          "county_k": "クドウグン",
+          "county_r": "Kudo-gun",
+          "city": "せたな町",
+          "city_k": "セタナチョウ",
+          "city_r": "Setana-cho",
+          "point": [
+            139.882999,
+            42.417145
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0031000",
+          "oaza_cho": "大成区久遠",
+          "oaza_cho_k": "タイセイククドウ",
+          "oaza_cho_r": "Taiseiku Kudo",
+          "point": [
+            139.836755,
+            42.228054
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/30",
+    "input": "北海道久遠郡せたな町瀬棚区本町７９２番５",
+    "result": {
+      "pref": "北海道",
+      "city": "久遠郡せたな町",
+      "town": "瀬棚区本町",
+      "addr": "792-5",
+      "level": 8,
+      "point": {
+        "lat": 42.44904543,
+        "lng": 139.852345867,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道久遠郡せたな町瀬棚区本町７９２番５",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13714,
+          "county": "久遠郡",
+          "county_k": "クドウグン",
+          "county_r": "Kudo-gun",
+          "city": "せたな町",
+          "city_k": "セタナチョウ",
+          "city_r": "Setana-cho",
+          "point": [
+            139.882999,
+            42.417145
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0025000",
+          "oaza_cho": "瀬棚区本町",
+          "oaza_cho_k": "セタナクホンチョウ",
+          "oaza_cho_r": "Setanaku Honcho",
+          "point": [
+            139.852434,
+            42.452275
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/31",
+    "input": "北海道瀬棚郡今金町字今金４８番地１６",
+    "result": {
+      "pref": "北海道",
+      "city": "瀬棚郡今金町",
+      "town": "字今金",
+      "addr": "48-16",
+      "level": 8,
+      "point": {
+        "lat": 42.42889377,
+        "lng": 140.008290922,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道瀬棚郡今金町字今金４８番地１６",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13706,
+          "county": "瀬棚郡",
+          "county_k": "セタナグン",
+          "county_r": "Setana-gun",
+          "city": "今金町",
+          "city_k": "イマカネチョウ",
+          "city_r": "Imakane-cho",
+          "point": [
+            140.008766,
+            42.429373
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0003000",
+          "oaza_cho": "字今金",
+          "oaza_cho_k": "アザイマカネ",
+          "oaza_cho_r": "Imakane",
+          "point": [
+            140.028393,
+            42.431708
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/32",
+    "input": "北海道山越郡長万部町字長万部１８番地３０",
+    "result": {
+      "pref": "北海道",
+      "city": "山越郡長万部町",
+      "town": "字長万部",
+      "addr": "18-30",
+      "level": 8,
+      "point": {
+        "lat": 42.510948972,
+        "lng": 140.376911871,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道山越郡長万部町字長万部１８番地３０",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13471,
+          "county": "山越郡",
+          "county_k": "ヤマコシグン",
+          "county_r": "Yamakoshi-gun",
+          "city": "長万部町",
+          "city_k": "オシャマンベチョウ",
+          "city_r": "Oshamambe-cho",
+          "point": [
+            140.380344,
+            42.513488
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0004000",
+          "oaza_cho": "字長万部",
+          "oaza_cho_k": "アザオシャマンベ",
+          "oaza_cho_r": "Oshamambe",
+          "point": [
+            140.375489,
+            42.514221
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/33",
+    "input": "北海道久遠郡せたな町北檜山区北檜山３７５番３",
+    "result": {
+      "pref": "北海道",
+      "city": "久遠郡せたな町",
+      "town": "北檜山区北檜山",
+      "addr": "375-3",
+      "level": 8,
+      "point": {
+        "lat": 42.415727871,
+        "lng": 139.876760989,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道久遠郡せたな町北檜山区北檜山３７５番３",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13714,
+          "county": "久遠郡",
+          "county_k": "クドウグン",
+          "county_r": "Kudo-gun",
+          "city": "せたな町",
+          "city_k": "セタナチョウ",
+          "city_r": "Setana-cho",
+          "point": [
+            139.882999,
+            42.417145
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0004000",
+          "oaza_cho": "北檜山区北檜山",
+          "oaza_cho_k": "キタヒヤマクキタヒヤマ",
+          "oaza_cho_r": "Kitahiyamaku Kitahiyama",
+          "point": [
+            139.881784,
+            42.414
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/34",
+    "input": "北海道山越郡長万部町字長万部１８番地の２６",
+    "result": {
+      "pref": "北海道",
+      "city": "山越郡長万部町",
+      "town": "字長万部",
+      "addr": "18-26",
+      "level": 8,
+      "point": {
+        "lat": 42.510899003,
+        "lng": 140.377096254,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道山越郡長万部町字長万部１８番地の２６",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13471,
+          "county": "山越郡",
+          "county_k": "ヤマコシグン",
+          "county_r": "Yamakoshi-gun",
+          "city": "長万部町",
+          "city_k": "オシャマンベチョウ",
+          "city_r": "Oshamambe-cho",
+          "point": [
+            140.380344,
+            42.513488
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0004000",
+          "oaza_cho": "字長万部",
+          "oaza_cho_k": "アザオシャマンベ",
+          "oaza_cho_r": "Oshamambe",
+          "point": [
+            140.375489,
+            42.514221
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/35",
+    "input": "北海道瀬棚郡今金町字今金３５９番地３２",
+    "result": {
+      "pref": "北海道",
+      "city": "瀬棚郡今金町",
+      "town": "字今金",
+      "addr": "359-32",
+      "level": 8,
+      "point": {
+        "lat": 42.426815489,
+        "lng": 140.013876588,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道瀬棚郡今金町字今金３５９番地３２",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13706,
+          "county": "瀬棚郡",
+          "county_k": "セタナグン",
+          "county_r": "Setana-gun",
+          "city": "今金町",
+          "city_k": "イマカネチョウ",
+          "city_r": "Imakane-cho",
+          "point": [
+            140.008766,
+            42.429373
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0003000",
+          "oaza_cho": "字今金",
+          "oaza_cho_k": "アザイマカネ",
+          "oaza_cho_r": "Imakane",
+          "point": [
+            140.028393,
+            42.431708
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/36",
+    "input": "北海道二海郡八雲町東雲町５１番９７",
+    "result": {
+      "pref": "北海道",
+      "city": "二海郡八雲町",
+      "town": "東雲町",
+      "addr": "51-97",
+      "level": 8,
+      "point": {
+        "lat": 42.251984611,
+        "lng": 140.28022018,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道二海郡八雲町東雲町５１番９７",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13463,
+          "county": "二海郡",
+          "county_k": "フタミグン",
+          "county_r": "Futami-gun",
+          "city": "八雲町",
+          "city_k": "ヤクモチョウ",
+          "city_r": "Yakumo-cho",
+          "point": [
+            140.265224,
+            42.255918
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0032000",
+          "oaza_cho": "東雲町",
+          "oaza_cho_k": "シノノメチョウ",
+          "oaza_cho_r": "Shinonomecho",
+          "point": [
+            140.280476,
+            42.253494
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/37",
+    "input": "北海道江別市４条５丁目１０番地２",
+    "result": {
+      "pref": "北海道",
+      "city": "江別市",
+      "town": "四条五丁目",
+      "addr": "10-2",
+      "level": 8,
+      "point": {
+        "lat": 43.1123649,
+        "lng": 141.556165808,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道江別市４条５丁目１０番地２",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12173,
+          "city": "江別市",
+          "city_k": "エベツシ",
+          "city_r": "Ebetsu-shi",
+          "point": [
+            141.536103,
+            43.103666
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0004005",
+          "oaza_cho": "四条",
+          "oaza_cho_k": "４ジョウ",
+          "chome": "五丁目",
+          "chome_n": 5,
+          "point": [
+            141.556069,
+            43.11257
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/38",
+    "input": "北海道江別市緑町西１丁目１００－６",
+    "result": {
+      "pref": "北海道",
+      "city": "江別市",
+      "town": "緑町西一丁目",
+      "addr": "100-6",
+      "level": 8,
+      "point": {
+        "lat": 43.113316,
+        "lng": 141.548838,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道江別市緑町西１丁目１００－６",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12173,
+          "city": "江別市",
+          "city_k": "エベツシ",
+          "city_r": "Ebetsu-shi",
+          "point": [
+            141.536103,
+            43.103666
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0075001",
+          "oaza_cho": "緑町西",
+          "oaza_cho_k": "ミドリマチニシ",
+          "oaza_cho_r": "Midorimachi Nishi",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "point": [
+            141.548838,
+            43.113316
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/39",
+    "input": "北海道江別市上江別４２７番地１　マルシェ上江別１Ｆ",
+    "result": {
+      "pref": "北海道",
+      "city": "江別市",
+      "town": "上江別",
+      "addr": "427-1",
+      "level": 8,
+      "point": {
+        "lat": 43.100260229,
+        "lng": 141.54729755,
+        "level": 8
+      },
+      "other": "マルシェ上江別1F",
+      "metadata": {
+        "input": "北海道江別市上江別４２７番地１　マルシェ上江別１Ｆ",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12173,
+          "city": "江別市",
+          "city_k": "エベツシ",
+          "city_r": "Ebetsu-shi",
+          "point": [
+            141.536103,
+            43.103666
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0036000",
+          "oaza_cho": "上江別",
+          "oaza_cho_k": "カミエベツ",
+          "oaza_cho_r": "Kamiebetsu",
+          "point": [
+            141.557517,
+            43.094152
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/40",
+    "input": "北海道石狩市花川北７条２丁目２６番地",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川北七条二丁目",
+      "addr": "26",
+      "level": 8,
+      "point": {
+        "lat": 43.17030737,
+        "lng": 141.320582887,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市花川北７条２丁目２６番地",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0041002",
+          "oaza_cho": "花川北七条",
+          "oaza_cho_k": "ハナカワキタ７ジョウ",
+          "oaza_cho_r": "Hanakawakita 7-Jo",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "point": [
+            141.321255,
+            43.170368
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/41",
+    "input": "北海道石狩市花川北２条２丁目２０１－２３",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川北二条二丁目",
+      "addr": "201-23",
+      "level": 8,
+      "point": {
+        "lat": 43.160798,
+        "lng": 141.305833,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市花川北２条２丁目２０１－２３",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0036002",
+          "oaza_cho": "花川北二条",
+          "oaza_cho_k": "ハナカワキタ２ジョウ",
+          "oaza_cho_r": "Hanakawakita 2-Jo",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "point": [
+            141.305833,
+            43.160798
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/42",
+    "input": "北海道石狩市花川北６条１丁目３１番地",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川北六条一丁目",
+      "addr": "31",
+      "level": 8,
+      "point": {
+        "lat": 43.169723112,
+        "lng": 141.314738296,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市花川北６条１丁目３１番地",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0040001",
+          "oaza_cho": "花川北六条",
+          "oaza_cho_k": "ハナカワキタ６ジョウ",
+          "oaza_cho_r": "Hanakawakita 6-Jo",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "point": [
+            141.315323,
+            43.170453
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/43",
+    "input": "北海道石狩市花川北３条３丁目９番２号市民生協コープさっぽろいしかり１階",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川北三条三丁目",
+      "addr": "9-2",
+      "level": 8,
+      "point": {
+        "lat": 43.161379,
+        "lng": 141.311671,
+        "level": 3
+      },
+      "other": " 市民生協コープさっぽろいしかり1階",
+      "metadata": {
+        "input": "北海道石狩市花川北３条３丁目９番２号市民生協コープさっぽろいしかり１階",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0037003",
+          "oaza_cho": "花川北三条",
+          "oaza_cho_k": "ハナカワキタ３ジョウ",
+          "oaza_cho_r": "Hanakawakita 3-Jo",
+          "chome": "三丁目",
+          "chome_n": 3,
+          "point": [
+            141.311671,
+            43.161379
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/44",
+    "input": "北海道石狩市花川北３条３丁目６－３ＭＭビル１Ｆ",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川北三条三丁目",
+      "addr": "6-3",
+      "level": 8,
+      "point": {
+        "lat": 43.161379,
+        "lng": 141.311671,
+        "level": 3
+      },
+      "other": "MMビル1F",
+      "metadata": {
+        "input": "北海道石狩市花川北３条３丁目６－３ＭＭビル１Ｆ",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0037003",
+          "oaza_cho": "花川北三条",
+          "oaza_cho_k": "ハナカワキタ３ジョウ",
+          "oaza_cho_r": "Hanakawakita 3-Jo",
+          "chome": "三丁目",
+          "chome_n": 3,
+          "point": [
+            141.311671,
+            43.161379
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/45",
+    "input": "北海道石狩市花川南８条１丁目２－９番地",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川南八条一丁目",
+      "addr": "2-9",
+      "level": 8,
+      "point": {
+        "lat": 43.145746222,
+        "lng": 141.280167454,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市花川南８条１丁目２－９番地",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0053001",
+          "oaza_cho": "花川南八条",
+          "oaza_cho_k": "ハナカワミナミ８ジョウ",
+          "oaza_cho_r": "Hanakawaminami 8-Jo",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "point": [
+            141.280475,
+            43.144352
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/46",
+    "input": "北海道石狩市花川東１条４丁目６１番地",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川東一条四丁目",
+      "addr": "61",
+      "level": 8,
+      "point": {
+        "lat": 43.167544018,
+        "lng": 141.343077859,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市花川東１条４丁目６１番地",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0043004",
+          "oaza_cho": "花川東一条",
+          "oaza_cho_k": "ハナカワヒガシ１ジョウ",
+          "oaza_cho_r": "Hanakawahigashi 1-Jo",
+          "chome": "四丁目",
+          "chome_n": 4,
+          "point": [
+            141.341222,
+            43.1679
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/47",
+    "input": "北海道石狩郡当別町太美町１４８８－３５０",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩郡当別町",
+      "town": "太美町",
+      "addr": "1488-350",
+      "level": 8,
+      "point": {
+        "lat": 43.195439628,
+        "lng": 141.44715601000001,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩郡当別町太美町１４８８－３５０",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13030,
+          "county": "石狩郡",
+          "county_k": "イシカリグン",
+          "county_r": "Ishikari-gun",
+          "city": "当別町",
+          "city_k": "トウベツチョウ",
+          "city_r": "Tobetsu-cho",
+          "point": [
+            141.5170027,
+            43.22363701
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0028000",
+          "oaza_cho": "太美町",
+          "oaza_cho_k": "フトミマチ",
+          "oaza_cho_r": "Futomicho",
+          "point": [
+            141.442157,
+            43.192776
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/48",
+    "input": "北海道石狩郡当別町六軒町７２－４０",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩郡当別町",
+      "town": "六軒町",
+      "addr": "72-40",
+      "level": 8,
+      "point": {
+        "lat": 43.23586708,
+        "lng": 141.513636614,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩郡当別町六軒町７２－４０",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13030,
+          "county": "石狩郡",
+          "county_k": "イシカリグン",
+          "county_r": "Ishikari-gun",
+          "city": "当別町",
+          "city_k": "トウベツチョウ",
+          "city_r": "Tobetsu-cho",
+          "point": [
+            141.5170027,
+            43.22363701
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0038000",
+          "oaza_cho": "六軒町",
+          "oaza_cho_k": "ロッケンチョウ",
+          "oaza_cho_r": "Rokkencho",
+          "point": [
+            141.516826,
+            43.23805
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/49",
+    "input": "北海道石狩市花川北６条３丁目１１０番３号",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川北六条三丁目",
+      "addr": "110-3",
+      "level": 8,
+      "point": {
+        "lat": 43.168938126,
+        "lng": 141.320695882,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市花川北６条３丁目１１０番３号",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0040003",
+          "oaza_cho": "花川北六条",
+          "oaza_cho_k": "ハナカワキタ６ジョウ",
+          "oaza_cho_r": "Hanakawakita 6-Jo",
+          "chome": "三丁目",
+          "chome_n": 3,
+          "point": [
+            141.32042500000003,
+            43.167654
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/50",
+    "input": "北海道江別市緑町西１－１００－３",
+    "result": {
+      "pref": "北海道",
+      "city": "江別市",
+      "town": "緑町西一丁目",
+      "addr": "100-3",
+      "level": 8,
+      "point": {
+        "lat": 43.113316,
+        "lng": 141.548838,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道江別市緑町西１－１００－３",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12173,
+          "city": "江別市",
+          "city_k": "エベツシ",
+          "city_r": "Ebetsu-shi",
+          "point": [
+            141.536103,
+            43.103666
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0075001",
+          "oaza_cho": "緑町西",
+          "oaza_cho_k": "ミドリマチニシ",
+          "oaza_cho_r": "Midorimachi Nishi",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "point": [
+            141.548838,
+            43.113316
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/51",
+    "input": "北海道石狩市花川南３条５丁目８番",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川南三条五丁目",
+      "addr": "8",
+      "level": 8,
+      "point": {
+        "lat": 43.146644,
+        "lng": 141.30255,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市花川南３条５丁目８番",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0048005",
+          "oaza_cho": "花川南三条",
+          "oaza_cho_k": "ハナカワミナミ３ジョウ",
+          "oaza_cho_r": "Hanakawaminami 3-Jo",
+          "chome": "五丁目",
+          "chome_n": 5,
+          "point": [
+            141.30255,
+            43.146644
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/52",
+    "input": "北海道石狩市花川南７条３丁目４８番地",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川南七条三丁目",
+      "addr": "48",
+      "level": 8,
+      "point": {
+        "lat": 43.143149638,
+        "lng": 141.286470488,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市花川南７条３丁目４８番地",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0052003",
+          "oaza_cho": "花川南七条",
+          "oaza_cho_k": "ハナカワミナミ７ジョウ",
+          "oaza_cho_r": "Hanakawaminami 7-Jo",
+          "chome": "三丁目",
+          "chome_n": 3,
+          "point": [
+            141.287855,
+            43.142637
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/53",
+    "input": "北海道石狩市花川南３条４丁目２１９番地",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川南三条四丁目",
+      "addr": "219",
+      "level": 8,
+      "point": {
+        "lat": 43.147692283000005,
+        "lng": 141.301512885,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市花川南３条４丁目２１９番地",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0048004",
+          "oaza_cho": "花川南三条",
+          "oaza_cho_k": "ハナカワミナミ３ジョウ",
+          "oaza_cho_r": "Hanakawaminami 3-Jo",
+          "chome": "四丁目",
+          "chome_n": 4,
+          "point": [
+            141.300045,
+            43.148138
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/54",
+    "input": "北海道石狩市花川南６条５丁目１４１番地",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川南六条五丁目",
+      "addr": "141",
+      "level": 8,
+      "point": {
+        "lat": 43.139846907000006,
+        "lng": 141.294538386,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市花川南６条５丁目１４１番地",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0051005",
+          "oaza_cho": "花川南六条",
+          "oaza_cho_k": "ハナカワミナミ６ジョウ",
+          "oaza_cho_r": "Hanakawaminami 6-Jo",
+          "chome": "五丁目",
+          "chome_n": 5,
+          "point": [
+            141.295121,
+            43.141326
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/55",
+    "input": "北海道石狩市花川南１条６丁目１７０",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川南一条六丁目",
+      "addr": "170",
+      "level": 8,
+      "point": {
+        "lat": 43.14931942,
+        "lng": 141.31009988,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市花川南１条６丁目１７０",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0046006",
+          "oaza_cho": "花川南一条",
+          "oaza_cho_k": "ハナカワミナミ１ジョウ",
+          "oaza_cho_r": "Hanakawaminami 1-Jo",
+          "chome": "六丁目",
+          "chome_n": 6,
+          "point": [
+            141.309724,
+            43.14868400000001
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/56",
+    "input": "北海道石狩郡当別町幸町５１－３０",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩郡当別町",
+      "town": "幸町",
+      "addr": "51-30",
+      "level": 8,
+      "point": {
+        "lat": 43.216203295,
+        "lng": 141.517009774,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩郡当別町幸町５１－３０",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13030,
+          "county": "石狩郡",
+          "county_k": "イシカリグン",
+          "county_r": "Ishikari-gun",
+          "city": "当別町",
+          "city_k": "トウベツチョウ",
+          "city_r": "Tobetsu-cho",
+          "point": [
+            141.5170027,
+            43.22363701
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0013000",
+          "oaza_cho": "幸町",
+          "oaza_cho_k": "サイワイチョウ",
+          "oaza_cho_r": "Saiwaicho",
+          "point": [
+            141.516217,
+            43.214575
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/57",
+    "input": "北海道石狩市樽川６条２丁目２番１",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "樽川六条二丁目",
+      "addr": "2-1",
+      "level": 8,
+      "point": {
+        "lat": 43.150023574,
+        "lng": 141.28198641,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市樽川６条２丁目２番１",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0026002",
+          "oaza_cho": "樽川六条",
+          "oaza_cho_k": "タルカワ６ジョウ",
+          "oaza_cho_r": "Tarukawa 6-Jo",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "point": [
+            141.281723,
+            43.150804
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/58",
+    "input": "北海道石狩郡当別町園生５３番地３９",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩郡当別町",
+      "town": "園生",
+      "addr": "53-39",
+      "level": 8,
+      "point": {
+        "lat": 43.220817842,
+        "lng": 141.515565287,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩郡当別町園生５３番地３９",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13030,
+          "county": "石狩郡",
+          "county_k": "イシカリグン",
+          "county_r": "Ishikari-gun",
+          "city": "当別町",
+          "city_k": "トウベツチョウ",
+          "city_r": "Tobetsu-cho",
+          "point": [
+            141.5170027,
+            43.22363701
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0020000",
+          "oaza_cho": "園生",
+          "oaza_cho_k": "ソノオ",
+          "oaza_cho_r": "Sono",
+          "point": [
+            141.516708,
+            43.22209
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/59",
+    "input": "北海道江別市元江別８９０番地２９",
+    "result": {
+      "pref": "北海道",
+      "city": "江別市",
+      "town": "元江別",
+      "addr": "890-29",
+      "level": 8,
+      "point": {
+        "lat": 43.111211076,
+        "lng": 141.529255477,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道江別市元江別８９０番地２９",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12173,
+          "city": "江別市",
+          "city_k": "エベツシ",
+          "city_r": "Ebetsu-shi",
+          "point": [
+            141.536103,
+            43.103666
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0083000",
+          "oaza_cho": "元江別",
+          "oaza_cho_k": "モトエベツ",
+          "oaza_cho_r": "Motoebetsu",
+          "point": [
+            141.525121,
+            43.11556
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/60",
+    "input": "北海道石狩市花川南二条３丁目９１番地２",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "花川南二条三丁目",
+      "addr": "91-2",
+      "level": 8,
+      "point": {
+        "lat": 43.151779341,
+        "lng": 141.297994254,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市花川南二条３丁目９１番地２",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0047003",
+          "oaza_cho": "花川南二条",
+          "oaza_cho_k": "ハナカワミナミ２ジョウ",
+          "oaza_cho_r": "Hanakawaminami 2-Jo",
+          "chome": "三丁目",
+          "chome_n": 3,
+          "point": [
+            141.299988,
+            43.151716
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/61",
+    "input": "北海道石狩市新港南２丁目７３３番１",
+    "result": {
+      "pref": "北海道",
+      "city": "石狩市",
+      "town": "新港南二丁目",
+      "addr": "733-1",
+      "level": 8,
+      "point": {
+        "lat": 43.183452887,
+        "lng": 141.309617413,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道石狩市新港南２丁目７３３番１",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12351,
+          "city": "石狩市",
+          "city_k": "イシカリシ",
+          "city_r": "Ishikari-shi",
+          "point": [
+            141.315514,
+            43.171365
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0020002",
+          "oaza_cho": "新港南",
+          "oaza_cho_k": "シンコウミナミ",
+          "oaza_cho_r": "Shinkominami",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "point": [
+            141.316757,
+            43.187951
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/62",
+    "input": "北海道千歳市千代田町７丁目１７８９－３千歳ステーションプラザ４Ｆ",
+    "result": {
+      "pref": "北海道",
+      "city": "千歳市",
+      "town": "千代田町七丁目",
+      "addr": "1789-3",
+      "level": 8,
+      "point": {
+        "lat": 42.828562368,
+        "lng": 141.650655527,
+        "level": 8
+      },
+      "other": "千歳ステーションプラザ4F",
+      "metadata": {
+        "input": "北海道千歳市千代田町７丁目１７８９－３千歳ステーションプラザ４Ｆ",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12246,
+          "city": "千歳市",
+          "city_k": "チトセシ",
+          "city_r": "Chitose-shi",
+          "point": [
+            141.651139,
+            42.821124
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0045007",
+          "oaza_cho": "千代田町",
+          "oaza_cho_k": "チヨダチョウ",
+          "oaza_cho_r": "Chiyodacho",
+          "chome": "七丁目",
+          "chome_n": 7,
+          "point": [
+            141.651826,
+            42.827797
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/63",
+    "input": "北海道千歳市東雲町１丁目１１－６",
+    "result": {
+      "pref": "北海道",
+      "city": "千歳市",
+      "town": "東雲町一丁目",
+      "addr": "11-6",
+      "level": 8,
+      "point": {
+        "lat": 42.820187671,
+        "lng": 141.648000975,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道千歳市東雲町１丁目１１－６",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12246,
+          "city": "千歳市",
+          "city_k": "チトセシ",
+          "city_r": "Chitose-shi",
+          "point": [
+            141.651139,
+            42.821124
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0031001",
+          "oaza_cho": "東雲町",
+          "oaza_cho_k": "シノノメチョウ",
+          "oaza_cho_r": "Shinonomecho",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "point": [
+            141.649027,
+            42.81995
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/64",
+    "input": "北海道恵庭市栄恵町１２６",
+    "result": {
+      "pref": "北海道",
+      "city": "恵庭市",
+      "town": "栄恵町",
+      "addr": "126",
+      "level": 8,
+      "point": {
+        "lat": 42.880220665,
+        "lng": 141.578521513,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道恵庭市栄恵町１２６",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12319,
+          "city": "恵庭市",
+          "city_k": "エニワシ",
+          "city_r": "Eniwa-shi",
+          "point": [
+            141.577799,
+            42.882592
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0020000",
+          "oaza_cho": "栄恵町",
+          "oaza_cho_k": "サカエマチ",
+          "oaza_cho_r": "Sakaemachi",
+          "point": [
+            141.580277,
+            42.87977200000001
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/65",
+    "input": "北海道千歳市錦町１丁目１２－４",
+    "result": {
+      "pref": "北海道",
+      "city": "千歳市",
+      "town": "錦町一丁目",
+      "addr": "12-4",
+      "level": 8,
+      "point": {
+        "lat": 42.821309892,
+        "lng": 141.645301326,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道千歳市錦町１丁目１２－４",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12246,
+          "city": "千歳市",
+          "city_k": "チトセシ",
+          "city_r": "Chitose-shi",
+          "point": [
+            141.651139,
+            42.821124
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0050001",
+          "oaza_cho": "錦町",
+          "oaza_cho_k": "ニシキチョウ",
+          "oaza_cho_r": "Nishikicho",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "point": [
+            141.64587,
+            42.820743
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/66",
+    "input": "北海道千歳市北陽６丁目１番１７号",
+    "result": {
+      "pref": "北海道",
+      "city": "千歳市",
+      "town": "北陽六丁目",
+      "addr": "1-17",
+      "level": 8,
+      "point": {
+        "lat": 42.848616469,
+        "lng": 141.640750486,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道千歳市北陽６丁目１番１７号",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12246,
+          "city": "千歳市",
+          "city_k": "チトセシ",
+          "city_r": "Chitose-shi",
+          "point": [
+            141.651139,
+            42.821124
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0067006",
+          "oaza_cho": "北陽",
+          "oaza_cho_k": "ホクヨウ",
+          "oaza_cho_r": "Hokuyo",
+          "chome": "六丁目",
+          "chome_n": 6,
+          "point": [
+            141.64055000000002,
+            42.850006
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/67",
+    "input": "北海道千歳市千代田町４丁目１８番１",
+    "result": {
+      "pref": "北海道",
+      "city": "千歳市",
+      "town": "千代田町四丁目",
+      "addr": "18-1",
+      "level": 8,
+      "point": {
+        "lat": 42.825931005,
+        "lng": 141.647994691,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道千歳市千代田町４丁目１８番１",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12246,
+          "city": "千歳市",
+          "city_k": "チトセシ",
+          "city_r": "Chitose-shi",
+          "point": [
+            141.651139,
+            42.821124
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0045004",
+          "oaza_cho": "千代田町",
+          "oaza_cho_k": "チヨダチョウ",
+          "oaza_cho_r": "Chiyodacho",
+          "chome": "四丁目",
+          "chome_n": 4,
+          "point": [
+            141.647746,
+            42.825514
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/68",
+    "input": "北海道千歳市北陽８丁目１２－４",
+    "result": {
+      "pref": "北海道",
+      "city": "千歳市",
+      "town": "北陽八丁目",
+      "addr": "12-4",
+      "level": 8,
+      "point": {
+        "lat": 42.853198317,
+        "lng": 141.641992645,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道千歳市北陽８丁目１２－４",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12246,
+          "city": "千歳市",
+          "city_k": "チトセシ",
+          "city_r": "Chitose-shi",
+          "point": [
+            141.651139,
+            42.821124
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0067008",
+          "oaza_cho": "北陽",
+          "oaza_cho_k": "ホクヨウ",
+          "oaza_cho_r": "Hokuyo",
+          "chome": "八丁目",
+          "chome_n": 8,
+          "point": [
+            141.641952,
+            42.852236
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/69",
+    "input": "北海道千歳市東雲町２丁目１４番１号",
+    "result": {
+      "pref": "北海道",
+      "city": "千歳市",
+      "town": "東雲町二丁目",
+      "addr": "14-1",
+      "level": 8,
+      "point": {
+        "lat": 42.820307183,
+        "lng": 141.65108412,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道千歳市東雲町２丁目１４番１号",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12246,
+          "city": "千歳市",
+          "city_k": "チトセシ",
+          "city_r": "Chitose-shi",
+          "point": [
+            141.651139,
+            42.821124
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0031002",
+          "oaza_cho": "東雲町",
+          "oaza_cho_k": "シノノメチョウ",
+          "oaza_cho_r": "Shinonomecho",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "point": [
+            141.650658,
+            42.82076
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/70",
+    "input": "北海道虻田郡京極町字京極２３０番地",
+    "result": {
+      "pref": "北海道",
+      "city": "虻田郡京極町",
+      "town": "字京極",
+      "addr": "230",
+      "level": 8,
+      "point": {
+        "lat": 42.860865862,
+        "lng": 140.885934226,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道虻田郡京極町字京極２３０番地",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13994,
+          "county": "虻田郡",
+          "county_k": "アブタグン",
+          "county_r": "Abuta-gun",
+          "city": "京極町",
+          "city_k": "キョウゴクチョウ",
+          "city_r": "Kyogoku-cho",
+          "point": [
+            140.883999,
+            42.858216
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0006000",
+          "oaza_cho": "字京極",
+          "oaza_cho_k": "アザキョウゴク",
+          "oaza_cho_r": "Kyogoku",
+          "point": [
+            140.884089,
+            42.862893
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/71",
+    "input": "北海道虻田郡ニセコ町字富士見２番地５",
+    "result": {
+      "pref": "北海道",
+      "city": "虻田郡ニセコ町",
+      "town": "字富士見",
+      "addr": "2-5",
+      "level": 8,
+      "point": {
+        "lat": 42.805666473,
+        "lng": 140.686558528,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道虻田郡ニセコ町字富士見２番地５",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13951,
+          "county": "虻田郡",
+          "county_k": "アブタグン",
+          "county_r": "Abuta-gun",
+          "city": "ニセコ町",
+          "city_k": "ニセコチョウ",
+          "city_r": "Niseko-cho",
+          "point": [
+            140.68801,
+            42.805036
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0016000",
+          "oaza_cho": "字富士見",
+          "oaza_cho_k": "アザフジミ",
+          "oaza_cho_r": "Fujimi",
+          "point": [
+            140.695593,
+            42.804802
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/72",
+    "input": "北海道虻田郡倶知安町北２条西３丁目１０－１",
+    "result": {
+      "pref": "北海道",
+      "city": "虻田郡倶知安町",
+      "town": "北二条西三丁目",
+      "addr": "10-1",
+      "level": 8,
+      "point": {
+        "lat": 42.902847918,
+        "lng": 140.74713894,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道虻田郡倶知安町北２条西３丁目１０－１",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14001,
+          "county": "虻田郡",
+          "county_k": "アブタグン",
+          "county_r": "Abuta-gun",
+          "city": "倶知安町",
+          "city_k": "クッチャンチョウ",
+          "city_r": "Kutchan-cho",
+          "point": [
+            140.758878,
+            42.901752
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0027003",
+          "oaza_cho": "北二条西",
+          "oaza_cho_k": "キタ２ジョウニシ",
+          "oaza_cho_r": "Kita2-Jonishi",
+          "chome": "三丁目",
+          "chome_n": 3,
+          "point": [
+            140.747089,
+            42.902877
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/73",
+    "input": "北海道虻田郡倶知安町南１条東３丁目３－５０",
+    "result": {
+      "pref": "北海道",
+      "city": "虻田郡倶知安町",
+      "town": "南一条東三丁目",
+      "addr": "3-50",
+      "level": 8,
+      "point": {
+        "lat": 42.900983633,
+        "lng": 140.759127861,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道虻田郡倶知安町南１条東３丁目３－５０",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14001,
+          "county": "虻田郡",
+          "county_k": "アブタグン",
+          "county_r": "Abuta-gun",
+          "city": "倶知安町",
+          "city_k": "クッチャンチョウ",
+          "city_r": "Kutchan-cho",
+          "point": [
+            140.758878,
+            42.901752
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0044003",
+          "oaza_cho": "南一条東",
+          "oaza_cho_k": "ミナミ１ジョウヒガシ",
+          "oaza_cho_r": "Minami1-Johigashi",
+          "chome": "三丁目",
+          "chome_n": 3,
+          "point": [
+            140.758276,
+            42.900503
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/74",
+    "input": "北海道虻田郡真狩村字真狩１７－１２",
+    "result": {
+      "pref": "北海道",
+      "city": "虻田郡真狩村",
+      "town": "字真狩",
+      "addr": "17-12",
+      "level": 8,
+      "point": {
+        "lat": 42.767166074,
+        "lng": 140.803354271,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道虻田郡真狩村字真狩１７－１２",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13960,
+          "county": "虻田郡",
+          "county_k": "アブタグン",
+          "county_r": "Abuta-gun",
+          "city": "真狩村",
+          "city_k": "マッカリムラ",
+          "city_r": "Makkari-mura",
+          "point": [
+            140.803669,
+            42.762955
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0012000",
+          "oaza_cho": "字真狩",
+          "oaza_cho_k": "アザマッカリ",
+          "oaza_cho_r": "Makkari",
+          "point": [
+            140.803086,
+            42.76474
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/75",
+    "input": "北海道余市郡余市町大川町５丁目２７番６",
+    "result": {
+      "pref": "北海道",
+      "city": "余市郡余市町",
+      "town": "大川町五丁目",
+      "addr": "27-6",
+      "level": 8,
+      "point": {
+        "lat": 43.192935978,
+        "lng": 140.796317938,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道余市郡余市町大川町５丁目２７番６",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14087,
+          "county": "余市郡",
+          "county_k": "ヨイチグン",
+          "county_r": "Yoichi-gun",
+          "city": "余市町",
+          "city_k": "ヨイチチョウ",
+          "city_r": "Yoichi-cho",
+          "point": [
+            140.783542,
+            43.195343
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0004005",
+          "oaza_cho": "大川町",
+          "oaza_cho_k": "オオカワチョウ",
+          "oaza_cho_r": "Okawacho",
+          "chome": "五丁目",
+          "chome_n": 5,
+          "point": [
+            140.796333,
+            43.19172
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/76",
+    "input": "北海道余市郡余市町黒川町１２丁目８１番地７",
+    "result": {
+      "pref": "北海道",
+      "city": "余市郡余市町",
+      "town": "黒川町十二丁目",
+      "addr": "81-7",
+      "level": 8,
+      "point": {
+        "lat": 43.184460043,
+        "lng": 140.797272171,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道余市郡余市町黒川町１２丁目８１番地７",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14087,
+          "county": "余市郡",
+          "county_k": "ヨイチグン",
+          "county_r": "Yoichi-gun",
+          "city": "余市町",
+          "city_k": "ヨイチチョウ",
+          "city_r": "Yoichi-cho",
+          "point": [
+            140.783542,
+            43.195343
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0006012",
+          "oaza_cho": "黒川町",
+          "oaza_cho_k": "クロカワチョウ",
+          "oaza_cho_r": "Kurokawacho",
+          "chome": "十二丁目",
+          "chome_n": 12,
+          "point": [
+            140.798395,
+            43.185397
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/77",
+    "input": "北海道余市郡余市町黒川町９１３番地５",
+    "result": {
+      "pref": "北海道",
+      "city": "余市郡余市町",
+      "town": "黒川町",
+      "addr": "913-5",
+      "level": 8,
+      "point": {
+        "lat": 43.178514657,
+        "lng": 140.792191866,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道余市郡余市町黒川町９１３番地５",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14087,
+          "county": "余市郡",
+          "county_k": "ヨイチグン",
+          "county_r": "Yoichi-gun",
+          "city": "余市町",
+          "city_k": "ヨイチチョウ",
+          "city_r": "Yoichi-cho",
+          "point": [
+            140.783542,
+            43.195343
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0006000",
+          "oaza_cho": "黒川町",
+          "oaza_cho_k": "クロカワチョウ",
+          "oaza_cho_r": "Kurokawacho",
+          "point": [
+            140.796069,
+            43.175639
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/78",
+    "input": "北海道余市郡仁木町北町１丁目４番地１",
+    "result": {
+      "pref": "北海道",
+      "city": "余市郡仁木町",
+      "town": "北町一丁目",
+      "addr": "4-1",
+      "level": 8,
+      "point": {
+        "lat": 43.154776948,
+        "lng": 140.76492022,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道余市郡仁木町北町１丁目４番地１",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14079,
+          "county": "余市郡",
+          "county_k": "ヨイチグン",
+          "county_r": "Yoichi-gun",
+          "city": "仁木町",
+          "city_k": "ニキチョウ",
+          "city_r": "Niki-cho",
+          "point": [
+            140.766168,
+            43.151675
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0004001",
+          "oaza_cho": "北町",
+          "oaza_cho_k": "キタマチ",
+          "oaza_cho_r": "Kitamachi",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "point": [
+            140.767341,
+            43.154343
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/79",
+    "input": "北海道寿都郡寿都町渡島町７２番地６",
+    "result": {
+      "pref": "北海道",
+      "city": "寿都郡寿都町",
+      "town": "字渡島町",
+      "addr": "72-6",
+      "level": 8,
+      "point": {
+        "lat": 42.792485322,
+        "lng": 140.230997254,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道寿都郡寿都町渡島町７２番地６",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13927,
+          "county": "寿都郡",
+          "county_k": "スッツグン",
+          "county_r": "Suttsu-gun",
+          "city": "寿都町",
+          "city_k": "スッツチョウ",
+          "city_r": "Suttsu-cho",
+          "point": [
+            140.228891,
+            42.790984
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0008000",
+          "oaza_cho": "字渡島町",
+          "oaza_cho_k": "アザトシマチョウ",
+          "oaza_cho_r": "Toshimacho",
+          "point": [
+            140.224275,
+            42.788448
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/80",
+    "input": "北海道虻田郡喜茂別町字喜茂別１３番地４６",
+    "result": {
+      "pref": "北海道",
+      "city": "虻田郡喜茂別町",
+      "town": "字喜茂別",
+      "addr": "13-46",
+      "level": 8,
+      "point": {
+        "lat": 42.796962534,
+        "lng": 140.931869753,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道虻田郡喜茂別町字喜茂別１３番地４６",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 13986,
+          "county": "虻田郡",
+          "county_k": "アブタグン",
+          "county_r": "Abuta-gun",
+          "city": "喜茂別町",
+          "city_k": "キモベツチョウ",
+          "city_r": "Kimobetsu-cho",
+          "point": [
+            140.934532,
+            42.795439
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0004000",
+          "oaza_cho": "字喜茂別",
+          "oaza_cho_k": "アザキモベツ",
+          "oaza_cho_r": "Kimobetsu",
+          "point": [
+            140.936994,
+            42.795901
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/81",
+    "input": "北海道余市郡余市町黒川町７丁目３５番地",
+    "result": {
+      "pref": "北海道",
+      "city": "余市郡余市町",
+      "town": "黒川町七丁目",
+      "addr": "35",
+      "level": 8,
+      "point": {
+        "lat": 43.186571189,
+        "lng": 140.792309958,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道余市郡余市町黒川町７丁目３５番地",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14087,
+          "county": "余市郡",
+          "county_k": "ヨイチグン",
+          "county_r": "Yoichi-gun",
+          "city": "余市町",
+          "city_k": "ヨイチチョウ",
+          "city_r": "Yoichi-cho",
+          "point": [
+            140.783542,
+            43.195343
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0006007",
+          "oaza_cho": "黒川町",
+          "oaza_cho_k": "クロカワチョウ",
+          "oaza_cho_r": "Kurokawacho",
+          "chome": "七丁目",
+          "chome_n": 7,
+          "point": [
+            140.79044,
+            43.185925
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/82",
+    "input": "北海道余市郡余市町大川町６丁目９２－７",
+    "result": {
+      "pref": "北海道",
+      "city": "余市郡余市町",
+      "town": "大川町六丁目",
+      "addr": "92-7",
+      "level": 8,
+      "point": {
+        "lat": 43.189040135,
+        "lng": 140.798713963,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道余市郡余市町大川町６丁目９２－７",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14087,
+          "county": "余市郡",
+          "county_k": "ヨイチグン",
+          "county_r": "Yoichi-gun",
+          "city": "余市町",
+          "city_k": "ヨイチチョウ",
+          "city_r": "Yoichi-cho",
+          "point": [
+            140.783542,
+            43.195343
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0004006",
+          "oaza_cho": "大川町",
+          "oaza_cho_k": "オオカワチョウ",
+          "oaza_cho_r": "Okawacho",
+          "chome": "六丁目",
+          "chome_n": 6,
+          "point": [
+            140.797779,
+            43.191409
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/83",
+    "input": "北海道虻田郡倶知安町北３条東７丁目３－１０",
+    "result": {
+      "pref": "北海道",
+      "city": "虻田郡倶知安町",
+      "town": "北三条東七丁目",
+      "addr": "3-10",
+      "level": 8,
+      "point": {
+        "lat": 42.903059867,
+        "lng": 140.767672392,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道虻田郡倶知安町北３条東７丁目３－１０",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14001,
+          "county": "虻田郡",
+          "county_k": "アブタグン",
+          "county_r": "Abuta-gun",
+          "city": "倶知安町",
+          "city_k": "クッチャンチョウ",
+          "city_r": "Kutchan-cho",
+          "point": [
+            140.758878,
+            42.901752
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0030007",
+          "oaza_cho": "北三条東",
+          "oaza_cho_k": "キタ３ジョウヒガシ",
+          "oaza_cho_r": "Kita3-Johigashi",
+          "chome": "七丁目",
+          "chome_n": 7,
+          "point": [
+            140.767551,
+            42.901935
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/84",
+    "input": "北海道虻田郡倶知安町北４条西３丁目６番１",
+    "result": {
+      "pref": "北海道",
+      "city": "虻田郡倶知安町",
+      "town": "北四条西三丁目",
+      "addr": "6-1",
+      "level": 8,
+      "point": {
+        "lat": 42.904471593,
+        "lng": 140.748179473,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道虻田郡倶知安町北４条西３丁目６番１",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14001,
+          "county": "虻田郡",
+          "county_k": "アブタグン",
+          "county_r": "Abuta-gun",
+          "city": "倶知安町",
+          "city_k": "クッチャンチョウ",
+          "city_r": "Kutchan-cho",
+          "point": [
+            140.758878,
+            42.901752
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0031003",
+          "oaza_cho": "北四条西",
+          "oaza_cho_k": "キタ４ジョウニシ",
+          "oaza_cho_r": "Kita4-Jonishi",
+          "chome": "三丁目",
+          "chome_n": 3,
+          "point": [
+            140.747313,
+            42.904599000000005
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/85",
+    "input": "北海道余市郡余市町山田町５０番地２３",
+    "result": {
+      "pref": "北海道",
+      "city": "余市郡余市町",
+      "town": "山田町",
+      "addr": "50-23",
+      "level": 8,
+      "point": {
+        "lat": 43.183663391,
+        "lng": 140.78432566,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道余市郡余市町山田町５０番地２３",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14087,
+          "county": "余市郡",
+          "county_k": "ヨイチグン",
+          "county_r": "Yoichi-gun",
+          "city": "余市町",
+          "city_k": "ヨイチチョウ",
+          "city_r": "Yoichi-cho",
+          "point": [
+            140.783542,
+            43.195343
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0019000",
+          "oaza_cho": "山田町",
+          "oaza_cho_k": "ヤマダチョウ",
+          "oaza_cho_r": "Yamadacho",
+          "point": [
+            140.77735800000002,
+            43.176057
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/86",
+    "input": "北海道余市郡余市町黒川町４丁目１１４番地",
+    "result": {
+      "pref": "北海道",
+      "city": "余市郡余市町",
+      "town": "黒川町四丁目",
+      "addr": "114",
+      "level": 8,
+      "point": {
+        "lat": 43.187540224,
+        "lng": 140.793330598,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道余市郡余市町黒川町４丁目１１４番地",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14087,
+          "county": "余市郡",
+          "county_k": "ヨイチグン",
+          "county_r": "Yoichi-gun",
+          "city": "余市町",
+          "city_k": "ヨイチチョウ",
+          "city_r": "Yoichi-cho",
+          "point": [
+            140.783542,
+            43.195343
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0006004",
+          "oaza_cho": "黒川町",
+          "oaza_cho_k": "クロカワチョウ",
+          "oaza_cho_r": "Kurokawacho",
+          "chome": "四丁目",
+          "chome_n": 4,
+          "point": [
+            140.793381,
+            43.18877
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/87",
+    "input": "北海道古平郡古平町大字浜町６４５番地",
+    "result": {
+      "pref": "北海道",
+      "city": "古平郡古平町",
+      "town": "大字浜町",
+      "addr": "645",
+      "level": 8,
+      "point": {
+        "lat": 43.258106322,
+        "lng": 140.635288539,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道古平郡古平町大字浜町６４５番地",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14061,
+          "county": "古平郡",
+          "county_k": "フルビラグン",
+          "county_r": "Furubira-gun",
+          "city": "古平町",
+          "city_k": "フルビラチョウ",
+          "city_r": "Furubira-cho",
+          "point": [
+            140.638711,
+            43.264027
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0007000",
+          "oaza_cho": "大字浜町",
+          "oaza_cho_k": "オオアザハマチョウ",
+          "oaza_cho_r": "Hamacho",
+          "point": [
+            140.56113,
+            43.175135
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/88",
+    "input": "北海道虻田郡倶知安町北２条西２丁目１８－５",
+    "result": {
+      "pref": "北海道",
+      "city": "虻田郡倶知安町",
+      "town": "北二条西二丁目",
+      "addr": "18-5",
+      "level": 8,
+      "point": {
+        "lat": 42.902519757,
+        "lng": 140.749703311,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道虻田郡倶知安町北２条西２丁目１８－５",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14001,
+          "county": "虻田郡",
+          "county_k": "アブタグン",
+          "county_r": "Abuta-gun",
+          "city": "倶知安町",
+          "city_k": "クッチャンチョウ",
+          "city_r": "Kutchan-cho",
+          "point": [
+            140.758878,
+            42.901752
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0027002",
+          "oaza_cho": "北二条西",
+          "oaza_cho_k": "キタ２ジョウニシ",
+          "oaza_cho_r": "Kita2-Jonishi",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "point": [
+            140.749097,
+            42.902812
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/89",
+    "input": "北海道虻田郡倶知安町北四条東２丁目１７",
+    "result": {
+      "pref": "北海道",
+      "city": "虻田郡倶知安町",
+      "town": "北四条東二丁目",
+      "addr": "17",
+      "level": 8,
+      "point": {
+        "lat": 42.904478587,
+        "lng": 140.755349498,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道虻田郡倶知安町北四条東２丁目１７",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14001,
+          "county": "虻田郡",
+          "county_k": "アブタグン",
+          "county_r": "Abuta-gun",
+          "city": "倶知安町",
+          "city_k": "クッチャンチョウ",
+          "city_r": "Kutchan-cho",
+          "point": [
+            140.758878,
+            42.901752
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0032002",
+          "oaza_cho": "北四条東",
+          "oaza_cho_k": "キタ４ジョウヒガシ",
+          "oaza_cho_r": "Kita4-Johigashi",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "point": [
+            140.75638,
+            42.904205
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/90",
+    "input": "北海道岩内郡岩内町字万代６番地の９",
+    "result": {
+      "pref": "北海道",
+      "city": "岩内郡岩内町",
+      "town": "字万代",
+      "addr": "6-9",
+      "level": 8,
+      "point": {
+        "lat": 42.983676,
+        "lng": 140.514582,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道岩内郡岩内町字万代６番地の９",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14028,
+          "county": "岩内郡",
+          "county_k": "イワナイグン",
+          "county_r": "Iwanai-gun",
+          "city": "岩内町",
+          "city_k": "イワナイチョウ",
+          "city_r": "Iwanai-cho",
+          "point": [
+            140.514729,
+            42.979778
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0009000",
+          "oaza_cho": "字万代",
+          "oaza_cho_k": "アザマンダイ",
+          "oaza_cho_r": "Mandai",
+          "point": [
+            140.514582,
+            42.983676
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/91",
+    "input": "北海道岩内郡岩内町大和１番地の８",
+    "result": {
+      "pref": "北海道",
+      "city": "岩内郡岩内町",
+      "town": "字大和",
+      "addr": "1-8",
+      "level": 8,
+      "point": {
+        "lat": 42.983517,
+        "lng": 140.509108,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道岩内郡岩内町大和１番地の８",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14028,
+          "county": "岩内郡",
+          "county_k": "イワナイグン",
+          "county_r": "Iwanai-gun",
+          "city": "岩内町",
+          "city_k": "イワナイチョウ",
+          "city_r": "Iwanai-cho",
+          "point": [
+            140.514729,
+            42.979778
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0012000",
+          "oaza_cho": "字大和",
+          "oaza_cho_k": "アザヤマト",
+          "oaza_cho_r": "Yamato",
+          "point": [
+            140.509108,
+            42.983517
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/92",
+    "input": "北海道岩内郡岩内町字東山２７番地の１",
+    "result": {
+      "pref": "北海道",
+      "city": "岩内郡岩内町",
+      "town": "字東山",
+      "addr": "27-1",
+      "level": 8,
+      "point": {
+        "lat": 42.982428,
+        "lng": 140.526912,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道岩内郡岩内町字東山２７番地の１",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14028,
+          "county": "岩内郡",
+          "county_k": "イワナイグン",
+          "county_r": "Iwanai-gun",
+          "city": "岩内町",
+          "city_k": "イワナイチョウ",
+          "city_r": "Iwanai-cho",
+          "point": [
+            140.514729,
+            42.979778
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0008000",
+          "oaza_cho": "字東山",
+          "oaza_cho_k": "アザヒガシヤマ",
+          "oaza_cho_r": "Higashiyama",
+          "point": [
+            140.526912,
+            42.982428
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/93",
+    "input": "北海道岩内郡岩内町字相生２０２番地",
+    "result": {
+      "pref": "北海道",
+      "city": "岩内郡岩内町",
+      "town": "字相生",
+      "addr": "202",
+      "level": 8,
+      "point": {
+        "lat": 42.975266609,
+        "lng": 140.509655134,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道岩内郡岩内町字相生２０２番地",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14028,
+          "county": "岩内郡",
+          "county_k": "イワナイグン",
+          "county_r": "Iwanai-gun",
+          "city": "岩内町",
+          "city_k": "イワナイチョウ",
+          "city_r": "Iwanai-cho",
+          "point": [
+            140.514729,
+            42.979778
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0001000",
+          "oaza_cho": "字相生",
+          "oaza_cho_k": "アザアイオイ",
+          "oaza_cho_r": "Aioi",
+          "point": [
+            140.506065,
+            42.974333
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/94",
+    "input": "北海道岩内郡岩内町字清住１０１番地",
+    "result": {
+      "pref": "北海道",
+      "city": "岩内郡岩内町",
+      "town": "字清住",
+      "addr": "101",
+      "level": 8,
+      "point": {
+        "lat": 42.979769917,
+        "lng": 140.509706055,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道岩内郡岩内町字清住１０１番地",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14028,
+          "county": "岩内郡",
+          "county_k": "イワナイグン",
+          "county_r": "Iwanai-gun",
+          "city": "岩内町",
+          "city_k": "イワナイチョウ",
+          "city_r": "Iwanai-cho",
+          "point": [
+            140.514729,
+            42.979778
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0003000",
+          "oaza_cho": "字清住",
+          "oaza_cho_k": "アザキヨズミ",
+          "oaza_cho_r": "Kiyozumi",
+          "point": [
+            140.506057,
+            42.979435
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/95",
+    "input": "北海道岩内郡岩内町字栄２番地６",
+    "result": {
+      "pref": "北海道",
+      "city": "岩内郡岩内町",
+      "town": "字栄",
+      "addr": "2-6",
+      "level": 8,
+      "point": {
+        "lat": 42.979416,
+        "lng": 140.521596,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道岩内郡岩内町字栄２番地６",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14028,
+          "county": "岩内郡",
+          "county_k": "イワナイグン",
+          "county_r": "Iwanai-gun",
+          "city": "岩内町",
+          "city_k": "イワナイチョウ",
+          "city_r": "Iwanai-cho",
+          "point": [
+            140.514729,
+            42.979778
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0004000",
+          "oaza_cho": "字栄",
+          "oaza_cho_k": "アザサカエ",
+          "oaza_cho_r": "Sakae",
+          "point": [
+            140.521596,
+            42.979416
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/96",
+    "input": "北海道岩内郡岩内町字栄１８６番地３",
+    "result": {
+      "pref": "北海道",
+      "city": "岩内郡岩内町",
+      "town": "字栄",
+      "addr": "186-3",
+      "level": 8,
+      "point": {
+        "lat": 42.978803037,
+        "lng": 140.518633717,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道岩内郡岩内町字栄１８６番地３",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14028,
+          "county": "岩内郡",
+          "county_k": "イワナイグン",
+          "county_r": "Iwanai-gun",
+          "city": "岩内町",
+          "city_k": "イワナイチョウ",
+          "city_r": "Iwanai-cho",
+          "point": [
+            140.514729,
+            42.979778
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0004000",
+          "oaza_cho": "字栄",
+          "oaza_cho_k": "アザサカエ",
+          "oaza_cho_r": "Sakae",
+          "point": [
+            140.521596,
+            42.979416
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/97",
+    "input": "北海道岩内郡岩内町字大浜５０番地の１６",
+    "result": {
+      "pref": "北海道",
+      "city": "岩内郡岩内町",
+      "town": "字大浜",
+      "addr": "50-16",
+      "level": 8,
+      "point": {
+        "lat": 42.990885,
+        "lng": 140.521773,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道岩内郡岩内町字大浜５０番地の１６",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 14028,
+          "county": "岩内郡",
+          "county_k": "イワナイグン",
+          "county_r": "Iwanai-gun",
+          "city": "岩内町",
+          "city_k": "イワナイチョウ",
+          "city_r": "Iwanai-cho",
+          "point": [
+            140.514729,
+            42.979778
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0002000",
+          "oaza_cho": "字大浜",
+          "oaza_cho_k": "アザオオハマ",
+          "oaza_cho_r": "Ohama",
+          "point": [
+            140.521773,
+            42.990885
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/98",
+    "input": "北海道岩見沢市６条西６丁目１０番地１号",
+    "result": {
+      "pref": "北海道",
+      "city": "岩見沢市",
+      "town": "六条西六丁目",
+      "addr": "10-1",
+      "level": 8,
+      "point": {
+        "lat": 43.199201385,
+        "lng": 141.763633211,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道岩見沢市６条西６丁目１０番地１号",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12106,
+          "city": "岩見沢市",
+          "city_k": "イワミザワシ",
+          "city_r": "Iwamizawa-shi",
+          "point": [
+            141.775857,
+            43.196169
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0018006",
+          "oaza_cho": "六条西",
+          "oaza_cho_k": "６ジョウニシ",
+          "oaza_cho_r": "6-Jo Nishi",
+          "chome": "六丁目",
+          "chome_n": 6,
+          "point": [
+            141.763125,
+            43.199253
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/99",
+    "input": "北海道岩見沢市３条西４丁目８番地２第２ポルタビル１階",
+    "result": {
+      "pref": "北海道",
+      "city": "岩見沢市",
+      "town": "三条西四丁目",
+      "addr": "8-2",
+      "level": 8,
+      "point": {
+        "lat": 43.202548715,
+        "lng": 141.763118811,
+        "level": 8
+      },
+      "other": "第2ポルタビル1階",
+      "metadata": {
+        "input": "北海道岩見沢市３条西４丁目８番地２第２ポルタビル１階",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12106,
+          "city": "岩見沢市",
+          "city_k": "イワミザワシ",
+          "city_r": "Iwamizawa-shi",
+          "point": [
+            141.775857,
+            43.196169
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0012004",
+          "oaza_cho": "三条西",
+          "oaza_cho_k": "３ジョウニシ",
+          "oaza_cho_r": "3-Jo Nishi",
+          "chome": "四丁目",
+          "chome_n": 4,
+          "point": [
+            141.762658,
+            43.202688
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
+  }
+]
