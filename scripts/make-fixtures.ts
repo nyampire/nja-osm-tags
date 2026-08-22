@@ -28,7 +28,8 @@ const CASES: [label: string, input: string][] = [
   ['machiaza-unresolved', '神奈川県横浜市旭区二俣川'],
   ['chome/丁', '大阪府堺市堺区市之町西1丁'],
   ['chome/大字なし', '静岡県下田市二丁目'],
-  ['rsdt-detail-missing/数字で始まらない', '長野県北安曇郡小谷村千国乙無番地'],
+  ['rsdt-not-implemented/無番地', '長野県北安曇郡小谷村千国乙無番地'],
+  ['rsdt-detail-missing/数字で始まらない', '大阪府高槻市別所新町別所新町２－１４－２０１'],
 ]
 
 const out: FixtureCase[] = []

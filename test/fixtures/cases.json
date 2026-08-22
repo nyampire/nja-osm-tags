@@ -973,7 +973,7 @@
     }
   },
   {
-    "label": "rsdt-detail-missing/数字で始まらない",
+    "label": "rsdt-not-implemented/無番地",
     "input": "長野県北安曇郡小谷村千国乙無番地",
     "result": {
       "pref": "長野県",
@@ -1019,6 +1019,56 @@
           "point": [
             137.894825,
             36.756786
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "rsdt-detail-missing/数字で始まらない",
+    "input": "大阪府高槻市別所新町別所新町２－１４－２０１",
+    "result": {
+      "pref": "大阪府",
+      "city": "高槻市",
+      "town": "別所新町",
+      "level": 3,
+      "point": {
+        "lat": 34.857615,
+        "lng": 135.626578,
+        "level": 3
+      },
+      "other": "別所新町2-14-201",
+      "metadata": {
+        "input": "大阪府高槻市別所新町別所新町２－１４－２０１",
+        "prefecture": {
+          "code": 270008,
+          "pref": "大阪府",
+          "pref_k": "オオサカフ",
+          "pref_r": "Osaka",
+          "point": [
+            135.519994,
+            34.686394
+          ]
+        },
+        "city": {
+          "code": 272078,
+          "city": "高槻市",
+          "city_k": "タカツキシ",
+          "city_r": "Takatsuki-shi",
+          "point": [
+            135.617216,
+            34.8461
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0006000",
+          "oaza_cho": "別所新町",
+          "oaza_cho_k": "ベッショシンマチ",
+          "oaza_cho_r": "Besshiyo Shimmachi",
+          "rsdt": true,
+          "point": [
+            135.626578,
+            34.857615
           ]
         }
       }
