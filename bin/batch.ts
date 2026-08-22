@@ -26,6 +26,28 @@ function toNumber(v: string | undefined): number | undefined {
   return Number.isFinite(n) ? n : undefined
 }
 
+/**
+ * 行の長さをヘッダに揃える。
+ *
+ * 出力の不変条件は「どの行も `header.length + added.length` 列を持つ」。
+ * 短い行を埋めるだけでは不十分で、長い行を通すと追加列がヘッダの別の位置に
+ * 入って対応が崩れる。長い行は埋めようがないので、行番号を添えて落とす。
+ */
+function normalizeRowLength(
+  row: string[],
+  width: number,
+  rowNumber: number,
+): string[] {
+  if (row.length === width) return row
+  if (row.length < width) {
+    return [...row, ...Array<string>(width - row.length).fill('')]
+  }
+  throw new Error(
+    `${rowNumber} 行目の列数がヘッダより多いです（ヘッダ ${width} 列、行 ${row.length} 列）。` +
+      '引用符の閉じ忘れなど、入力 CSV の形式を確認してください',
+  )
+}
+
 export async function run(options: RunOptions): Promise<string> {
   const rows = await parseCsv(options.input)
   const header = rows[0]
@@ -33,6 +55,8 @@ export async function run(options: RunOptions): Promise<string> {
 
   // 指定された列が見つからなければ必ず落とす。座標列だけ黙って無視すると、
   // 列名を打ち間違えたユーザーが「座標が全部代表点で補完された」ことに気づけない
+  // `undefined` は「フラグ未指定」を意味し -1 を返す。必須かどうかの区別は
+  // 型（RunOptions.addressColumn が必須）と parseArgs が担う
   const columnIndex = (name: string | undefined): number => {
     if (name === undefined) return -1
     const index = header.indexOf(name)
@@ -45,18 +69,19 @@ export async function run(options: RunOptions): Promise<string> {
 
   const added = [...OSM_TAG_COLUMNS, ...META_COLUMNS]
   const out: string[][] = [[...header, ...added]]
+  let rowNumber = 2 // 1行目はヘッダ
 
   for (const row of rows.slice(1)) {
     // ファイル末尾の空行は飛ばす
     if (row.length === 1 && row[0] === '') continue
 
-    // ヘッダより短い行を埋める。埋めずに列を足すと、追加列がヘッダの
-    // 別の位置に入って出力全体の対応が崩れる（末尾の空フィールドを
-    // 省略する CSV 生成系は珍しくない）
-    const padded =
-      row.length < header.length
-        ? [...row, ...Array<string>(header.length - row.length).fill('')]
-        : row
+    // 行の長さをヘッダに揃える。揃えずに列を足すと、追加列がヘッダの
+    // 別の位置に入って出力全体の対応が崩れる。
+    //
+    // 短い行は埋める（末尾の空フィールドを省略する CSV 生成系は珍しくない）。
+    // 長い行は埋めようがないので落とす。黙って切り詰めるとデータが消え、
+    // 黙って通すと列がずれるので、行番号を添えて失敗するのが一番親切。
+    const padded = normalizeRowLength(row, header.length, rowNumber++)
 
     const address = padded[addressIndex] ?? ''
     if (!address.trim()) {
@@ -131,6 +156,9 @@ function isMain(): boolean {
   try {
     return import.meta.url === pathToFileURL(realpathSync(entry)).href
   } catch {
+    // argv[1] が解決できない場合は「エントリではない」に倒す。
+    // 直接実行では Node が既に argv[1] を解決してこのモジュールを読み込んでいるので、
+    // ここが失敗するのは import された側のパスが壊れている場合だけ
     return false
   }
 }

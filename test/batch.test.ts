@@ -65,6 +65,13 @@ describe('run', () => {
     ).rejects.toThrow('列が見つかりません: 緯度x')
   }, 60_000)
 
+  it('ヘッダより長い行は行番号を添えて落ちる', async () => {
+    const over = new URL('./fixtures/tiny-overlong.csv', import.meta.url)
+    await expect(run({ input: over, addressColumn: '所在地' })).rejects.toThrow(
+      /2 行目の列数がヘッダより多いです（ヘッダ 2 列、行 4 列）/,
+    )
+  }, 60_000)
+
   it('ヘッダより短い行でも列がずれない', async () => {
     const short = new URL('./fixtures/tiny-ragged.csv', import.meta.url)
     const out = await run({ input: short, addressColumn: '所在地' })
