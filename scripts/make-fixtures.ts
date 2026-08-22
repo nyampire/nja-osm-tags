@@ -7,6 +7,7 @@
  */
 import { writeFileSync } from 'node:fs'
 import { normalize } from '@geolonia/normalize-japanese-addresses'
+import { parseCsv } from '../src/csv.ts'
 import type { FixtureCase } from '../src/types.ts'
 import { maskChiban } from './maskChiban.ts'
 
@@ -45,3 +46,22 @@ writeFileSync(
   JSON.stringify(out, null, 2) + '\n',
 )
 console.error(`\n${out.length} 件を test/fixtures/cases.json に書き出しました`)
+
+// --- スプレッドシート40件 ---
+const sheetRows = (
+  await parseCsv(new URL('./osm-japan-tagging-examples.csv', import.meta.url))
+).slice(3) // 1-3行目はヘッダ
+
+const sheetOut: FixtureCase[] = []
+for (const row of sheetRows) {
+  const address = row[0]
+  if (!address) continue
+  const result = await normalize(address)
+  maskChiban(result)
+  sheetOut.push({ label: address, input: address, result })
+}
+writeFileSync(
+  new URL('../test/fixtures/sheet-cases.json', import.meta.url),
+  JSON.stringify(sheetOut, null, 2) + '\n',
+)
+console.error(`${sheetOut.length} 件を test/fixtures/sheet-cases.json に書き出しました`)

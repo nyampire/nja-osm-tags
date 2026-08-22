@@ -1,0 +1,1977 @@
+[
+  {
+    "label": "東京都千代田区永田町一丁目",
+    "input": "東京都千代田区永田町一丁目",
+    "result": {
+      "pref": "東京都",
+      "city": "千代田区",
+      "town": "永田町一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.675895,
+        "lng": 139.746306,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "東京都千代田区永田町一丁目",
+        "prefecture": {
+          "code": 130001,
+          "pref": "東京都",
+          "pref_k": "トウキョウト",
+          "pref_r": "Tokyo",
+          "point": [
+            139.691717,
+            35.689568
+          ]
+        },
+        "city": {
+          "code": 131016,
+          "city": "千代田区",
+          "city_k": "チヨダク",
+          "city_r": "Chiyoda-ku",
+          "point": [
+            139.753634,
+            35.694003
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0005001",
+          "oaza_cho": "永田町",
+          "oaza_cho_k": "ナガタチョウ",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "rsdt": true,
+          "point": [
+            139.746306,
+            35.675895
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "東京都江戸川区二之江町",
+    "input": "東京都江戸川区二之江町",
+    "result": {
+      "pref": "東京都",
+      "city": "江戸川区",
+      "town": "二之江町",
+      "level": 3,
+      "point": {
+        "lat": 35.681814,
+        "lng": 139.873167,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "東京都江戸川区二之江町",
+        "prefecture": {
+          "code": 130001,
+          "pref": "東京都",
+          "pref_k": "トウキョウト",
+          "pref_r": "Tokyo",
+          "point": [
+            139.691717,
+            35.689568
+          ]
+        },
+        "city": {
+          "code": 131237,
+          "city": "江戸川区",
+          "city_k": "エドガワク",
+          "city_r": "Edogawa-ku",
+          "point": [
+            139.868312,
+            35.706648
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0024000",
+          "oaza_cho": "二之江町",
+          "oaza_cho_k": "ニノエチョウ",
+          "oaza_cho_r": "Ninoecho",
+          "point": [
+            139.873167,
+            35.681814
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "千葉県市川市湊新田",
+    "input": "千葉県市川市湊新田",
+    "result": {
+      "pref": "千葉県",
+      "city": "市川市",
+      "town": "湊新田",
+      "level": 3,
+      "point": {
+        "lat": 35.683928,
+        "lng": 139.908415,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "千葉県市川市湊新田",
+        "prefecture": {
+          "code": 120006,
+          "pref": "千葉県",
+          "pref_k": "チバケン",
+          "pref_r": "Chiba",
+          "point": [
+            140.123184,
+            35.604588
+          ]
+        },
+        "city": {
+          "code": 122033,
+          "city": "市川市",
+          "city_k": "イチカワシ",
+          "city_r": "Ichikawa-shi",
+          "point": [
+            139.931013,
+            35.721914
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0074000",
+          "oaza_cho": "湊新田",
+          "oaza_cho_k": "ミナトシンデン",
+          "oaza_cho_r": "Minatoshinden",
+          "rsdt": true,
+          "point": [
+            139.908415,
+            35.683928
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "千葉県市川市湊新田二丁目",
+    "input": "千葉県市川市湊新田二丁目",
+    "result": {
+      "pref": "千葉県",
+      "city": "市川市",
+      "town": "湊新田二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.679337,
+        "lng": 139.91273700000002,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "千葉県市川市湊新田二丁目",
+        "prefecture": {
+          "code": 120006,
+          "pref": "千葉県",
+          "pref_k": "チバケン",
+          "pref_r": "Chiba",
+          "point": [
+            140.123184,
+            35.604588
+          ]
+        },
+        "city": {
+          "code": 122033,
+          "city": "市川市",
+          "city_k": "イチカワシ",
+          "city_r": "Ichikawa-shi",
+          "point": [
+            139.931013,
+            35.721914
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0074002",
+          "oaza_cho": "湊新田",
+          "oaza_cho_k": "ミナトシンデン",
+          "oaza_cho_r": "Minatoshinden",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "rsdt": true,
+          "point": [
+            139.91273700000002,
+            35.679337
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "青森県南津軽郡藤崎町藤崎西村井",
+    "input": "青森県南津軽郡藤崎町藤崎西村井",
+    "result": {
+      "pref": "青森県",
+      "city": "南津軽郡藤崎町",
+      "town": "大字藤崎字西村井",
+      "level": 3,
+      "point": {
+        "lat": 40.656064,
+        "lng": 140.502824,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "青森県南津軽郡藤崎町藤崎西村井",
+        "prefecture": {
+          "code": 20001,
+          "pref": "青森県",
+          "pref_k": "アオモリケン",
+          "pref_r": "Aomori",
+          "point": [
+            140.740087,
+            40.824338
+          ]
+        },
+        "city": {
+          "code": 23612,
+          "county": "南津軽郡",
+          "county_k": "ミナミツガルグン",
+          "county_r": "Minamitsugaru-gun",
+          "city": "藤崎町",
+          "city_k": "フジサキマチ",
+          "city_r": "Fujisaki-machi",
+          "point": [
+            140.502824,
+            40.656064
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0020127",
+          "oaza_cho": "大字藤崎",
+          "oaza_cho_k": "オオアザフジサキ",
+          "oaza_cho_r": "Fujisaki",
+          "koaza": "字西村井",
+          "koaza_k": "アザニシムライ"
+        }
+      }
+    }
+  },
+  {
+    "label": "福島県郡山市堂前町",
+    "input": "福島県郡山市堂前町",
+    "result": {
+      "pref": "福島県",
+      "city": "郡山市",
+      "town": "堂前町",
+      "level": 3,
+      "point": {
+        "lat": 37.394998,
+        "lng": 140.379647,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "福島県郡山市堂前町",
+        "prefecture": {
+          "code": 70009,
+          "pref": "福島県",
+          "pref_k": "フクシマケン",
+          "pref_r": "Fukushima",
+          "point": [
+            140.467734,
+            37.749957
+          ]
+        },
+        "city": {
+          "code": 72036,
+          "city": "郡山市",
+          "city_k": "コオリヤマシ",
+          "city_r": "Koriyama-shi",
+          "point": [
+            140.35965,
+            37.400455
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0086000",
+          "oaza_cho": "堂前町",
+          "oaza_cho_k": "ドウマエマチ",
+          "oaza_cho_r": "Domaemachi",
+          "rsdt": true,
+          "point": [
+            140.379647,
+            37.394998
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "福島県郡山市北畑",
+    "input": "福島県郡山市北畑",
+    "result": {
+      "pref": "福島県",
+      "city": "郡山市",
+      "town": "字北畑",
+      "level": 3,
+      "point": {
+        "lat": 37.39715,
+        "lng": 140.404034,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "福島県郡山市北畑",
+        "prefecture": {
+          "code": 70009,
+          "pref": "福島県",
+          "pref_k": "フクシマケン",
+          "pref_r": "Fukushima",
+          "point": [
+            140.467734,
+            37.749957
+          ]
+        },
+        "city": {
+          "code": 72036,
+          "city": "郡山市",
+          "city_k": "コオリヤマシ",
+          "city_r": "Koriyama-shi",
+          "point": [
+            140.35965,
+            37.400455
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0136000",
+          "oaza_cho": "字北畑",
+          "oaza_cho_k": "アザキタバタケ",
+          "oaza_cho_r": "Kitabatake",
+          "point": [
+            140.404034,
+            37.39715
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "福島県郡山市日和田町広野入",
+    "input": "福島県郡山市日和田町広野入",
+    "result": {
+      "pref": "福島県",
+      "city": "郡山市",
+      "town": "日和田町字広野入",
+      "level": 3,
+      "point": {
+        "lat": 37.400455,
+        "lng": 140.35965,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "福島県郡山市日和田町広野入",
+        "prefecture": {
+          "code": 70009,
+          "pref": "福島県",
+          "pref_k": "フクシマケン",
+          "pref_r": "Fukushima",
+          "point": [
+            140.467734,
+            37.749957
+          ]
+        },
+        "city": {
+          "code": 72036,
+          "city": "郡山市",
+          "city_k": "コオリヤマシ",
+          "city_r": "Koriyama-shi",
+          "point": [
+            140.35965,
+            37.400455
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0058120",
+          "oaza_cho": "日和田町",
+          "oaza_cho_k": "ヒワダマチ",
+          "oaza_cho_r": "Hiwadamachi",
+          "koaza": "字広野入",
+          "koaza_k": "アザヒロノイリ"
+        }
+      }
+    }
+  },
+  {
+    "label": "福島県郡山市日和田町八丁目堰山",
+    "input": "福島県郡山市日和田町八丁目堰山",
+    "result": {
+      "pref": "福島県",
+      "city": "郡山市",
+      "town": "日和田町八丁目字堰山",
+      "level": 3,
+      "point": {
+        "lat": 37.400455,
+        "lng": 140.35965,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "福島県郡山市日和田町八丁目堰山",
+        "prefecture": {
+          "code": 70009,
+          "pref": "福島県",
+          "pref_k": "フクシマケン",
+          "pref_r": "Fukushima",
+          "point": [
+            140.467734,
+            37.749957
+          ]
+        },
+        "city": {
+          "code": 72036,
+          "city": "郡山市",
+          "city_k": "コオリヤマシ",
+          "city_r": "Koriyama-shi",
+          "point": [
+            140.35965,
+            37.400455
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0248104",
+          "oaza_cho": "日和田町八丁目",
+          "oaza_cho_k": "ヒワダマチハツチヨウメ",
+          "oaza_cho_r": "Hiwadamachi Hatchome",
+          "koaza": "字堰山",
+          "koaza_k": "アザセキヤマ"
+        }
+      }
+    }
+  },
+  {
+    "label": "福島県郡山市安積町長久保一丁目",
+    "input": "福島県郡山市安積町長久保一丁目",
+    "result": {
+      "pref": "福島県",
+      "city": "郡山市",
+      "town": "安積町長久保一丁目",
+      "level": 3,
+      "point": {
+        "lat": 37.361615,
+        "lng": 140.361273,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "福島県郡山市安積町長久保一丁目",
+        "prefecture": {
+          "code": 70009,
+          "pref": "福島県",
+          "pref_k": "フクシマケン",
+          "pref_r": "Fukushima",
+          "point": [
+            140.467734,
+            37.749957
+          ]
+        },
+        "city": {
+          "code": 72036,
+          "city": "郡山市",
+          "city_k": "コオリヤマシ",
+          "city_r": "Koriyama-shi",
+          "point": [
+            140.35965,
+            37.400455
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0165001",
+          "oaza_cho": "安積町長久保",
+          "oaza_cho_k": "アサカマチナガクボ",
+          "oaza_cho_r": "Asakamachi Nagakubo",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "rsdt": true,
+          "point": [
+            140.361273,
+            37.361615
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "福島県郡山市安積町笹川西長久保",
+    "input": "福島県郡山市安積町笹川西長久保",
+    "result": {
+      "pref": "福島県",
+      "city": "郡山市",
+      "town": "安積町笹川字西長久保",
+      "level": 3,
+      "point": {
+        "lat": 37.400455,
+        "lng": 140.35965,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "福島県郡山市安積町笹川西長久保",
+        "prefecture": {
+          "code": 70009,
+          "pref": "福島県",
+          "pref_k": "フクシマケン",
+          "pref_r": "Fukushima",
+          "point": [
+            140.467734,
+            37.749957
+          ]
+        },
+        "city": {
+          "code": 72036,
+          "city": "郡山市",
+          "city_k": "コオリヤマシ",
+          "city_r": "Koriyama-shi",
+          "point": [
+            140.35965,
+            37.400455
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0234125",
+          "oaza_cho": "安積町笹川",
+          "oaza_cho_k": "アサカマチササガワ",
+          "oaza_cho_r": "Asakamachi Sasagawa",
+          "koaza": "字西長久保",
+          "koaza_k": "アザニシナガクボ"
+        }
+      }
+    }
+  },
+  {
+    "label": "福島県郡山市安積町日出山一丁目",
+    "input": "福島県郡山市安積町日出山一丁目",
+    "result": {
+      "pref": "福島県",
+      "city": "郡山市",
+      "town": "安積町日出山一丁目",
+      "level": 3,
+      "point": {
+        "lat": 37.374471,
+        "lng": 140.380776,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "福島県郡山市安積町日出山一丁目",
+        "prefecture": {
+          "code": 70009,
+          "pref": "福島県",
+          "pref_k": "フクシマケン",
+          "pref_r": "Fukushima",
+          "point": [
+            140.467734,
+            37.749957
+          ]
+        },
+        "city": {
+          "code": 72036,
+          "city": "郡山市",
+          "city_k": "コオリヤマシ",
+          "city_r": "Koriyama-shi",
+          "point": [
+            140.35965,
+            37.400455
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0103001",
+          "oaza_cho": "安積町日出山",
+          "oaza_cho_k": "アサカマチヒデノヤマ",
+          "oaza_cho_r": "Asakamachi Hidenoyama",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "point": [
+            140.380776,
+            37.374471
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "福島県郡山市安積町日出山一本松",
+    "input": "福島県郡山市安積町日出山一本松",
+    "result": {
+      "pref": "福島県",
+      "city": "郡山市",
+      "town": "安積町日出山字一本松",
+      "level": 3,
+      "point": {
+        "lat": 37.400455,
+        "lng": 140.35965,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "福島県郡山市安積町日出山一本松",
+        "prefecture": {
+          "code": 70009,
+          "pref": "福島県",
+          "pref_k": "フクシマケン",
+          "pref_r": "Fukushima",
+          "point": [
+            140.467734,
+            37.749957
+          ]
+        },
+        "city": {
+          "code": 72036,
+          "city": "郡山市",
+          "city_k": "コオリヤマシ",
+          "city_r": "Koriyama-shi",
+          "point": [
+            140.35965,
+            37.400455
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0103102",
+          "oaza_cho": "安積町日出山",
+          "oaza_cho_k": "アサカマチヒデノヤマ",
+          "oaza_cho_r": "Asakamachi Hidenoyama",
+          "koaza": "字一本松",
+          "koaza_k": "アザイツポンマツ"
+        }
+      }
+    }
+  },
+  {
+    "label": "福島県郡山市安積町大森町",
+    "input": "福島県郡山市安積町大森町",
+    "result": {
+      "pref": "福島県",
+      "city": "郡山市",
+      "town": "安積町大森町",
+      "level": 3,
+      "point": {
+        "lat": 37.344165,
+        "lng": 140.344928,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "福島県郡山市安積町大森町",
+        "prefecture": {
+          "code": 70009,
+          "pref": "福島県",
+          "pref_k": "フクシマケン",
+          "pref_r": "Fukushima",
+          "point": [
+            140.467734,
+            37.749957
+          ]
+        },
+        "city": {
+          "code": 72036,
+          "city": "郡山市",
+          "city_k": "コオリヤマシ",
+          "city_r": "Koriyama-shi",
+          "point": [
+            140.35965,
+            37.400455
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0159000",
+          "oaza_cho": "安積町大森町",
+          "oaza_cho_k": "アサカマチオオモリチョウ",
+          "oaza_cho_r": "Asakamachi Omoricho",
+          "point": [
+            140.344928,
+            37.344165
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "福島県郡山市安積町柴宮東",
+    "input": "福島県郡山市安積町柴宮東",
+    "result": {
+      "pref": "福島県",
+      "city": "郡山市",
+      "town": "安積町字柴宮東",
+      "level": 3,
+      "point": {
+        "lat": 37.400455,
+        "lng": 140.35965,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "福島県郡山市安積町柴宮東",
+        "prefecture": {
+          "code": 70009,
+          "pref": "福島県",
+          "pref_k": "フクシマケン",
+          "pref_r": "Fukushima",
+          "point": [
+            140.467734,
+            37.749957
+          ]
+        },
+        "city": {
+          "code": 72036,
+          "city": "郡山市",
+          "city_k": "コオリヤマシ",
+          "city_r": "Koriyama-shi",
+          "point": [
+            140.35965,
+            37.400455
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0245101",
+          "oaza_cho": "安積町",
+          "oaza_cho_k": "アサカマチ",
+          "koaza": "字柴宮東",
+          "koaza_k": "アザシバミヤヒガシ"
+        }
+      }
+    }
+  },
+  {
+    "label": "青森県八戸市番町",
+    "input": "青森県八戸市番町",
+    "result": {
+      "pref": "青森県",
+      "city": "八戸市",
+      "town": "大字番町",
+      "level": 3,
+      "point": {
+        "lat": 40.510627,
+        "lng": 141.490297,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "青森県八戸市番町",
+        "prefecture": {
+          "code": 20001,
+          "pref": "青森県",
+          "pref_k": "アオモリケン",
+          "pref_r": "Aomori",
+          "point": [
+            140.740087,
+            40.824338
+          ]
+        },
+        "city": {
+          "code": 22039,
+          "city": "八戸市",
+          "city_k": "ハチノヘシ",
+          "city_r": "Hachinohe-shi",
+          "point": [
+            141.488404,
+            40.512278
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0056000",
+          "oaza_cho": "大字番町",
+          "oaza_cho_k": "オオアザバンチョウ",
+          "oaza_cho_r": "Bancho",
+          "point": [
+            141.490297,
+            40.510627
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "青森県八戸市河原木",
+    "input": "青森県八戸市河原木",
+    "result": {
+      "pref": "青森県",
+      "city": "八戸市",
+      "town": "河原木",
+      "level": 3,
+      "point": {
+        "lat": 40.532384,
+        "lng": 141.471124,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "青森県八戸市河原木",
+        "prefecture": {
+          "code": 20001,
+          "pref": "青森県",
+          "pref_k": "アオモリケン",
+          "pref_r": "Aomori",
+          "point": [
+            140.740087,
+            40.824338
+          ]
+        },
+        "city": {
+          "code": 22039,
+          "city": "八戸市",
+          "city_k": "ハチノヘシ",
+          "city_r": "Hachinohe-shi",
+          "point": [
+            141.488404,
+            40.512278
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0073000",
+          "oaza_cho": "河原木",
+          "oaza_cho_k": "カワラギ",
+          "oaza_cho_r": "Kawaragi",
+          "rsdt": true,
+          "point": [
+            141.471124,
+            40.532384
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "青森県八戸市河原木河原木後",
+    "input": "青森県八戸市河原木河原木後",
+    "result": {
+      "pref": "青森県",
+      "city": "八戸市",
+      "town": "大字河原木字河原木後",
+      "level": 3,
+      "point": {
+        "lat": 40.512278,
+        "lng": 141.488404,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "青森県八戸市河原木河原木後",
+        "prefecture": {
+          "code": 20001,
+          "pref": "青森県",
+          "pref_k": "アオモリケン",
+          "pref_r": "Aomori",
+          "point": [
+            140.740087,
+            40.824338
+          ]
+        },
+        "city": {
+          "code": 22039,
+          "city": "八戸市",
+          "city_k": "ハチノヘシ",
+          "city_r": "Hachinohe-shi",
+          "point": [
+            141.488404,
+            40.512278
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0117107",
+          "oaza_cho": "大字河原木",
+          "oaza_cho_k": "オオアザカワラギ",
+          "oaza_cho_r": "Kawaragi",
+          "koaza": "字河原木後",
+          "koaza_k": "アザカワラギウシロ"
+        }
+      }
+    }
+  },
+  {
+    "label": "青森県八戸市南郷大字中野舘野",
+    "input": "青森県八戸市南郷大字中野舘野",
+    "result": {
+      "pref": "青森県",
+      "city": "八戸市",
+      "town": "南郷大字中野字舘野",
+      "level": 3,
+      "point": {
+        "lat": 40.512278,
+        "lng": 141.488404,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "青森県八戸市南郷大字中野舘野",
+        "prefecture": {
+          "code": 20001,
+          "pref": "青森県",
+          "pref_k": "アオモリケン",
+          "pref_r": "Aomori",
+          "point": [
+            140.740087,
+            40.824338
+          ]
+        },
+        "city": {
+          "code": 22039,
+          "city": "八戸市",
+          "city_k": "ハチノヘシ",
+          "city_r": "Hachinohe-shi",
+          "point": [
+            141.488404,
+            40.512278
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0101117",
+          "oaza_cho": "南郷大字中野",
+          "oaza_cho_k": "ナンゴウオオアザナカノ",
+          "koaza": "字舘野",
+          "koaza_k": "アザタテノ"
+        }
+      }
+    }
+  },
+  {
+    "label": "千葉県松戸市北松戸三丁目",
+    "input": "千葉県松戸市北松戸三丁目",
+    "result": {
+      "pref": "千葉県",
+      "city": "松戸市",
+      "town": "北松戸三丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.801834,
+        "lng": 139.915647,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "千葉県松戸市北松戸三丁目",
+        "prefecture": {
+          "code": 120006,
+          "pref": "千葉県",
+          "pref_k": "チバケン",
+          "pref_r": "Chiba",
+          "point": [
+            140.123184,
+            35.604588
+          ]
+        },
+        "city": {
+          "code": 122076,
+          "city": "松戸市",
+          "city_k": "マツドシ",
+          "city_r": "Matsudo-shi",
+          "point": [
+            139.903226,
+            35.787652
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0012003",
+          "oaza_cho": "北松戸",
+          "oaza_cho_k": "キタマツド",
+          "oaza_cho_r": "Kitamatsudo",
+          "chome": "三丁目",
+          "chome_n": 3,
+          "rsdt": true,
+          "point": [
+            139.915647,
+            35.801834
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "千葉県松戸市南花島中町",
+    "input": "千葉県松戸市南花島中町",
+    "result": {
+      "pref": "千葉県",
+      "city": "松戸市",
+      "town": "南花島中町",
+      "level": 3,
+      "point": {
+        "lat": 35.793901,
+        "lng": 139.906199,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "千葉県松戸市南花島中町",
+        "prefecture": {
+          "code": 120006,
+          "pref": "千葉県",
+          "pref_k": "チバケン",
+          "pref_r": "Chiba",
+          "point": [
+            140.123184,
+            35.604588
+          ]
+        },
+        "city": {
+          "code": 122076,
+          "city": "松戸市",
+          "city_k": "マツドシ",
+          "city_r": "Matsudo-shi",
+          "point": [
+            139.903226,
+            35.787652
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0100000",
+          "oaza_cho": "南花島中町",
+          "oaza_cho_k": "ミナミハナシマナカマチ",
+          "point": [
+            139.906199,
+            35.793901
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "千葉県旭市イ",
+    "input": "千葉県旭市イ",
+    "result": {
+      "pref": "千葉県",
+      "city": "旭市",
+      "town": "イ",
+      "level": 3,
+      "point": {
+        "lat": 35.723258,
+        "lng": 140.668643,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "千葉県旭市イ",
+        "prefecture": {
+          "code": 120006,
+          "pref": "千葉県",
+          "pref_k": "チバケン",
+          "pref_r": "Chiba",
+          "point": [
+            140.123184,
+            35.604588
+          ]
+        },
+        "city": {
+          "code": 122157,
+          "city": "旭市",
+          "city_k": "アサヒシ",
+          "city_r": "Asahi-shi",
+          "point": [
+            140.648158,
+            35.71602500000001
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0003000",
+          "oaza_cho": "イ",
+          "oaza_cho_k": "イ",
+          "oaza_cho_r": "I",
+          "point": [
+            140.668643,
+            35.723258
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "千葉県香取市佐原ロ",
+    "input": "千葉県香取市佐原ロ",
+    "result": {
+      "pref": "千葉県",
+      "city": "香取市",
+      "town": "佐原ロ",
+      "level": 3,
+      "point": {
+        "lat": 35.903486,
+        "lng": 140.497763,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "千葉県香取市佐原ロ",
+        "prefecture": {
+          "code": 120006,
+          "pref": "千葉県",
+          "pref_k": "チバケン",
+          "pref_r": "Chiba",
+          "point": [
+            140.123184,
+            35.604588
+          ]
+        },
+        "city": {
+          "code": 122360,
+          "city": "香取市",
+          "city_k": "カトリシ",
+          "city_r": "Katori-shi",
+          "point": [
+            140.499248,
+            35.89773
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0063000",
+          "oaza_cho": "佐原ロ",
+          "oaza_cho_k": "サワラロ",
+          "oaza_cho_r": "Sawara Ro",
+          "point": [
+            140.497763,
+            35.903486
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "千葉県流山市鰭ケ崎",
+    "input": "千葉県流山市鰭ケ崎",
+    "result": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字鰭ケ崎",
+      "level": 3,
+      "point": {
+        "lat": 35.841674,
+        "lng": 139.912205,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "千葉県流山市鰭ケ崎",
+        "prefecture": {
+          "code": 120006,
+          "pref": "千葉県",
+          "pref_k": "チバケン",
+          "pref_r": "Chiba",
+          "point": [
+            140.123184,
+            35.604588
+          ]
+        },
+        "city": {
+          "code": 122203,
+          "city": "流山市",
+          "city_k": "ナガレヤマシ",
+          "city_r": "Nagareyama-shi",
+          "point": [
+            139.902586,
+            35.856287
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0024000",
+          "oaza_cho": "大字鰭ケ崎",
+          "oaza_cho_k": "オオアザヒレガサキ",
+          "oaza_cho_r": "Hiregasaki",
+          "point": [
+            139.912205,
+            35.841674
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "千葉県流山市鰭ケ崎",
+    "input": "千葉県流山市鰭ケ崎",
+    "result": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "大字鰭ケ崎",
+      "level": 3,
+      "point": {
+        "lat": 35.841674,
+        "lng": 139.912205,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "千葉県流山市鰭ケ崎",
+        "prefecture": {
+          "code": 120006,
+          "pref": "千葉県",
+          "pref_k": "チバケン",
+          "pref_r": "Chiba",
+          "point": [
+            140.123184,
+            35.604588
+          ]
+        },
+        "city": {
+          "code": 122203,
+          "city": "流山市",
+          "city_k": "ナガレヤマシ",
+          "city_r": "Nagareyama-shi",
+          "point": [
+            139.902586,
+            35.856287
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0024000",
+          "oaza_cho": "大字鰭ケ崎",
+          "oaza_cho_k": "オオアザヒレガサキ",
+          "oaza_cho_r": "Hiregasaki",
+          "point": [
+            139.912205,
+            35.841674
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "千葉県流山市鰭ケ崎一丁目",
+    "input": "千葉県流山市鰭ケ崎一丁目",
+    "result": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "鰭ケ崎一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.843034,
+        "lng": 139.910097,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "千葉県流山市鰭ケ崎一丁目",
+        "prefecture": {
+          "code": 120006,
+          "pref": "千葉県",
+          "pref_k": "チバケン",
+          "pref_r": "Chiba",
+          "point": [
+            140.123184,
+            35.604588
+          ]
+        },
+        "city": {
+          "code": 122203,
+          "city": "流山市",
+          "city_k": "ナガレヤマシ",
+          "city_r": "Nagareyama-shi",
+          "point": [
+            139.902586,
+            35.856287
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0063001",
+          "oaza_cho": "鰭ケ崎",
+          "oaza_cho_k": "ヒレガサキ",
+          "oaza_cho_r": "Hiregasaki",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "point": [
+            139.910097,
+            35.843034
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "千葉県流山市江戸川台西4丁目",
+    "input": "千葉県流山市江戸川台西4丁目",
+    "result": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "江戸川台西四丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.892038,
+        "lng": 139.907837,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "千葉県流山市江戸川台西4丁目",
+        "prefecture": {
+          "code": 120006,
+          "pref": "千葉県",
+          "pref_k": "チバケン",
+          "pref_r": "Chiba",
+          "point": [
+            140.123184,
+            35.604588
+          ]
+        },
+        "city": {
+          "code": 122203,
+          "city": "流山市",
+          "city_k": "ナガレヤマシ",
+          "city_r": "Nagareyama-shi",
+          "point": [
+            139.902586,
+            35.856287
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0004004",
+          "oaza_cho": "江戸川台西",
+          "oaza_cho_k": "エドガワダイニシ",
+          "oaza_cho_r": "Edogawadai Nishi",
+          "chome": "四丁目",
+          "chome_n": 4,
+          "point": [
+            139.907837,
+            35.892038
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "北海道帯広市西19条南42丁目",
+    "input": "北海道帯広市西19条南42丁目",
+    "result": {
+      "pref": "北海道",
+      "city": "帯広市",
+      "town": "西十九条南四十二丁目",
+      "level": 3,
+      "point": {
+        "lat": 42.878704,
+        "lng": 143.173858,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道帯広市西19条南42丁目",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12076,
+          "city": "帯広市",
+          "city_k": "オビヒロシ",
+          "city_r": "Obihiro-shi",
+          "point": [
+            143.196195,
+            42.924014
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0216042",
+          "oaza_cho": "西十九条南",
+          "oaza_cho_k": "ニシ１９ジョウミナミ",
+          "oaza_cho_r": "Nishi19-Jominami",
+          "chome": "四十二丁目",
+          "chome_n": 42,
+          "rsdt": true,
+          "point": [
+            143.173858,
+            42.878704
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "大阪府堺市堺区市之町西1丁",
+    "input": "大阪府堺市堺区市之町西1丁",
+    "result": {
+      "pref": "大阪府",
+      "city": "堺市堺区",
+      "town": "市之町西一丁",
+      "level": 3,
+      "point": {
+        "lat": 34.578705,
+        "lng": 135.47335,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "大阪府堺市堺区市之町西1丁",
+        "prefecture": {
+          "code": 270008,
+          "pref": "大阪府",
+          "pref_k": "オオサカフ",
+          "pref_r": "Osaka",
+          "point": [
+            135.519994,
+            34.686394
+          ]
+        },
+        "city": {
+          "code": 271411,
+          "city": "堺市",
+          "city_k": "サカイシ",
+          "city_r": "Sakai-shi",
+          "ward": "堺区",
+          "ward_k": "サカイク",
+          "ward_r": "Sakai-ku",
+          "point": [
+            135.48302,
+            34.573354
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0070001",
+          "oaza_cho": "市之町西",
+          "oaza_cho_k": "イチノチョウニシ",
+          "oaza_cho_r": "Ichinochonishi",
+          "chome": "一丁",
+          "chome_n": 1,
+          "rsdt": true,
+          "point": [
+            135.47335,
+            34.578705
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "神奈川県横浜市鶴見区朝日町1丁目",
+    "input": "神奈川県横浜市鶴見区朝日町1丁目",
+    "result": {
+      "pref": "神奈川県",
+      "city": "横浜市鶴見区",
+      "town": "朝日町一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.501881,
+        "lng": 139.696857,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "神奈川県横浜市鶴見区朝日町1丁目",
+        "prefecture": {
+          "code": 140007,
+          "pref": "神奈川県",
+          "pref_k": "カナガワケン",
+          "pref_r": "Kanagawa",
+          "point": [
+            139.642536,
+            35.44771
+          ]
+        },
+        "city": {
+          "code": 141011,
+          "city": "横浜市",
+          "city_k": "ヨコハマシ",
+          "city_r": "Yokohama-shi",
+          "ward": "鶴見区",
+          "ward_k": "ツルミク",
+          "ward_r": "Tsurumi-ku",
+          "point": [
+            139.682384,
+            35.508398
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "MLIT:141010008001",
+          "oaza_cho": "朝日町",
+          "chome": "一丁目",
+          "point": [
+            139.696857,
+            35.501881
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "神奈川県横浜市旭区二俣川1丁目",
+    "input": "神奈川県横浜市旭区二俣川1丁目",
+    "result": {
+      "pref": "神奈川県",
+      "city": "横浜市旭区",
+      "town": "二俣川一丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.464925,
+        "lng": 139.528087,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "神奈川県横浜市旭区二俣川1丁目",
+        "prefecture": {
+          "code": 140007,
+          "pref": "神奈川県",
+          "pref_k": "カナガワケン",
+          "pref_r": "Kanagawa",
+          "point": [
+            139.642536,
+            35.44771
+          ]
+        },
+        "city": {
+          "code": 141127,
+          "city": "横浜市",
+          "city_k": "ヨコハマシ",
+          "city_r": "Yokohama-shi",
+          "ward": "旭区",
+          "ward_k": "アサヒク",
+          "ward_r": "Asahi-ku",
+          "point": [
+            139.5448,
+            35.474761
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0018001",
+          "oaza_cho": "二俣川",
+          "oaza_cho_k": "フタマタガワ",
+          "oaza_cho_r": "Futamatagawa",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "rsdt": true,
+          "point": [
+            139.528087,
+            35.464925
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "静岡県下田市二丁目",
+    "input": "静岡県下田市二丁目",
+    "result": {
+      "pref": "静岡県",
+      "city": "下田市",
+      "town": "二丁目",
+      "level": 3,
+      "point": {
+        "lat": 34.679536,
+        "lng": 138.945316,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "静岡県下田市二丁目",
+        "prefecture": {
+          "code": 220001,
+          "pref": "静岡県",
+          "pref_k": "シズオカケン",
+          "pref_r": "Shizuoka",
+          "point": [
+            138.383023,
+            34.976906
+          ]
+        },
+        "city": {
+          "code": 222194,
+          "city": "下田市",
+          "city_k": "シモダシ",
+          "city_r": "Shimoda-shi",
+          "point": [
+            138.945316,
+            34.679536
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0000002",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "rsdt": true
+        }
+      }
+    }
+  },
+  {
+    "label": "兵庫県姫路市広畑区富士町",
+    "input": "兵庫県姫路市広畑区富士町",
+    "result": {
+      "pref": "兵庫県",
+      "city": "姫路市",
+      "town": "広畑区富士町",
+      "level": 3,
+      "point": {
+        "lat": 34.780089,
+        "lng": 134.61811,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "兵庫県姫路市広畑区富士町",
+        "prefecture": {
+          "code": 280003,
+          "pref": "兵庫県",
+          "pref_k": "ヒョウゴケン",
+          "pref_r": "Hyogo",
+          "point": [
+            135.182995,
+            34.691304
+          ]
+        },
+        "city": {
+          "code": 282014,
+          "city": "姫路市",
+          "city_k": "ヒメジシ",
+          "city_r": "Himeji-shi",
+          "point": [
+            134.685458,
+            34.815496
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0013000",
+          "oaza_cho": "広畑区富士町",
+          "oaza_cho_k": "ヒロハタクフジチョウ",
+          "oaza_cho_r": "Hirohataku Fujicho",
+          "point": [
+            134.61811,
+            34.780089
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "兵庫県姫路市大津区大津町二丁目",
+    "input": "兵庫県姫路市大津区大津町二丁目",
+    "result": {
+      "pref": "兵庫県",
+      "city": "姫路市",
+      "town": "大津区大津町二丁目",
+      "level": 3,
+      "point": {
+        "lat": 34.806703,
+        "lng": 134.606569,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "兵庫県姫路市大津区大津町二丁目",
+        "prefecture": {
+          "code": 280003,
+          "pref": "兵庫県",
+          "pref_k": "ヒョウゴケン",
+          "pref_r": "Hyogo",
+          "point": [
+            135.182995,
+            34.691304
+          ]
+        },
+        "city": {
+          "code": 282014,
+          "city": "姫路市",
+          "city_k": "ヒメジシ",
+          "city_r": "Himeji-shi",
+          "point": [
+            134.685458,
+            34.815496
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0350002",
+          "oaza_cho": "大津区大津町",
+          "oaza_cho_k": "オオツクオオツチョウ",
+          "oaza_cho_r": "Otsuku Otsucho",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "point": [
+            134.606569,
+            34.806703
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "長野県長野市大字鶴賀権堂町",
+    "input": "長野県長野市大字鶴賀権堂町",
+    "result": {
+      "pref": "長野県",
+      "city": "長野市",
+      "town": "大字鶴賀",
+      "level": 3,
+      "point": {
+        "lat": 36.648,
+        "lng": 138.195013,
+        "level": 3
+      },
+      "other": "権堂町",
+      "metadata": {
+        "input": "長野県長野市大字鶴賀権堂町",
+        "prefecture": {
+          "code": 200000,
+          "pref": "長野県",
+          "pref_k": "ナガノケン",
+          "pref_r": "Nagano",
+          "point": [
+            138.180991,
+            36.65131
+          ]
+        },
+        "city": {
+          "code": 202011,
+          "city": "長野市",
+          "city_k": "ナガノシ",
+          "city_r": "Nagano-shi",
+          "point": [
+            138.1942866,
+            36.648631
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0055000",
+          "oaza_cho": "大字鶴賀",
+          "oaza_cho_k": "オオアザツルガ",
+          "oaza_cho_r": "Tsuruga",
+          "point": [
+            138.195013,
+            36.648
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "長野県長野市若里",
+    "input": "長野県長野市若里",
+    "result": {
+      "pref": "長野県",
+      "city": "長野市",
+      "town": "大字若里",
+      "level": 3,
+      "point": {
+        "lat": 36.626368,
+        "lng": 138.196603,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "長野県長野市若里",
+        "prefecture": {
+          "code": 200000,
+          "pref": "長野県",
+          "pref_k": "ナガノケン",
+          "pref_r": "Nagano",
+          "point": [
+            138.180991,
+            36.65131
+          ]
+        },
+        "city": {
+          "code": 202011,
+          "city": "長野市",
+          "city_k": "ナガノシ",
+          "city_r": "Nagano-shi",
+          "point": [
+            138.1942866,
+            36.648631
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0234000",
+          "oaza_cho": "大字若里",
+          "oaza_cho_k": "オオアザワカサト",
+          "oaza_cho_r": "Wakasato",
+          "point": [
+            138.196603,
+            36.626368
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "長野県長野市若里七丁目",
+    "input": "長野県長野市若里七丁目",
+    "result": {
+      "pref": "長野県",
+      "city": "長野市",
+      "town": "若里七丁目",
+      "level": 3,
+      "point": {
+        "lat": 36.627358,
+        "lng": 138.198954,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "長野県長野市若里七丁目",
+        "prefecture": {
+          "code": 200000,
+          "pref": "長野県",
+          "pref_k": "ナガノケン",
+          "pref_r": "Nagano",
+          "point": [
+            138.180991,
+            36.65131
+          ]
+        },
+        "city": {
+          "code": 202011,
+          "city": "長野市",
+          "city_k": "ナガノシ",
+          "city_r": "Nagano-shi",
+          "point": [
+            138.1942866,
+            36.648631
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0224007",
+          "oaza_cho": "若里",
+          "oaza_cho_k": "ワカサト",
+          "oaza_cho_r": "Wakasato",
+          "chome": "七丁目",
+          "chome_n": 7,
+          "rsdt": true,
+          "point": [
+            138.198954,
+            36.627358
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "茨城県龍ケ崎市寺後",
+    "input": "茨城県龍ケ崎市寺後",
+    "result": {
+      "pref": "茨城県",
+      "city": "龍ケ崎市",
+      "town": "",
+      "level": 3,
+      "point": {
+        "lat": 35.911594,
+        "lng": 140.182265,
+        "level": 2
+      },
+      "other": "寺後",
+      "metadata": {
+        "input": "茨城県龍ケ崎市寺後",
+        "prefecture": {
+          "code": 80004,
+          "pref": "茨城県",
+          "pref_k": "イバラキケン",
+          "pref_r": "Ibaraki",
+          "point": [
+            140.446735,
+            36.34145
+          ]
+        },
+        "city": {
+          "code": 82082,
+          "city": "龍ケ崎市",
+          "city_k": "リュウガサキシ",
+          "city_r": "Ryugasaki-shi",
+          "point": [
+            140.182265,
+            35.911594
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0000000"
+        }
+      }
+    }
+  },
+  {
+    "label": "鹿児島県志布志市志布志町志布志二丁目",
+    "input": "鹿児島県志布志市志布志町志布志二丁目",
+    "result": {
+      "pref": "鹿児島県",
+      "city": "志布志市",
+      "town": "志布志町志布志二丁目",
+      "level": 3,
+      "point": {
+        "lat": 31.475149,
+        "lng": 131.099779,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "鹿児島県志布志市志布志町志布志二丁目",
+        "prefecture": {
+          "code": 460001,
+          "pref": "鹿児島県",
+          "pref_k": "カゴシマケン",
+          "pref_r": "Kagoshima",
+          "point": [
+            130.558141,
+            31.560185000000004
+          ]
+        },
+        "city": {
+          "code": 462217,
+          "city": "志布志市",
+          "city_k": "シブシシ",
+          "city_r": "Shibushi-shi",
+          "point": [
+            131.099752,
+            31.477446000000004
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0010002",
+          "oaza_cho": "志布志町志布志",
+          "oaza_cho_k": "シブシチョウシブシ",
+          "oaza_cho_r": "Shibushicho Shibushi",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "rsdt": true,
+          "point": [
+            131.099779,
+            31.475149
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "岩手県久慈市夏井町夏井第3地割",
+    "input": "岩手県久慈市夏井町夏井第3地割",
+    "result": {
+      "pref": "岩手県",
+      "city": "久慈市",
+      "town": "夏井町夏井第３地割",
+      "level": 3,
+      "point": {
+        "lat": 40.190466,
+        "lng": 141.775644,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "岩手県久慈市夏井町夏井第3地割",
+        "prefecture": {
+          "code": 30007,
+          "pref": "岩手県",
+          "pref_k": "イワテケン",
+          "pref_r": "Iwate",
+          "point": [
+            141.152592,
+            39.703647
+          ]
+        },
+        "city": {
+          "code": 32077,
+          "city": "久慈市",
+          "city_k": "クジシ",
+          "city_r": "Kuji-shi",
+          "point": [
+            141.775644,
+            40.190466
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0053117",
+          "oaza_cho": "夏井町夏井",
+          "oaza_cho_k": "ナツイチヨウナツイ",
+          "koaza": "第３地割",
+          "koaza_k": "ダイサンチワリ"
+        }
+      }
+    }
+  }
+]
