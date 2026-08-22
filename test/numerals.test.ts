@@ -58,6 +58,24 @@ describe('kanjiToArabicByKana', () => {
   it('カナが未定義なら何も置換しない', () => {
     expect(kanjiToArabicByKana('西十九条南', undefined)).toBe('西十九条南')
   })
+
+  // 実在の町字。素朴な replace では地名が壊れる（札幌市西区に80レコードある）
+  it('ランの位置を取り違えない', () => {
+    expect(kanjiToArabicByKana('二十四軒四条', 'ニジュウヨンケン４ジョウ')).toBe('二十四軒4条')
+    expect(kanjiToArabicByKana('二十四軒二条', 'ニジュウヨンケン２ジョウ')).toBe('二十四軒2条')
+  })
+
+  it('カナの数字トークンの個数を超えて置換しない', () => {
+    expect(kanjiToArabicByKana('八軒八条東', 'ハチケン８ジョウヒガシ')).toBe('八軒8条東')
+    expect(kanjiToArabicByKana('八軒八条西', 'ハチケン８ジョウニシ')).toBe('八軒8条西')
+  })
+
+  it('同じ形で誤変換が起きない大字も引き続き正しい', () => {
+    expect(kanjiToArabicByKana('八軒一条東', 'ハチケン１ジョウヒガシ')).toBe('八軒1条東')
+    expect(kanjiToArabicByKana('八軒十条西', 'ハチケン１０ジョウニシ')).toBe('八軒10条西')
+    expect(kanjiToArabicByKana('二十四軒一条', 'ニジュウヨンケン１ジョウ')).toBe('二十四軒1条')
+    expect(kanjiToArabicByKana('二十四軒三条', 'ニジュウヨンケン３ジョウ')).toBe('二十四軒3条')
+  })
 })
 
 describe('formatChome', () => {

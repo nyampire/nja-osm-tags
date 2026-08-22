@@ -8,6 +8,7 @@
  * 分類による振り分けはしない。_番地の根拠 と _備考 で絞るほうが柔軟。
  */
 import { realpathSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { formatCsv, parseCsv } from '../src/csv.ts'
 import { addressToOsmTags } from '../src/index.ts'
@@ -72,8 +73,9 @@ export async function run(options: RunOptions): Promise<string> {
   let rowNumber = 2 // 1行目はヘッダ
 
   for (const row of rows.slice(1)) {
-    // ファイル末尾の空行は飛ばす
-    if (row.length === 1 && row[0] === '') continue
+    // ファイル末尾の空行は飛ばす。1列の CSV では正当なデータ行と区別が
+    // つかないので、2列以上あるときだけ空行スキップを適用する
+    if (row.length === 1 && row[0] === '' && header.length > 1) continue
 
     // 行の長さをヘッダに揃える。揃えずに列を足すと、追加列がヘッダの
     // 別の位置に入って出力全体の対応が崩れる。
@@ -81,21 +83,40 @@ export async function run(options: RunOptions): Promise<string> {
     // 短い行は埋める（末尾の空フィールドを省略する CSV 生成系は珍しくない）。
     // 長い行は埋めようがないので落とす。黙って切り詰めるとデータが消え、
     // 黙って通すと列がずれるので、行番号を添えて失敗するのが一番親切。
-    const padded = normalizeRowLength(row, header.length, rowNumber++)
+    const padded = normalizeRowLength(row, header.length, rowNumber)
+
+    // 数万行だと生きているか分からないので進捗を stderr に出す
+    if (rowNumber % 500 === 0) {
+      process.stderr.write(`${rowNumber} 行処理\n`)
+    }
+    rowNumber++
 
     const address = padded[addressIndex] ?? ''
     if (!address.trim()) {
       out.push([...padded, ...added.map(() => '')])
       continue
     }
-    const result = await addressToOsmTags(address)
-    const columns = toColumns(result, {
-      lat: latIndex >= 0 ? toNumber(padded[latIndex]) : undefined,
-      lng: lngIndex >= 0 ? toNumber(padded[lngIndex]) : undefined,
-    })
+
+    let columns: Record<string, string>
+    try {
+      const result = await addressToOsmTags(address)
+      columns = toColumns(result, {
+        lat: latIndex >= 0 ? toNumber(padded[latIndex]) : undefined,
+        lng: lngIndex >= 0 ? toNumber(padded[lngIndex]) : undefined,
+      })
+    } catch (error) {
+      // 1行の失敗で数万行のバッチを落とさない。理由を _備考 に出して続ける。
+      // 利用者は _備考 で絞れば失敗行だけを取り出せる
+      columns = Object.fromEntries(added.map((c) => [c, '']))
+      columns['_備考'] = `変換に失敗: ${
+        error instanceof Error ? error.message : String(error)
+      }`
+    }
     out.push([...padded, ...added.map((c) => columns[c] ?? '')])
   }
-  return formatCsv(out)
+  // BOM なし UTF-8 だと日本語 Windows の Excel で文字化けする。
+  // _ 接頭辞の列は Excel で開いて絞り込むためのものなので、BOM を付ける
+  return '﻿' + formatCsv(out)
 }
 
 function parseArgs(argv: string[]): RunOptions {
@@ -130,7 +151,7 @@ function parseArgs(argv: string[]): RunOptions {
     )
   }
   const options: RunOptions = {
-    input: new URL(file, `file://${process.cwd()}/`),
+    input: pathToFileURL(resolve(file)),
     addressColumn,
   }
   if (latColumn) options.latColumn = latColumn

@@ -22,28 +22,65 @@ export function kanaHasArabic(kana: string | undefined): boolean {
   return /[0-9０-９]/.test(kana)
 }
 
+/** カナから算用数字のトークンを取り出す。`ニシ１９ジョウミナミ` -> `['19']` */
+function kanaDigitTokens(kana: string): string[] {
+  return toHankakuDigits(kana).match(/\d+/g) ?? []
+}
+
 /**
- * 漢数字ランのうち、その数値がカナに算用数字として現れるものだけを算用数字に置換する。
+ * 漢数字ランのうち、カナが数字として書いているものを算用数字に置換する。
  *
- * 全置換にしないのは地名を壊さないため。`八千代町` の `八千` は 8000 だが
- * カナは `ヤチヨチョウ` なので置換しない。
+ * カナから算用数字のトークンを取り出し、その個数と値の分だけ漢数字ランを
+ * 右から順に選んで、それぞれ自分の位置で置換する。カナは漢字の読みなので、
+ * 数字として書かれた数詞は右側の「条」「丁」などに対応する。
+ *
+ * 素朴に「値がカナに現れるランを replace する」だけでは地名が壊れる。
+ * - `二十四軒四条` / `ニジュウヨンケン４ジョウ` — `四`=4 が文字列の最初の
+ *   `四`（`二十四` の中）を置換して `二十4軒四条` になる
+ * - `八軒八条東` / `ハチケン８ジョウヒガシ` — ランが `八`,`八` の2つで
+ *   どちらも 8 だが、カナの数字トークンは1つ。両方置換すると `8軒8条東` になる
  */
 export function kanjiToArabicByKana(
   text: string,
   kana: string | undefined,
 ): string {
   if (!kanaHasArabic(kana)) return text
-  const kanaHan = toHankakuDigits(kana as string)
-  let out = text
+  const tokens = kanaDigitTokens(kana as string)
+  if (tokens.length === 0) return text
+
+  // 漢数字ランを位置つきで集める。findKanjiNumbers は出現順に返す
+  const runs: { text: string; index: number; value: number }[] = []
+  let cursor = 0
   for (const run of findKanjiNumbers(text)) {
-    let value: number
+    const index = text.indexOf(run, cursor)
+    if (index < 0) continue
+    cursor = index + run.length
     try {
-      value = kanji2number(run)
+      runs.push({ text: run, index, value: kanji2number(run) })
     } catch {
-      continue
+      // 数値に直せないランは対象外
     }
-    if (!kanaHan.includes(String(value))) continue
-    out = out.replace(run, String(value))
+  }
+
+  // カナのトークンとランを右から突き合わせる
+  const picked = new Array<string | undefined>(runs.length)
+  for (let t = tokens.length - 1; t >= 0; t--) {
+    const token = tokens[t]
+    for (let r = runs.length - 1; r >= 0; r--) {
+      if (picked[r] !== undefined) continue
+      if (String(runs[r]!.value) !== token) continue
+      picked[r] = token
+      break
+    }
+  }
+
+  // 右から置換すると前方の index がずれない
+  let out = text
+  for (let r = runs.length - 1; r >= 0; r--) {
+    const token = picked[r]
+    if (token === undefined) continue
+    const run = runs[r]!
+    out = out.slice(0, run.index) + token + out.slice(run.index + run.text.length)
   }
   return out
 }

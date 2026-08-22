@@ -65,6 +65,26 @@ describe('run', () => {
     ).rejects.toThrow('列が見つかりません: 緯度x')
   }, 60_000)
 
+  it('解決できない住所でも行と列の対応が保たれる', async () => {
+    const bad = new URL('./fixtures/tiny-bad-address.csv', import.meta.url)
+    const out = await run({ input: bad, addressColumn: '所在地' })
+    const rows = parseCsvText(out)
+    const header = rows[0]!
+    expect(rows).toHaveLength(3)
+
+    // 1行目は正常に変換される
+    expect(rows[1]![header.indexOf('addr:province')]).toBe('東京都')
+
+    // 2行目は NJA が何も解決できないが、行は残り元データも保たれる。
+    // NJA は例外を投げず level 0 を返すので、_備考 は machiaza-unresolved のラベルになる
+    const badRow = rows[2]!
+    expect(badRow).toHaveLength(header.length)
+    expect(badRow[header.indexOf('所在地')]).toBe('!!!このような住所は存在しない!!!')
+    expect(badRow[header.indexOf('addr:province')]).toBe('')
+    expect(badRow[header.indexOf('_番地の根拠')]).toBe('なし')
+    expect(badRow[header.indexOf('_備考')]).toBe('町字を特定できず')
+  }, 60_000)
+
   it('ヘッダより長い行は行番号を添えて落ちる', async () => {
     const over = new URL('./fixtures/tiny-overlong.csv', import.meta.url)
     await expect(run({ input: over, addressColumn: '所在地' })).rejects.toThrow(
