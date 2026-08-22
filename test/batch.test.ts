@@ -46,6 +46,31 @@ describe('run', () => {
 
   it('座標列を指定しなくても動く', async () => {
     const out = await run({ input: TINY, addressColumn: '所在地' })
-    expect(out.split('\n')[0]).toContain('_lat')
+    const rows = parseCsvText(out)
+    const header = rows[0]!
+    expect(header).toContain('_lat')
+    // 座標列を渡していないので、全行が extra.point で補完される（精度が入る）
+    const a = rows[1]!
+    expect(a[header.indexOf('_lat')]).not.toBe('')
+    expect(a[header.indexOf('_座標精度')]).not.toBe('')
+  }, 60_000)
+
+  it('存在しない列名を指定したら落ちる', async () => {
+    await expect(
+      run({ input: TINY, addressColumn: 'そんな列はない' }),
+    ).rejects.toThrow('列が見つかりません: そんな列はない')
+    // 座標列の打ち間違いも黙って無視しない
+    await expect(
+      run({ input: TINY, addressColumn: '所在地', latColumn: '緯度x' }),
+    ).rejects.toThrow('列が見つかりません: 緯度x')
+  }, 60_000)
+
+  it('ヘッダより短い行でも列がずれない', async () => {
+    const short = new URL('./fixtures/tiny-ragged.csv', import.meta.url)
+    const out = await run({ input: short, addressColumn: '所在地' })
+    const rows = parseCsvText(out)
+    const header = rows[0]!
+    expect(rows[1]).toHaveLength(header.length)
+    expect(rows[1]![header.indexOf('addr:province')]).toBe('東京都')
   }, 60_000)
 })

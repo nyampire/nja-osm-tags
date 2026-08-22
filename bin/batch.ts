@@ -7,6 +7,8 @@
  *
  * 分類による振り分けはしない。_番地の根拠 と _備考 で絞るほうが柔軟。
  */
+import { realpathSync } from 'node:fs'
+import { pathToFileURL } from 'node:url'
 import { formatCsv, parseCsv } from '../src/csv.ts'
 import { addressToOsmTags } from '../src/index.ts'
 import { META_COLUMNS, OSM_TAG_COLUMNS, toColumns } from '../src/serialize.ts'
@@ -29,29 +31,44 @@ export async function run(options: RunOptions): Promise<string> {
   const header = rows[0]
   if (!header) throw new Error('CSV が空です')
 
-  const addressIndex = header.indexOf(options.addressColumn)
-  if (addressIndex < 0) {
-    throw new Error(`列が見つかりません: ${options.addressColumn}`)
+  // 指定された列が見つからなければ必ず落とす。座標列だけ黙って無視すると、
+  // 列名を打ち間違えたユーザーが「座標が全部代表点で補完された」ことに気づけない
+  const columnIndex = (name: string | undefined): number => {
+    if (name === undefined) return -1
+    const index = header.indexOf(name)
+    if (index < 0) throw new Error(`列が見つかりません: ${name}`)
+    return index
   }
-  const latIndex = options.latColumn ? header.indexOf(options.latColumn) : -1
-  const lngIndex = options.lngColumn ? header.indexOf(options.lngColumn) : -1
+  const addressIndex = columnIndex(options.addressColumn)
+  const latIndex = columnIndex(options.latColumn)
+  const lngIndex = columnIndex(options.lngColumn)
 
   const added = [...OSM_TAG_COLUMNS, ...META_COLUMNS]
   const out: string[][] = [[...header, ...added]]
 
   for (const row of rows.slice(1)) {
+    // ファイル末尾の空行は飛ばす
     if (row.length === 1 && row[0] === '') continue
-    const address = row[addressIndex] ?? ''
+
+    // ヘッダより短い行を埋める。埋めずに列を足すと、追加列がヘッダの
+    // 別の位置に入って出力全体の対応が崩れる（末尾の空フィールドを
+    // 省略する CSV 生成系は珍しくない）
+    const padded =
+      row.length < header.length
+        ? [...row, ...Array<string>(header.length - row.length).fill('')]
+        : row
+
+    const address = padded[addressIndex] ?? ''
     if (!address.trim()) {
-      out.push([...row, ...added.map(() => '')])
+      out.push([...padded, ...added.map(() => '')])
       continue
     }
     const result = await addressToOsmTags(address)
     const columns = toColumns(result, {
-      lat: latIndex >= 0 ? toNumber(row[latIndex]) : undefined,
-      lng: lngIndex >= 0 ? toNumber(row[lngIndex]) : undefined,
+      lat: latIndex >= 0 ? toNumber(padded[latIndex]) : undefined,
+      lng: lngIndex >= 0 ? toNumber(padded[lngIndex]) : undefined,
     })
-    out.push([...row, ...added.map((c) => columns[c] ?? '')])
+    out.push([...padded, ...added.map((c) => columns[c] ?? '')])
   }
   return formatCsv(out)
 }
@@ -62,12 +79,23 @@ function parseArgs(argv: string[]): RunOptions {
   let lngColumn: string | undefined
   const positional: string[] = []
 
+  /** フラグの値を取り出す。欠落や別フラグの巻き込みを落とす */
+  const value = (i: number, flag: string): string => {
+    const v = argv[i]
+    if (v === undefined || v.startsWith('--')) {
+      throw new Error(`${flag} に値がありません`)
+    }
+    return v
+  }
+
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i]
-    if (arg === '--address-column') addressColumn = argv[++i]
-    else if (arg === '--lat-column') latColumn = argv[++i]
-    else if (arg === '--lng-column') lngColumn = argv[++i]
-    else if (arg !== undefined) positional.push(arg)
+    if (arg === undefined) continue
+    if (arg === '--address-column') addressColumn = value(++i, arg)
+    else if (arg === '--lat-column') latColumn = value(++i, arg)
+    else if (arg === '--lng-column') lngColumn = value(++i, arg)
+    else if (arg.startsWith('--')) throw new Error(`不明なオプション: ${arg}`)
+    else positional.push(arg)
   }
 
   const file = positional[0]
@@ -85,7 +113,28 @@ function parseArgs(argv: string[]): RunOptions {
   return options
 }
 
-// CLI として直接実行されたときだけ動かす
-if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop() ?? '')) {
+/**
+ * CLI として直接実行されたか。
+ *
+ * ベース名の後方一致で判定すると2つの穴がある。
+ * - シンボリックリンク経由で起動すると `process.argv[1]` はリンクのパス、
+ *   `import.meta.url` は実体のパスになり、一致せず何もしない（偽陰性）
+ * - 同名の別ファイルがエントリポイントでこのモジュールを import すると
+ *   一致してしまい CLI が起動する（偽陽性）
+ *
+ * `realpath` で解決したうえで完全一致を見ると両方とも塞がる
+ * （直接実行=true、リンク経由=true、import された場合=false を実測で確認）。
+ */
+function isMain(): boolean {
+  const entry = process.argv[1]
+  if (!entry) return false
+  try {
+    return import.meta.url === pathToFileURL(realpathSync(entry)).href
+  } catch {
+    return false
+  }
+}
+
+if (isMain()) {
   process.stdout.write(await run(parseArgs(process.argv.slice(2))))
 }
