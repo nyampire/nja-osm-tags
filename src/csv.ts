@@ -53,13 +53,20 @@ export function parseCsvText(text: string): string[][] {
   return rows
 }
 
-/** CSV ファイルを読んで分解する */
+/**
+ * CSV ファイルを読んで分解する。
+ *
+ * ファイル全体を文字列としてメモリに載せる。薬局データ（44MB / 61,399行）で
+ * 実測 513ms / ヒープ 328MB。開発時のスクリプトとバッチ用途を想定した実装で、
+ * 任意サイズの入力には向かない。
+ */
 export async function parseCsv(url: URL): Promise<string[][]> {
   return parseCsvText(await readFile(url, 'utf8'))
 }
 
 /** CSV に書き出す。カンマ・引用符・改行を含む値だけ引用符で囲む */
 export function formatCsv(rows: string[][]): string {
+  if (rows.length === 0) return ''
   const escape = (v: string) =>
     /[",\n\r]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v
   return rows.map((r) => r.map(escape).join(',')).join('\n') + '\n'

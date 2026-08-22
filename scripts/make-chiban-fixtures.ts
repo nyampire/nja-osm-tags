@@ -11,6 +11,7 @@ import { writeFileSync } from 'node:fs'
 import { normalize } from '@geolonia/normalize-japanese-addresses'
 import { parseCsv } from '../src/csv.ts'
 import type { FixtureCase } from '../src/types.ts'
+import { maskChiban } from './maskChiban.ts'
 
 const SAMPLE = new URL('../sample/05_pharmacy_20260601.csv', import.meta.url)
 const TARGET = 100
@@ -33,8 +34,8 @@ for (const row of rows.slice(1)) {
     process.stderr.write(`走査 ${scanned} 件 / 地番 ${out.length} 件\n`)
   }
   if (!result.metadata.chiban) continue
-  // 地番の値はリポジトリに残さない。分岐を通すのに必要なのは chiban の存在だけ
-  result.metadata.chiban = { prc_num1: '0', prc_num2: '0', prc_num3: '0' }
+  // 地番の値と地番由来の座標をリポジトリに残さない
+  maskChiban(result)
   out.push({ label: `chiban/${out.length}`, input, result })
 }
 

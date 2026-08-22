@@ -55,4 +55,8 @@ describe('formatCsv', () => {
   it('複数行を改行で連結する', () => {
     expect(formatCsv([['a'], ['b']])).toBe('a\nb\n')
   })
+
+  it('行が無ければ空文字列を返す', () => {
+    expect(formatCsv([])).toBe('')
+  })
 })

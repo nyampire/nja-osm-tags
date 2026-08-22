@@ -8,6 +8,7 @@
 import { writeFileSync } from 'node:fs'
 import { normalize } from '@geolonia/normalize-japanese-addresses'
 import type { FixtureCase } from '../src/types.ts'
+import { maskChiban } from './maskChiban.ts'
 
 const CASES: [label: string, input: string][] = [
   ['verified/丁目なし', '東京都千代田区紀尾井町1-3'],
@@ -35,6 +36,7 @@ const CASES: [label: string, input: string][] = [
 const out: FixtureCase[] = []
 for (const [label, input] of CASES) {
   const result = await normalize(input)
+  maskChiban(result)
   out.push({ label, input, result })
   console.error(`${label}: level=${result.level}`)
 }

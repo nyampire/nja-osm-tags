@@ -507,9 +507,9 @@
           ]
         },
         "chiban": {
-          "prc_num1": "1800",
-          "prc_num2": "",
-          "prc_num3": ""
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
         }
       }
     }
@@ -567,9 +567,9 @@
           ]
         },
         "chiban": {
-          "prc_num1": "12",
-          "prc_num2": "",
-          "prc_num3": ""
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
         }
       }
     }
@@ -625,9 +625,9 @@
           ]
         },
         "chiban": {
-          "prc_num1": "384",
-          "prc_num2": "",
-          "prc_num3": ""
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
         }
       }
     }
@@ -682,9 +682,9 @@
           ]
         },
         "chiban": {
-          "prc_num1": "1",
-          "prc_num2": "1",
-          "prc_num3": ""
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
         }
       }
     }

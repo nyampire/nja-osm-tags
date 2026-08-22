@@ -14,6 +14,18 @@ describe('フィクスチャ', () => {
     }
   })
 
+  it('地番の値がマスクされている', () => {
+    const chiban = fixtures.filter((c) => c.result.metadata.chiban)
+    expect(chiban.length).toBeGreaterThan(0)
+    for (const c of chiban) {
+      expect(c.result.metadata.chiban).toEqual({
+        prc_num1: '0',
+        prc_num2: '0',
+        prc_num3: '0',
+      })
+    }
+  })
+
   it('分岐を代表するフィクスチャが揃っている', () => {
     expect(fixture('verified/丁目なし').result.metadata.rsdt).toBeTruthy()
     expect(fixture('chiban/郡あり').result.metadata.chiban).toBeTruthy()

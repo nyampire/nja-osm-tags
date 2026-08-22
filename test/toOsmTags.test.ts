@@ -111,6 +111,27 @@ describe('toOsmTags extra', () => {
     expect(extra.romaji?.city).toBe('Chiyoda-ku')
   })
 
+  it('地番方式の住所では座標を出さない', () => {
+    const { extra } = toOsmTags(fixture('chiban/郡あり').result)
+    // このフィクスチャは level 3（町字代表点）なので出る
+    expect(extra.point?.level).toBe(3)
+  })
+
+  it('rsdt に裏付けられていない level 8 の座標は出さない', () => {
+    const base = fixture('chiban/郡あり').result
+    const forged = {
+      ...base,
+      point: { lat: 1, lng: 2, level: 8 },
+      metadata: { ...base.metadata, rsdt: undefined },
+    }
+    expect(toOsmTags(forged).extra.point).toBeUndefined()
+  })
+
+  it('rsdt がある level 8 の座標は出す', () => {
+    const { extra } = toOsmTags(fixture('verified/丁目なし').result)
+    expect(extra.point?.level).toBe(8)
+  })
+
   it('カナ・ローマ字・コードをタグには入れない', () => {
     const { tags } = toOsmTags(fixture('verified/丁目なし').result)
     const keys = Object.keys(tags)
