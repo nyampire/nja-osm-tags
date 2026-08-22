@@ -65,6 +65,11 @@ describe('machiAzaTags', () => {
     }))).toEqual({ quarter: '旭町', neighbourhood: '第10地割' })
   })
 
+  it('oaza_cho がなく koaza だけなら quarter は出さない', () => {
+    expect(machiAzaTags(m({ koaza: '千国', koaza_k: 'チクニ' })))
+      .toEqual({ neighbourhood: '千国' })
+  })
+
   it('machiAza が未定義なら空を返す', () => {
     expect(machiAzaTags(undefined)).toEqual({})
   })
