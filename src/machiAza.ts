@@ -20,8 +20,13 @@ export type MachiAzaTags = {
  *
  * `decideNumbers`（src/numbers.ts）も同じ述語を使う。`machiAza` の有無だけを見ると
  * プレースホルダの形が `rsdt-not-implemented` に誤分類される。
+ *
+ * 型ガードにしているのは、呼び出し側でオプショナルチェーンを重ねずに
+ * `machiAza` を絞り込めるようにするため。
  */
-export function hasMachiAzaName(machiAza: MachiAza | undefined): boolean {
+export function hasMachiAzaName(
+  machiAza: MachiAza | undefined,
+): machiAza is MachiAza {
   if (!machiAza) return false
   return !!(machiAza.oaza_cho || machiAza.chome || machiAza.koaza)
 }
@@ -36,8 +41,7 @@ export function hasMachiAzaName(machiAza: MachiAza | undefined): boolean {
  * 「大字」「字」の接頭辞は除去しない。
  */
 export function machiAzaTags(machiAza: MachiAza | undefined): MachiAzaTags {
-  // `!machiAza` を残すのは、後続の行で TypeScript が machiAza を絞り込めるようにするため
-  if (!machiAza || !hasMachiAzaName(machiAza)) return {}
+  if (!hasMachiAzaName(machiAza)) return {}
 
   const oazaArabic = kanaHasArabic(machiAza.oaza_cho_k)
   const oaza = machiAza.oaza_cho

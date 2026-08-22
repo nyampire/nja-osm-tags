@@ -77,10 +77,7 @@ export function decideNumbers(result: NormalizeResult): NumberDecision {
     }
   }
 
-  // ここに来た時点で hasMachiAzaName(machiAza) は true なので machiAza は必ず存在する。
-  // ただし hasMachiAzaName は型ガードではない（boolean を返すだけ）ため、TypeScript の
-  // 型上は machiAza が undefined の可能性が消えない。オプショナルチェーンは型エラー回避のためだけ
-  if (machiAza?.rsdt !== true) {
+  if (machiAza.rsdt !== true) {
     return {
       numberSource: 'none',
       noNumberReason: 'rsdt-not-implemented',
