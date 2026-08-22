@@ -30,7 +30,9 @@ export function parseNumberElements(other: string): {
   const head = match[0]
   return {
     elements: head.split('-'),
-    rest: other.slice(head.length).trim(),
+    // 番地要素に取り込めなかった区切りハイフンは残余に残さない。
+    // `5-` のような入力で note に裸の `-` が出るのを防ぐ。
+    rest: other.slice(head.length).replace(/^-+/, '').trim(),
   }
 }
 
@@ -54,11 +56,12 @@ export function decideNumbers(result: NormalizeResult): NumberDecision {
       ? `${rsdt.rsdt_num}-${rsdt.rsdt_num2}`
       : rsdt.rsdt_num
     const decision: NumberDecision = {
-      housenumber,
       numberSource: 'verified',
       residue: other,
     }
+    // 値があるときだけ代入する。空文字列を入れると toOsmTags が空のタグを出す
     if (rsdt.blk_num) decision.blockNumber = rsdt.blk_num
+    if (housenumber) decision.housenumber = housenumber
     return decision
   }
 
@@ -90,7 +93,8 @@ export function decideNumbers(result: NormalizeResult): NumberDecision {
 
   const second = elements[1]
   const extras = elements.slice(2)
-  const residue = [extras.join('-'), rest].filter(Boolean).join(' ')
+  const extraElements = extras.join('-')
+  const residue = [extraElements, rest].filter(Boolean).join(' ')
 
   const decision: NumberDecision = {
     blockNumber: first,
@@ -98,6 +102,6 @@ export function decideNumbers(result: NormalizeResult): NumberDecision {
     residue,
   }
   if (second !== undefined) decision.housenumber = second
-  if (extras.length > 0) decision.extraElements = extras.join('-')
+  if (extraElements) decision.extraElements = extraElements
   return decision
 }

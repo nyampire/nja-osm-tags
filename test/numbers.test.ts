@@ -17,6 +17,19 @@ describe('parseNumberElements', () => {
   it('空文字列なら要素も rest も空', () => {
     expect(parseNumberElements('')).toEqual({ elements: [], rest: '' })
   })
+
+  it('末尾に余ったハイフンは rest に残さない', () => {
+    expect(parseNumberElements('5-')).toEqual({ elements: ['5'], rest: '' })
+    expect(parseNumberElements('5- はりまビル')).toEqual({ elements: ['5'], rest: 'はりまビル' })
+  })
+
+  it('先頭がハイフンなら要素は空', () => {
+    expect(parseNumberElements('-5')).toEqual({ elements: [], rest: '-5' })
+  })
+
+  it('要素の 0 を落とさない', () => {
+    expect(parseNumberElements('0-1')).toEqual({ elements: ['0', '1'], rest: '' })
+  })
 })
 
 /** テスト用の最小 NormalizeResult を作る */
@@ -54,6 +67,33 @@ describe('decideNumbers', () => {
 
   it('chiban と rsdt フラグなしが同時なら chiban を優先する', () => {
     const d = decideNumbers(res({ chiban: { prc_num1: '12' }, other: '', machiAza: {} }))
+    expect(d.noNumberReason).toBe('chiban')
+  })
+
+  // ガードの「位置」が要件を担保しているので、下流の全行に対して固定する。
+  // これがないと `if (chiban && machiAza?.rsdt !== true)` のような一行の編集で
+  // 地番が block_number に漏れ、しかもテストは全部通ってしまう。
+  it('chiban と rsdt 明細が同時でも chiban を優先し番地を出さない', () => {
+    const d = decideNumbers(res({
+      chiban: { prc_num1: '1800' },
+      rsdt: { blk_num: '1', rsdt_num: '3' },
+      machiAza: { rsdt: true },
+    }))
+    expect(d.blockNumber).toBeUndefined()
+    expect(d.housenumber).toBeUndefined()
+    expect(d.numberSource).toBe('none')
+    expect(d.noNumberReason).toBe('chiban')
+  })
+
+  it('chiban と 住居表示実施済み+数字で始まる残余が同時でも番地を出さない', () => {
+    const d = decideNumbers(res({
+      chiban: { prc_num1: '1800' },
+      machiAza: { rsdt: true },
+      other: '1800-1',
+    }))
+    expect(d.blockNumber).toBeUndefined()
+    expect(d.housenumber).toBeUndefined()
+    expect(d.numberSource).toBe('none')
     expect(d.noNumberReason).toBe('chiban')
   })
 
@@ -121,6 +161,20 @@ describe('decideNumbers', () => {
     expect(d.numberSource).toBe('none')
     expect(d.noNumberReason).toBe('rsdt-detail-missing')
     expect(d.residue).toBe('乙無番地')
+  })
+
+  it('街区符号を持たない住居表示は housenumber だけ出す', () => {
+    const d = decideNumbers(res({ rsdt: { rsdt_num: '3' }, machiAza: { rsdt: true } }))
+    expect(d.blockNumber).toBeUndefined()
+    expect(d.housenumber).toBe('3')
+    expect(d.numberSource).toBe('verified')
+  })
+
+  it('住居番号が空文字列なら housenumber を出さない', () => {
+    const d = decideNumbers(res({ rsdt: { blk_num: '5', rsdt_num: '' }, machiAza: { rsdt: true } }))
+    expect(d.blockNumber).toBe('5')
+    expect(d.housenumber).toBeUndefined()
+    expect(d.numberSource).toBe('verified')
   })
 
   it('残余の前後の空白を除く', () => {
