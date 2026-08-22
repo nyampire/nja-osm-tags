@@ -1,0 +1,24 @@
+{
+  "name": "nja-osm-tags",
+  "version": "0.1.0",
+  "description": "NJA (normalize-japanese-addresses) の正規化結果を OpenStreetMap の addr:* タグ形式に変換する",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "normalize": "node scripts/normalize.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@geolonia/normalize-japanese-addresses": "^3.1.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
+  },
+  "private": true
+}
