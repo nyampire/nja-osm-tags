@@ -32,12 +32,18 @@ describe('parseNumberElements', () => {
   })
 })
 
-/** テスト用の最小 NormalizeResult を作る */
+/**
+ * テスト用の最小 NormalizeResult を作る。
+ *
+ * `machiAza` に `oaza_cho` を渡すと「町字名を持つ machiAza」を表せる。省略すると
+ * `{ machiaza_id: '0000000' }` という町字名を持たないプレースホルダになる
+ * （NJA が市区町村までしか特定できなかった場合の実際の形）。
+ */
 function res(o: {
   other?: string
   rsdt?: { blk_num?: string; rsdt_num: string; rsdt_num2?: string }
   chiban?: { prc_num1: string }
-  machiAza?: { rsdt?: true } | undefined
+  machiAza?: { rsdt?: true; oaza_cho?: string } | undefined
   hasMachiAza?: boolean
 }): NormalizeResult {
   const machiAza =
@@ -120,44 +126,54 @@ describe('decideNumbers', () => {
     expect(d.residue).toBe('二俣川')
   })
 
+  // NJA は市区町村までしか特定できなかった場合 { machiaza_id: '0000000' } を返す。
+  // machiAza あり扱いすると rsdt-not-implemented に誤分類される（実測1000件中4件）
+  it('町字名を持たないプレースホルダも machiaza-unresolved', () => {
+    const d = decideNumbers(res({ machiAza: {}, other: '2343' }))
+    expect(d.blockNumber).toBeUndefined()
+    expect(d.housenumber).toBeUndefined()
+    expect(d.numberSource).toBe('none')
+    expect(d.noNumberReason).toBe('machiaza-unresolved')
+  })
+
   it('住居表示未実施なら rsdt-not-implemented', () => {
-    const d = decideNumbers(res({ machiAza: {}, other: '1800' }))
+    const d = decideNumbers(res({ machiAza: { oaza_cho: '本町' }, other: '1800' }))
     expect(d.numberSource).toBe('none')
     expect(d.noNumberReason).toBe('rsdt-not-implemented')
     expect(d.residue).toBe('1800')
   })
 
   it('住居表示実施済みで残余が2要素なら inferred', () => {
-    const d = decideNumbers(res({ machiAza: { rsdt: true }, other: '10-28 はりまビル' }))
+    const d = decideNumbers(res({ machiAza: { rsdt: true, oaza_cho: '本町' }, other: '10-28 はりまビル' }))
     expect(d).toMatchObject({ blockNumber: '10', housenumber: '28', numberSource: 'inferred', residue: 'はりまビル' })
     expect(d.extraElements).toBeUndefined()
   })
 
   it('残余が3要素なら先頭2つを番地にし、3つ目以降を extraElements と residue に残す', () => {
-    const d = decideNumbers(res({ machiAza: { rsdt: true }, other: '1-8-102' }))
+    const d = decideNumbers(res({ machiAza: { rsdt: true, oaza_cho: '本町' }, other: '1-8-102' }))
     expect(d).toMatchObject({ blockNumber: '1', housenumber: '8', numberSource: 'inferred', extraElements: '102', residue: '102' })
   })
 
   it('残余が4要素なら3つ目以降を - で連結する', () => {
-    const d = decideNumbers(res({ machiAza: { rsdt: true }, other: '1-2-3-4' }))
+    const d = decideNumbers(res({ machiAza: { rsdt: true, oaza_cho: '本町' }, other: '1-2-3-4' }))
     expect(d.extraElements).toBe('3-4')
     expect(d.residue).toBe('3-4')
   })
 
   it('3要素目以降と建物名が両方あれば residue に両方入る', () => {
-    const d = decideNumbers(res({ machiAza: { rsdt: true }, other: '1-8-102 メゾンK' }))
+    const d = decideNumbers(res({ machiAza: { rsdt: true, oaza_cho: '本町' }, other: '1-8-102 メゾンK' }))
     expect(d.extraElements).toBe('102')
     expect(d.residue).toBe('102 メゾンK')
   })
 
   it('残余が1要素なら block_number のみ', () => {
-    const d = decideNumbers(res({ machiAza: { rsdt: true }, other: '29' }))
+    const d = decideNumbers(res({ machiAza: { rsdt: true, oaza_cho: '本町' }, other: '29' }))
     expect(d).toMatchObject({ blockNumber: '29', numberSource: 'inferred' })
     expect(d.housenumber).toBeUndefined()
   })
 
   it('住居表示実施済みでも残余が数字で始まらなければ rsdt-detail-missing', () => {
-    const d = decideNumbers(res({ machiAza: { rsdt: true }, other: '乙無番地' }))
+    const d = decideNumbers(res({ machiAza: { rsdt: true, oaza_cho: '本町' }, other: '乙無番地' }))
     expect(d.numberSource).toBe('none')
     expect(d.noNumberReason).toBe('rsdt-detail-missing')
     expect(d.residue).toBe('乙無番地')

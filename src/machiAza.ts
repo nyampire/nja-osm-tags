@@ -12,6 +12,21 @@ export type MachiAzaTags = {
 }
 
 /**
+ * 町字名を1つでも持っているか。
+ *
+ * NJA は市区町村までしか特定できなかった場合、`machiAza` を省略するのではなく
+ * `{ machiaza_id: '0000000' }` というプレースホルダを返すことがある
+ * （実測1000件中4件）。どちらの形も「町字を特定できなかった」という同じ事実。
+ *
+ * `decideNumbers`（src/numbers.ts）も同じ述語を使う。`machiAza` の有無だけを見ると
+ * プレースホルダの形が `rsdt-not-implemented` に誤分類される。
+ */
+export function hasMachiAzaName(machiAza: MachiAza | undefined): boolean {
+  if (!machiAza) return false
+  return !!(machiAza.oaza_cho || machiAza.chome || machiAza.koaza)
+}
+
+/**
  * addr:quarter と addr:neighbourhood を決める。
  *
  * - chome あり  -> neighbourhood = oaza_cho + chome
@@ -21,7 +36,8 @@ export type MachiAzaTags = {
  * 「大字」「字」の接頭辞は除去しない。
  */
 export function machiAzaTags(machiAza: MachiAza | undefined): MachiAzaTags {
-  if (!machiAza) return {}
+  // `!machiAza` を残すのは、後続の行で TypeScript が machiAza を絞り込めるようにするため
+  if (!machiAza || !hasMachiAzaName(machiAza)) return {}
 
   const oazaArabic = kanaHasArabic(machiAza.oaza_cho_k)
   const oaza = machiAza.oaza_cho

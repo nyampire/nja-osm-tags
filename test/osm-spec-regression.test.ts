@@ -48,6 +48,8 @@ const EXPECTED: Record<string, { quarter?: string; neighbourhood?: string }> = {
   '長野県長野市大字鶴賀権堂町': { neighbourhood: '大字鶴賀' },
   '長野県長野市若里': { neighbourhood: '大字若里' },
   '長野県長野市若里七丁目': { neighbourhood: '若里七丁目' },
+  // NJA が machiAza を { machiaza_id: '0000000' } のプレースホルダで返すため
+  // 町字名が1つも取れない。空が正解
   '茨城県龍ケ崎市寺後': {},
   '鹿児島県志布志市志布志町志布志二丁目': { neighbourhood: '志布志町志布志二丁目' },
   '岩手県久慈市夏井町夏井第3地割': { quarter: '夏井町夏井', neighbourhood: '第3地割' },

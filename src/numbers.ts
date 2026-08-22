@@ -1,4 +1,5 @@
 import type { NormalizeResult } from '@geolonia/normalize-japanese-addresses'
+import { hasMachiAzaName } from './machiAza.ts'
 import type { NoNumberReason, NumberSource } from './types.ts'
 
 /** 残余の先頭にある数字ハイフン列 */
@@ -65,7 +66,10 @@ export function decideNumbers(result: NormalizeResult): NumberDecision {
     return decision
   }
 
-  if (!machiAza) {
+  // machiAza の有無ではなく町字名の有無で判定する。NJA は市区町村までしか
+  // 特定できなかった場合に { machiaza_id: '0000000' } を返すことがあり、
+  // それを machiAza あり扱いすると rsdt-not-implemented に誤分類される
+  if (!hasMachiAzaName(machiAza)) {
     return {
       numberSource: 'none',
       noNumberReason: 'machiaza-unresolved',
@@ -73,7 +77,10 @@ export function decideNumbers(result: NormalizeResult): NumberDecision {
     }
   }
 
-  if (machiAza.rsdt !== true) {
+  // ここに来た時点で hasMachiAzaName(machiAza) は true なので machiAza は必ず存在する。
+  // ただし hasMachiAzaName は型ガードではない（boolean を返すだけ）ため、TypeScript の
+  // 型上は machiAza が undefined の可能性が消えない。オプショナルチェーンは型エラー回避のためだけ
+  if (machiAza?.rsdt !== true) {
     return {
       numberSource: 'none',
       noNumberReason: 'rsdt-not-implemented',

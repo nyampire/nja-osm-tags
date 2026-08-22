@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { machiAzaTags } from '../src/machiAza.ts'
+import { hasMachiAzaName, machiAzaTags } from '../src/machiAza.ts'
 import type { MachiAza } from '../src/types.ts'
 
 const m = (o: Partial<MachiAza>): MachiAza => ({ machiaza_id: '0000000', ...o }) as MachiAza
@@ -72,5 +72,25 @@ describe('machiAzaTags', () => {
 
   it('machiAza が未定義なら空を返す', () => {
     expect(machiAzaTags(undefined)).toEqual({})
+  })
+
+  it('町字名を1つも持たないプレースホルダなら空を返す', () => {
+    expect(machiAzaTags(m({}))).toEqual({})
+  })
+})
+
+describe('hasMachiAzaName', () => {
+  it('未定義なら false', () => {
+    expect(hasMachiAzaName(undefined)).toBe(false)
+  })
+
+  it('machiaza_id だけのプレースホルダなら false', () => {
+    expect(hasMachiAzaName(m({}))).toBe(false)
+  })
+
+  it('oaza_cho / chome / koaza のいずれかがあれば true', () => {
+    expect(hasMachiAzaName(m({ oaza_cho: '永田町' }))).toBe(true)
+    expect(hasMachiAzaName(m({ chome: '一丁目' }))).toBe(true)
+    expect(hasMachiAzaName(m({ koaza: '字北畑' }))).toBe(true)
   })
 })
