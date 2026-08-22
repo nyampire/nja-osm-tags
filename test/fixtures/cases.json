@@ -1,0 +1,1027 @@
+[
+  {
+    "label": "verified/丁目なし",
+    "input": "東京都千代田区紀尾井町1-3",
+    "result": {
+      "pref": "東京都",
+      "city": "千代田区",
+      "town": "紀尾井町",
+      "addr": "1-3",
+      "level": 8,
+      "point": {
+        "lat": 35.679107172,
+        "lng": 139.736394597,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "東京都千代田区紀尾井町1-3",
+        "prefecture": {
+          "code": 130001,
+          "pref": "東京都",
+          "pref_k": "トウキョウト",
+          "pref_r": "Tokyo",
+          "point": [
+            139.691717,
+            35.689568
+          ]
+        },
+        "city": {
+          "code": 131016,
+          "city": "千代田区",
+          "city_k": "チヨダク",
+          "city_r": "Chiyoda-ku",
+          "point": [
+            139.753634,
+            35.694003
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0056000",
+          "oaza_cho": "紀尾井町",
+          "oaza_cho_k": "キオイチョウ",
+          "oaza_cho_r": "Kioicho",
+          "rsdt": true,
+          "point": [
+            139.73495,
+            35.681411
+          ]
+        },
+        "rsdt": {
+          "blk_num": "1",
+          "rsdt_num": "3",
+          "rsdt_num2": "",
+          "point": [
+            139.736394597,
+            35.679107172
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "verified/残余あり",
+    "input": "東京都千代田区紀尾井町1-3 東京ガーデンテラス紀尾井町 5F",
+    "result": {
+      "pref": "東京都",
+      "city": "千代田区",
+      "town": "紀尾井町",
+      "addr": "1-3",
+      "level": 8,
+      "point": {
+        "lat": 35.679107172,
+        "lng": 139.736394597,
+        "level": 8
+      },
+      "other": " 東京ガーデンテラス紀尾井町 5F",
+      "metadata": {
+        "input": "東京都千代田区紀尾井町1-3 東京ガーデンテラス紀尾井町 5F",
+        "prefecture": {
+          "code": 130001,
+          "pref": "東京都",
+          "pref_k": "トウキョウト",
+          "pref_r": "Tokyo",
+          "point": [
+            139.691717,
+            35.689568
+          ]
+        },
+        "city": {
+          "code": 131016,
+          "city": "千代田区",
+          "city_k": "チヨダク",
+          "city_r": "Chiyoda-ku",
+          "point": [
+            139.753634,
+            35.694003
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0056000",
+          "oaza_cho": "紀尾井町",
+          "oaza_cho_k": "キオイチョウ",
+          "oaza_cho_r": "Kioicho",
+          "rsdt": true,
+          "point": [
+            139.73495,
+            35.681411
+          ]
+        },
+        "rsdt": {
+          "blk_num": "1",
+          "rsdt_num": "3",
+          "rsdt_num2": "",
+          "point": [
+            139.736394597,
+            35.679107172
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "verified/政令市の区+丁目",
+    "input": "大阪府大阪市浪速区日本橋西一丁目1-3",
+    "result": {
+      "pref": "大阪府",
+      "city": "大阪市浪速区",
+      "town": "日本橋西一丁目",
+      "addr": "1-3",
+      "level": 8,
+      "point": {
+        "lat": 34.660479708,
+        "lng": 135.504763906,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "大阪府大阪市浪速区日本橋西一丁目1-3",
+        "prefecture": {
+          "code": 270008,
+          "pref": "大阪府",
+          "pref_k": "オオサカフ",
+          "pref_r": "Osaka",
+          "point": [
+            135.519994,
+            34.686394
+          ]
+        },
+        "city": {
+          "code": 271110,
+          "city": "大阪市",
+          "city_k": "オオサカシ",
+          "city_r": "Osaka-shi",
+          "ward": "浪速区",
+          "ward_k": "ナニワク",
+          "ward_r": "Naniwa-ku",
+          "point": [
+            135.49955,
+            34.659419
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0006001",
+          "oaza_cho": "日本橋西",
+          "oaza_cho_k": "ニッポンバシニシ",
+          "oaza_cho_r": "Nippombashinishi",
+          "chome": "一丁目",
+          "chome_n": 1,
+          "rsdt": true,
+          "point": [
+            135.503537,
+            34.659234
+          ]
+        },
+        "rsdt": {
+          "blk_num": "1",
+          "rsdt_num": "3",
+          "rsdt_num2": "",
+          "point": [
+            135.504763906,
+            34.660479708
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "verified/算用数字告示",
+    "input": "北海道帯広市西19条南42丁目1-1",
+    "result": {
+      "pref": "北海道",
+      "city": "帯広市",
+      "town": "西十九条南四十二丁目",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 42.879689045,
+        "lng": 143.176703043,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "北海道帯広市西19条南42丁目1-1",
+        "prefecture": {
+          "code": 10006,
+          "pref": "北海道",
+          "pref_k": "ホッカイドウ",
+          "pref_r": "Hokkaido",
+          "point": [
+            141.347906782,
+            43.0639406375
+          ]
+        },
+        "city": {
+          "code": 12076,
+          "city": "帯広市",
+          "city_k": "オビヒロシ",
+          "city_r": "Obihiro-shi",
+          "point": [
+            143.196195,
+            42.924014
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0216042",
+          "oaza_cho": "西十九条南",
+          "oaza_cho_k": "ニシ１９ジョウミナミ",
+          "oaza_cho_r": "Nishi19-Jominami",
+          "chome": "四十二丁目",
+          "chome_n": 42,
+          "rsdt": true,
+          "point": [
+            143.173858,
+            42.878704
+          ]
+        },
+        "rsdt": {
+          "blk_num": "1",
+          "rsdt_num": "1",
+          "rsdt_num2": "",
+          "point": [
+            143.176703043,
+            42.879689045
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "inferred/2要素+残余",
+    "input": "秋田県秋田市山王五丁目１０－２８　はりまビル",
+    "result": {
+      "pref": "秋田県",
+      "city": "秋田市",
+      "town": "山王五丁目",
+      "level": 3,
+      "point": {
+        "lat": 39.714828,
+        "lng": 140.105046,
+        "level": 3
+      },
+      "other": "10-28 はりまビル",
+      "metadata": {
+        "input": "秋田県秋田市山王五丁目１０－２８　はりまビル",
+        "prefecture": {
+          "code": 50008,
+          "pref": "秋田県",
+          "pref_k": "アキタケン",
+          "pref_r": "Akita",
+          "point": [
+            140.10325,
+            39.718058000000006
+          ]
+        },
+        "city": {
+          "code": 52019,
+          "city": "秋田市",
+          "city_k": "アキタシ",
+          "city_r": "Akita-shi",
+          "point": [
+            140.102512,
+            39.719929
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0145005",
+          "oaza_cho": "山王",
+          "oaza_cho_k": "サンノウ",
+          "oaza_cho_r": "Sanno",
+          "chome": "五丁目",
+          "chome_n": 5,
+          "rsdt": true,
+          "point": [
+            140.105046,
+            39.714828
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "inferred/3要素",
+    "input": "大阪府大阪市城東区野江４－１－８－１０２",
+    "result": {
+      "pref": "大阪府",
+      "city": "大阪市城東区",
+      "town": "野江四丁目",
+      "level": 3,
+      "point": {
+        "lat": 34.709863,
+        "lng": 135.540423,
+        "level": 3
+      },
+      "other": "1-8-102",
+      "metadata": {
+        "input": "大阪府大阪市城東区野江４－１－８－１０２",
+        "prefecture": {
+          "code": 270008,
+          "pref": "大阪府",
+          "pref_k": "オオサカフ",
+          "pref_r": "Osaka",
+          "point": [
+            135.519994,
+            34.686394
+          ]
+        },
+        "city": {
+          "code": 271187,
+          "city": "大阪市",
+          "city_k": "オオサカシ",
+          "city_r": "Osaka-shi",
+          "ward": "城東区",
+          "ward_k": "ジョウトウク",
+          "ward_r": "Joto-ku",
+          "point": [
+            135.544472,
+            34.703253
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0007004",
+          "oaza_cho": "野江",
+          "oaza_cho_k": "ノエ",
+          "oaza_cho_r": "Noe",
+          "chome": "四丁目",
+          "chome_n": 4,
+          "rsdt": true,
+          "point": [
+            135.540423,
+            34.709863
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "inferred/2要素",
+    "input": "東京都千代田区丸の内二丁目7-2",
+    "result": {
+      "pref": "東京都",
+      "city": "千代田区",
+      "town": "丸の内二丁目",
+      "level": 3,
+      "point": {
+        "lat": 35.680022,
+        "lng": 139.763447,
+        "level": 3
+      },
+      "other": "7-2",
+      "metadata": {
+        "input": "東京都千代田区丸の内二丁目7-2",
+        "prefecture": {
+          "code": 130001,
+          "pref": "東京都",
+          "pref_k": "トウキョウト",
+          "pref_r": "Tokyo",
+          "point": [
+            139.691717,
+            35.689568
+          ]
+        },
+        "city": {
+          "code": 131016,
+          "city": "千代田区",
+          "city_k": "チヨダク",
+          "city_r": "Chiyoda-ku",
+          "point": [
+            139.753634,
+            35.694003
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0011002",
+          "oaza_cho": "丸の内",
+          "oaza_cho_k": "マルノウチ",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "rsdt": true,
+          "point": [
+            139.763447,
+            35.680022
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "inferred/1要素",
+    "input": "青森県八戸市田向５丁目２９",
+    "result": {
+      "pref": "青森県",
+      "city": "八戸市",
+      "town": "田向五丁目",
+      "level": 3,
+      "point": {
+        "lat": 40.489433,
+        "lng": 141.513102,
+        "level": 3
+      },
+      "other": "29",
+      "metadata": {
+        "input": "青森県八戸市田向５丁目２９",
+        "prefecture": {
+          "code": 20001,
+          "pref": "青森県",
+          "pref_k": "アオモリケン",
+          "pref_r": "Aomori",
+          "point": [
+            140.740087,
+            40.824338
+          ]
+        },
+        "city": {
+          "code": 22039,
+          "city": "八戸市",
+          "city_k": "ハチノヘシ",
+          "city_r": "Hachinohe-shi",
+          "point": [
+            141.488404,
+            40.512278
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0118005",
+          "oaza_cho": "田向",
+          "oaza_cho_k": "タムカイ",
+          "oaza_cho_r": "Tamukai",
+          "chome": "五丁目",
+          "chome_n": 5,
+          "rsdt": true,
+          "point": [
+            141.513102,
+            40.489433
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/郡あり",
+    "input": "和歌山県東牟婁郡串本町串本1800",
+    "result": {
+      "pref": "和歌山県",
+      "city": "東牟婁郡串本町",
+      "town": "串本",
+      "addr": "1800",
+      "level": 8,
+      "point": {
+        "lat": 33.470358,
+        "lng": 135.779952,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "和歌山県東牟婁郡串本町串本1800",
+        "prefecture": {
+          "code": 300004,
+          "pref": "和歌山県",
+          "pref_k": "ワカヤマケン",
+          "pref_r": "Wakayama",
+          "point": [
+            135.16745,
+            34.225994
+          ]
+        },
+        "city": {
+          "code": 304280,
+          "county": "東牟婁郡",
+          "county_k": "ヒガシムログン",
+          "county_r": "Higashimuro-gun",
+          "city": "串本町",
+          "city_k": "クシモトチョウ",
+          "city_r": "Kushimoto-cho",
+          "point": [
+            135.786998,
+            33.485693
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0011000",
+          "oaza_cho": "串本",
+          "oaza_cho_k": "クシモト",
+          "oaza_cho_r": "Kushimoto",
+          "point": [
+            135.779952,
+            33.470358
+          ]
+        },
+        "chiban": {
+          "prc_num1": "1800",
+          "prc_num2": "",
+          "prc_num3": ""
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/政令市の区+残余",
+    "input": "大阪府堺市北区東浅香山町３－１２　千創ビル１階",
+    "result": {
+      "pref": "大阪府",
+      "city": "堺市北区",
+      "town": "東浅香山町三丁",
+      "addr": "12",
+      "level": 8,
+      "point": {
+        "lat": 34.585548,
+        "lng": 135.510415,
+        "level": 3
+      },
+      "other": " 千創ビル1階",
+      "metadata": {
+        "input": "大阪府堺市北区東浅香山町３－１２　千創ビル１階",
+        "prefecture": {
+          "code": 270008,
+          "pref": "大阪府",
+          "pref_k": "オオサカフ",
+          "pref_r": "Osaka",
+          "point": [
+            135.519994,
+            34.686394
+          ]
+        },
+        "city": {
+          "code": 271462,
+          "city": "堺市",
+          "city_k": "サカイシ",
+          "city_r": "Sakai-shi",
+          "ward": "北区",
+          "ward_k": "キタク",
+          "ward_r": "Kita-ku",
+          "point": [
+            135.51719200000002,
+            34.565478
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0061003",
+          "oaza_cho": "東浅香山町",
+          "oaza_cho_k": "ヒガシアサカヤマチョウ",
+          "oaza_cho_r": "Higashiasakayamacho",
+          "chome": "三丁",
+          "chome_n": 3,
+          "point": [
+            135.510415,
+            34.585548
+          ]
+        },
+        "chiban": {
+          "prc_num1": "12",
+          "prc_num2": "",
+          "prc_num3": ""
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/通り名",
+    "input": "京都府京都市中京区河原町通二条下る一之船入町384",
+    "result": {
+      "pref": "京都府",
+      "city": "京都市中京区",
+      "town": "一之船入町",
+      "addr": "384",
+      "level": 8,
+      "point": {
+        "lat": 35.01217,
+        "lng": 135.769483,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "京都府京都市中京区河原町通二条下る一之船入町384",
+        "prefecture": {
+          "code": 260002,
+          "pref": "京都府",
+          "pref_k": "キョウトフ",
+          "pref_r": "Kyoto",
+          "point": [
+            135.755635,
+            35.021279
+          ]
+        },
+        "city": {
+          "code": 261041,
+          "city": "京都市",
+          "city_k": "キョウトシ",
+          "city_r": "Kyoto-shi",
+          "ward": "中京区",
+          "ward_k": "ナカギョウク",
+          "ward_r": "Nakagyo-ku",
+          "point": [
+            135.751433,
+            35.01040400000001
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0029000",
+          "oaza_cho": "一之船入町",
+          "oaza_cho_k": "イチノフナイリチョウ",
+          "oaza_cho_r": "Ichinofunairicho",
+          "point": [
+            135.769483,
+            35.01217
+          ]
+        },
+        "chiban": {
+          "prc_num1": "384",
+          "prc_num2": "",
+          "prc_num3": ""
+        }
+      }
+    }
+  },
+  {
+    "label": "chiban/丁目漢数字告示",
+    "input": "千葉県流山市江戸川台西4丁目1-1",
+    "result": {
+      "pref": "千葉県",
+      "city": "流山市",
+      "town": "江戸川台西四丁目",
+      "addr": "1-1",
+      "level": 8,
+      "point": {
+        "lat": 35.892038,
+        "lng": 139.907837,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "千葉県流山市江戸川台西4丁目1-1",
+        "prefecture": {
+          "code": 120006,
+          "pref": "千葉県",
+          "pref_k": "チバケン",
+          "pref_r": "Chiba",
+          "point": [
+            140.123184,
+            35.604588
+          ]
+        },
+        "city": {
+          "code": 122203,
+          "city": "流山市",
+          "city_k": "ナガレヤマシ",
+          "city_r": "Nagareyama-shi",
+          "point": [
+            139.902586,
+            35.856287
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0004004",
+          "oaza_cho": "江戸川台西",
+          "oaza_cho_k": "エドガワダイニシ",
+          "oaza_cho_r": "Edogawadai Nishi",
+          "chome": "四丁目",
+          "chome_n": 4,
+          "point": [
+            139.907837,
+            35.892038
+          ]
+        },
+        "chiban": {
+          "prc_num1": "1",
+          "prc_num2": "1",
+          "prc_num3": ""
+        }
+      }
+    }
+  },
+  {
+    "label": "koaza/大字と字の接頭辞",
+    "input": "青森県南津軽郡藤崎町藤崎西村井",
+    "result": {
+      "pref": "青森県",
+      "city": "南津軽郡藤崎町",
+      "town": "大字藤崎字西村井",
+      "level": 3,
+      "point": {
+        "lat": 40.656064,
+        "lng": 140.502824,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "青森県南津軽郡藤崎町藤崎西村井",
+        "prefecture": {
+          "code": 20001,
+          "pref": "青森県",
+          "pref_k": "アオモリケン",
+          "pref_r": "Aomori",
+          "point": [
+            140.740087,
+            40.824338
+          ]
+        },
+        "city": {
+          "code": 23612,
+          "county": "南津軽郡",
+          "county_k": "ミナミツガルグン",
+          "county_r": "Minamitsugaru-gun",
+          "city": "藤崎町",
+          "city_k": "フジサキマチ",
+          "city_r": "Fujisaki-machi",
+          "point": [
+            140.502824,
+            40.656064
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0020127",
+          "oaza_cho": "大字藤崎",
+          "oaza_cho_k": "オオアザフジサキ",
+          "oaza_cho_r": "Fujisaki",
+          "koaza": "字西村井",
+          "koaza_k": "アザニシムライ"
+        }
+      }
+    }
+  },
+  {
+    "label": "koaza/接頭辞なし大字",
+    "input": "福島県郡山市安積町柴宮東",
+    "result": {
+      "pref": "福島県",
+      "city": "郡山市",
+      "town": "安積町字柴宮東",
+      "level": 3,
+      "point": {
+        "lat": 37.400455,
+        "lng": 140.35965,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "福島県郡山市安積町柴宮東",
+        "prefecture": {
+          "code": 70009,
+          "pref": "福島県",
+          "pref_k": "フクシマケン",
+          "pref_r": "Fukushima",
+          "point": [
+            140.467734,
+            37.749957
+          ]
+        },
+        "city": {
+          "code": 72036,
+          "city": "郡山市",
+          "city_k": "コオリヤマシ",
+          "city_r": "Koriyama-shi",
+          "point": [
+            140.35965,
+            37.400455
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0245101",
+          "oaza_cho": "安積町",
+          "oaza_cho_k": "アサカマチ",
+          "koaza": "字柴宮東",
+          "koaza_k": "アザシバミヤヒガシ"
+        }
+      }
+    }
+  },
+  {
+    "label": "koaza/大字を途中に含む",
+    "input": "青森県八戸市南郷大字中野舘野",
+    "result": {
+      "pref": "青森県",
+      "city": "八戸市",
+      "town": "南郷大字中野字舘野",
+      "level": 3,
+      "point": {
+        "lat": 40.512278,
+        "lng": 141.488404,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "青森県八戸市南郷大字中野舘野",
+        "prefecture": {
+          "code": 20001,
+          "pref": "青森県",
+          "pref_k": "アオモリケン",
+          "pref_r": "Aomori",
+          "point": [
+            140.740087,
+            40.824338
+          ]
+        },
+        "city": {
+          "code": 22039,
+          "city": "八戸市",
+          "city_k": "ハチノヘシ",
+          "city_r": "Hachinohe-shi",
+          "point": [
+            141.488404,
+            40.512278
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0101117",
+          "oaza_cho": "南郷大字中野",
+          "oaza_cho_k": "ナンゴウオオアザナカノ",
+          "koaza": "字舘野",
+          "koaza_k": "アザタテノ"
+        }
+      }
+    }
+  },
+  {
+    "label": "machiaza-unresolved",
+    "input": "神奈川県横浜市旭区二俣川",
+    "result": {
+      "pref": "神奈川県",
+      "city": "横浜市旭区",
+      "other": "二俣川",
+      "level": 2,
+      "point": {
+        "lat": 35.474761,
+        "lng": 139.5448,
+        "level": 2
+      },
+      "metadata": {
+        "input": "神奈川県横浜市旭区二俣川",
+        "prefecture": {
+          "code": 140007,
+          "pref": "神奈川県",
+          "pref_k": "カナガワケン",
+          "pref_r": "Kanagawa",
+          "point": [
+            139.642536,
+            35.44771
+          ]
+        },
+        "city": {
+          "code": 141127,
+          "city": "横浜市",
+          "city_k": "ヨコハマシ",
+          "city_r": "Yokohama-shi",
+          "ward": "旭区",
+          "ward_k": "アサヒク",
+          "ward_r": "Asahi-ku",
+          "point": [
+            139.5448,
+            35.474761
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "chome/丁",
+    "input": "大阪府堺市堺区市之町西1丁",
+    "result": {
+      "pref": "大阪府",
+      "city": "堺市堺区",
+      "town": "市之町西一丁",
+      "level": 3,
+      "point": {
+        "lat": 34.578705,
+        "lng": 135.47335,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "大阪府堺市堺区市之町西1丁",
+        "prefecture": {
+          "code": 270008,
+          "pref": "大阪府",
+          "pref_k": "オオサカフ",
+          "pref_r": "Osaka",
+          "point": [
+            135.519994,
+            34.686394
+          ]
+        },
+        "city": {
+          "code": 271411,
+          "city": "堺市",
+          "city_k": "サカイシ",
+          "city_r": "Sakai-shi",
+          "ward": "堺区",
+          "ward_k": "サカイク",
+          "ward_r": "Sakai-ku",
+          "point": [
+            135.48302,
+            34.573354
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0070001",
+          "oaza_cho": "市之町西",
+          "oaza_cho_k": "イチノチョウニシ",
+          "oaza_cho_r": "Ichinochonishi",
+          "chome": "一丁",
+          "chome_n": 1,
+          "rsdt": true,
+          "point": [
+            135.47335,
+            34.578705
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "chome/大字なし",
+    "input": "静岡県下田市二丁目",
+    "result": {
+      "pref": "静岡県",
+      "city": "下田市",
+      "town": "二丁目",
+      "level": 3,
+      "point": {
+        "lat": 34.679536,
+        "lng": 138.945316,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "静岡県下田市二丁目",
+        "prefecture": {
+          "code": 220001,
+          "pref": "静岡県",
+          "pref_k": "シズオカケン",
+          "pref_r": "Shizuoka",
+          "point": [
+            138.383023,
+            34.976906
+          ]
+        },
+        "city": {
+          "code": 222194,
+          "city": "下田市",
+          "city_k": "シモダシ",
+          "city_r": "Shimoda-shi",
+          "point": [
+            138.945316,
+            34.679536
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0000002",
+          "chome": "二丁目",
+          "chome_n": 2,
+          "rsdt": true
+        }
+      }
+    }
+  },
+  {
+    "label": "rsdt-detail-missing/数字で始まらない",
+    "input": "長野県北安曇郡小谷村千国乙無番地",
+    "result": {
+      "pref": "長野県",
+      "city": "北安曇郡小谷村",
+      "town": "千国",
+      "level": 3,
+      "point": {
+        "lat": 36.756786,
+        "lng": 137.894825,
+        "level": 3
+      },
+      "other": "乙無番地",
+      "metadata": {
+        "input": "長野県北安曇郡小谷村千国乙無番地",
+        "prefecture": {
+          "code": 200000,
+          "pref": "長野県",
+          "pref_k": "ナガノケン",
+          "pref_r": "Nagano",
+          "point": [
+            138.180991,
+            36.65131
+          ]
+        },
+        "city": {
+          "code": 204862,
+          "county": "北安曇郡",
+          "county_k": "キタアヅミグン",
+          "county_r": "Kitaazumi-gun",
+          "city": "小谷村",
+          "city_k": "オタリムラ",
+          "city_r": "Otari-mura",
+          "point": [
+            137.908305,
+            36.779206
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0000141",
+          "koaza": "千国",
+          "koaza_k": "チクニ",
+          "koaza_r": "Chikuni",
+          "point": [
+            137.894825,
+            36.756786
+          ]
+        }
+      }
+    }
+  }
+]
