@@ -47,7 +47,7 @@ export function toOsmTags(
   result: NormalizeResult,
   options: Options = {},
 ): ConversionResult {
-  const { prefecture, city, machiAza, rsdt } = result.metadata
+  const { prefecture, city, machiAza, rsdt, chiban } = result.metadata
   const tags: OsmTags = {}
 
   if (options.country !== false) tags['addr:country'] = 'JP'
@@ -70,8 +70,12 @@ export function toOsmTags(
 
   const extra: ConversionExtra = {}
   // 地番由来の座標は出さない。level 8 は rsdt か chiban のどちらかを伴うので、
-  // rsdt に裏付けられていない level 8 は地番由来と判断する（保守的な措置）
-  if (result.point && (result.point.level !== 8 || rsdt)) {
+  // rsdt に裏付けられていない level 8 は地番由来と判断する（保守的な措置）。
+  // chiban を明示的に除外するのは、番地の決定表（src/numbers.ts）が
+  // chiban を最上位に置いて rsdt より優先しているのと揃えるため。
+  // ここで rsdt だけを見ると、両方が返るケースで番地は落ちるのに
+  // 座標だけ通ってしまう。
+  if (result.point && (result.point.level !== 8 || (rsdt && !chiban))) {
     extra.point = {
       lat: result.point.lat,
       lng: result.point.lng,

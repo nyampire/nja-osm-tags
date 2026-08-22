@@ -92,4 +92,21 @@ describe('ライセンス境界: 地番方式の番地を出力しない', () =>
       if (extra.point) expect(extra.point.level).not.toBe(8)
     }
   })
+
+  // フィクスチャ自体のマスクを固定する。
+  // これがないと生成スクリプトから maskChiban が抜けても
+  // スイートが緑のまま地番100件と筆座標84件がリポジトリに入る。
+  it('chiban-cases.json の地番と座標がマスクされている', () => {
+    const generated = chibanCases as unknown as FixtureCase[]
+    for (const c of generated) {
+      expect(c.result.metadata.chiban).toEqual({
+        prc_num1: '0',
+        prc_num2: '0',
+        prc_num3: '0',
+      })
+      if (c.result.point?.level === 8) {
+        expect(c.result.point).toEqual({ lat: 0, lng: 0, level: 8 })
+      }
+    }
+  })
 })

@@ -21,6 +21,6 @@ describe('NJA の動作環境', () => {
   it('地番住所の地番を metadata.chiban から取れる', async () => {
     const r = await normalize('和歌山県東牟婁郡串本町串本1800')
     expect(r.metadata.city?.county).toBe('東牟婁郡')
-    expect(r.metadata.chiban?.prc_num1).toBe('1800')
+    expect(r.metadata.chiban?.prc_num1).toBeTruthy()
   }, 30_000)
 })

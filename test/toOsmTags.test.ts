@@ -132,6 +132,26 @@ describe('toOsmTags extra', () => {
     expect(extra.point?.level).toBe(8)
   })
 
+  // 番地の決定表は chiban を rsdt より優先する。座標も同じ優先順位にする。
+  // ここが揃っていないと、番地は落ちるのに座標だけ通る穴ができる。
+  it('chiban と rsdt が同時なら level 8 の座標を出さない', () => {
+    const base = fixture('verified/丁目なし').result
+    const forged = {
+      ...base,
+      point: { lat: 34.1234, lng: 135.5678, level: 8 },
+      metadata: {
+        ...base.metadata,
+        chiban: { prc_num1: '0', prc_num2: '0', prc_num3: '0' },
+      },
+    }
+    const r = toOsmTags(forged)
+    expect(r.extra.point).toBeUndefined()
+    // 番地側も落ちていることを併せて確認する
+    expect(r.tags['addr:block_number']).toBeUndefined()
+    expect(r.tags['addr:housenumber']).toBeUndefined()
+    expect(r.noNumberReason).toBe('chiban')
+  })
+
   it('カナ・ローマ字・コードをタグには入れない', () => {
     const { tags } = toOsmTags(fixture('verified/丁目なし').result)
     const keys = Object.keys(tags)
