@@ -1,5 +1,5 @@
 import type { NormalizeResult } from '@geolonia/normalize-japanese-addresses'
-import { machiAzaTags } from './machiAza.ts'
+import { hasMachiAzaName, machiAzaTags } from './machiAza.ts'
 import { buildNotes } from './notes.ts'
 import { decideNumbers } from './numbers.ts'
 import { isPointEmittable } from './point.ts'
@@ -80,7 +80,7 @@ export function toOsmTags(
   }
   if (prefecture) extra.prefectureCode = prefecture.code
   if (city) extra.cityCode = city.code
-  if (machiAza) extra.machiazaId = machiAza.machiaza_id
+  if (hasMachiAzaName(machiAza)) extra.machiazaId = machiAza.machiaza_id
   const kana = names(result, 'k')
   if (kana) extra.kana = kana
   const romaji = names(result, 'r')

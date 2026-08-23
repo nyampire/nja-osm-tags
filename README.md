@@ -17,10 +17,14 @@ npm install
 | コマンド | 内容 |
 | --- | --- |
 | `npm run normalize -- '<住所>'` | NJA の正規化結果 (`metadata` 込み) をそのまま出力する調査用 CLI |
-| `npm run batch -- --address-column <列名> <input.csv>` | CSV を一括変換して addr:* 列と備考列を足す |
+| `npm run batch -- --address-column <列名> [--lat-column <列名>] [--lng-column <列名>] <input.csv>` | CSV を一括変換して addr:* 列と備考列を足す |
 | `npm run fixtures` | テスト用フィクスチャを再生成（ネットワーク必要） |
+| `npm run fixtures:chiban` | 地番方式フィクスチャを再生成（ネットワーク必要） |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm test` | vitest (NJA の住所データ API にアクセスするためネットワークが必要) |
+
+`--lat-column` / `--lng-column` で座標列を指定すると、値が `0.0` などで無効なとき NJA の代表点で補完し、`_座標精度` に精度レベルが入る。
+地番方式の住所では座標補完が効かない（ライセンス上の措置）。
 
 ## NJA が返す階層
 

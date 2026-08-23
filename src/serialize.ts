@@ -20,6 +20,11 @@ export const OSM_TAG_COLUMNS = [
   'fixme',
 ] as const satisfies readonly (keyof OsmTags)[]
 
+/** OsmTags のキーを1つでも取りこぼしたら型エラーにする */
+type MissingTagColumn = Exclude<keyof OsmTags, (typeof OSM_TAG_COLUMNS)[number]>
+const _tagColumnsAreExhaustive: MissingTagColumn extends never ? true : false = true
+void _tagColumnsAreExhaustive
+
 /** タグではない備考列。addr:* と混ざらないよう _ を付ける */
 export const META_COLUMNS = [
   '_番地の根拠',

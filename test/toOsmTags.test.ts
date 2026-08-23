@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { toOsmTags } from '../src/toOsmTags.ts'
+import type { FixtureCase } from '../src/types.ts'
 import { fixture } from './helpers.ts'
+import sheetCases from './fixtures/sheet-cases.json' with { type: 'json' }
 
 describe('toOsmTags 階層タグ', () => {
   it('特別区', () => {
@@ -63,6 +65,14 @@ describe('toOsmTags 番地と注記', () => {
     expect(r.tags['addr:housenumber']).toBe('8')
     expect(r.numberSource).toBe('inferred')
     expect(r.tags.fixme).toBe('番地の3要素目以降を確認: 102')
+  })
+
+  it('options が buildNotes に届いている', () => {
+    const r = toOsmTags(fixture('inferred/3要素').result, { note: false, fixme: false })
+    expect(r.tags.note).toBeUndefined()
+    expect(r.tags.fixme).toBeUndefined()
+    // 番地は抑止されない
+    expect(r.tags['addr:block_number']).toBe('1')
   })
 
   it('地番方式は番地タグを出さない', () => {
@@ -150,6 +160,18 @@ describe('toOsmTags extra', () => {
     expect(r.tags['addr:block_number']).toBeUndefined()
     expect(r.tags['addr:housenumber']).toBeUndefined()
     expect(r.noNumberReason).toBe('chiban')
+  })
+
+  it('町字名を持たないプレースホルダの町字IDは出さない', () => {
+    // cases.json には該当フィクスチャがないため sheet-cases.json から拾う。
+    // NJA が市区町村までしか特定できなかったとき machiAza に
+    // { machiaza_id: '0000000' } というプレースホルダを返すケース。
+    const c = (sheetCases as unknown as FixtureCase[]).find(
+      (c) => c.label === '茨城県龍ケ崎市寺後',
+    )
+    if (!c) throw new Error('フィクスチャが見つかりません: 茨城県龍ケ崎市寺後')
+    const { extra } = toOsmTags(c.result)
+    expect(extra.machiazaId).toBeUndefined()
   })
 
   it('カナ・ローマ字・コードをタグには入れない', () => {

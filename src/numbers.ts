@@ -53,9 +53,7 @@ export function decideNumbers(result: NormalizeResult): NumberDecision {
   }
 
   if (rsdt) {
-    const housenumber = rsdt.rsdt_num2
-      ? `${rsdt.rsdt_num}-${rsdt.rsdt_num2}`
-      : rsdt.rsdt_num
+    const housenumber = [rsdt.rsdt_num, rsdt.rsdt_num2].filter(Boolean).join('-')
     const decision: NumberDecision = {
       numberSource: 'verified',
       residue: other,

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { isPointEmittable } from '../src/point.ts'
 import { toOsmTags } from '../src/toOsmTags.ts'
 import type { FixtureCase } from '../src/types.ts'
 import cases from './fixtures/cases.json' with { type: 'json' }
@@ -104,8 +105,8 @@ describe('ライセンス境界: 地番方式の番地を出力しない', () =>
         prc_num2: '0',
         prc_num3: '0',
       })
-      if (c.result.point?.level === 8) {
-        expect(c.result.point).toEqual({ lat: 0, lng: 0, level: 8 })
+      if (c.result.point && !isPointEmittable(c.result.point, c.result.metadata)) {
+        expect(c.result.point).toEqual({ lat: 0, lng: 0, level: c.result.point.level })
       }
     }
   })

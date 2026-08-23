@@ -193,6 +193,12 @@ describe('decideNumbers', () => {
     expect(d.numberSource).toBe('verified')
   })
 
+  it('住居番号が空で支号だけあるとき先頭にハイフンを付けない', () => {
+    const d = decideNumbers(res({ rsdt: { blk_num: '5', rsdt_num: '', rsdt_num2: '2' }, machiAza: { rsdt: true, oaza_cho: '本町' } }))
+    expect(d.blockNumber).toBe('5')
+    expect(d.housenumber).toBe('2')
+  })
+
   it('残余の前後の空白を除く', () => {
     const d = decideNumbers(res({ rsdt: { blk_num: '1', rsdt_num: '3' }, machiAza: { rsdt: true }, other: '  東京ガーデンテラス 5F  ' }))
     expect(d.residue).toBe('東京ガーデンテラス 5F')
