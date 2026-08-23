@@ -5,3 +5,9 @@ dist/
 sample/
 .superpowers/
 scripts/measured.json
+
+# 手元に置くが公開しないもの
+# 設計書と実装計画は開発の経緯の記録で、利用者には不要
+docs/superpowers/
+# 特定のデータとバージョンでの測定値。すぐ古くなる
+docs/nja-coverage.md
