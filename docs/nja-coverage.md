@@ -1,7 +1,14 @@
 # NJA の番地解決カバレッジ（実データ計測）
 
-計測スクリプト: [scripts/measure-coverage.mjs](../scripts/measure-coverage.mjs)
-（seed 固定のサンプリングなので再実行で同じ1000件を引く）
+計測スクリプト: [scripts/measure-coverage.ts](../scripts/measure-coverage.ts)
+
+```bash
+node scripts/measure-coverage.ts
+```
+
+seed 固定の線形合同法でサンプリングするので、同じ入力ファイルなら再実行で同じ1000件を引く。
+入力は `sample/05_pharmacy_20260601.csv`（容量が大きいため gitignore してある）。
+ネットワークを使い、1000件で20分前後かかる。
 
 ## 対象データ
 
