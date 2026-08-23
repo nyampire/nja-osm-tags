@@ -15,9 +15,9 @@ describe('machiAzaTags', () => {
       .toEqual({ quarter: '大字藤崎', neighbourhood: '字西村井' })
   })
 
-  // ABR は同じ町名を oaza_cho+koaza と oaza_cho 単独の両方で持つことがある
-  // （札幌市白石区 南郷通は80レコードのうち40件ずつ）。分割すると同じ場所で
-  // 出力が2通りに割れるので、koaza が丁目の続きなら連結する
+  // 丁目のあとに方角が付く町名は、chome フィールドに入らないため ABR が
+  // koaza に入れる（南郷通十四丁目南 -> oaza_cho=南郷通 + koaza=十四丁目南）。
+  // 意味は丁目なので分割しない
   it('koaza が丁目の続きなら分割せず連結する', () => {
     expect(machiAzaTags(m({
       oaza_cho: '南郷通', oaza_cho_k: 'ナンゴウドオリ', koaza: '十四丁目南', koaza_k: '１４チョウメ',
@@ -28,7 +28,7 @@ describe('machiAzaTags', () => {
     }))).toEqual({ neighbourhood: '平和通1丁目北' })
   })
 
-  it('ABR がもう一方の形で返しても同じ出力になる', () => {
+  it('1フィールドで来ても同じ出力になる', () => {
     const split = machiAzaTags(m({
       oaza_cho: '南郷通', oaza_cho_k: 'ナンゴウドオリ', koaza: '十四丁目南', koaza_k: '１４チョウメ',
     }))
