@@ -15,6 +15,41 @@ describe('machiAzaTags', () => {
       .toEqual({ quarter: '大字藤崎', neighbourhood: '字西村井' })
   })
 
+  // ABR は同じ町名を oaza_cho+koaza と oaza_cho 単独の両方で持つことがある
+  // （札幌市白石区 南郷通は80レコードのうち40件ずつ）。分割すると同じ場所で
+  // 出力が2通りに割れるので、koaza が丁目の続きなら連結する
+  it('koaza が丁目の続きなら分割せず連結する', () => {
+    expect(machiAzaTags(m({
+      oaza_cho: '南郷通', oaza_cho_k: 'ナンゴウドオリ', koaza: '十四丁目南', koaza_k: '１４チョウメ',
+    }))).toEqual({ neighbourhood: '南郷通14丁目南' })
+
+    expect(machiAzaTags(m({
+      oaza_cho: '平和通', oaza_cho_k: 'ヘイワドオリ', koaza: '一丁目北', koaza_k: '１チョウメ',
+    }))).toEqual({ neighbourhood: '平和通1丁目北' })
+  })
+
+  it('ABR がもう一方の形で返しても同じ出力になる', () => {
+    const split = machiAzaTags(m({
+      oaza_cho: '南郷通', oaza_cho_k: 'ナンゴウドオリ', koaza: '十四丁目南', koaza_k: '１４チョウメ',
+    }))
+    const whole = machiAzaTags(m({
+      oaza_cho: '南郷通14丁目南', oaza_cho_k: 'ナンゴウドオリ１４チョウメミナミ',
+    }))
+    expect(split).toEqual(whole)
+  })
+
+  it('丁目形でない koaza は連結せず分割したまま', () => {
+    // 「方八丁」は地名。先頭が数字ではないので丁目の続きではない
+    expect(machiAzaTags(m({
+      oaza_cho: '安積町荒井', oaza_cho_k: 'アサカマチアライ', koaza: '字方八丁', koaza_k: 'アザホウハッチョウ',
+    }))).toEqual({ quarter: '安積町荒井', neighbourhood: '字方八丁' })
+
+    // 郡山市の小字。丁目を含むが先頭が数字ではない
+    expect(machiAzaTags(m({
+      oaza_cho: '日和田町八丁目', oaza_cho_k: 'ヒワダマチハッチョウメ', koaza: '字堰山', koaza_k: 'アザセキヤマ',
+    }))).toEqual({ quarter: '日和田町八丁目', neighbourhood: '字堰山' })
+  })
+
   it('どちらもなければ oaza_cho を neighbourhood にする', () => {
     expect(machiAzaTags(m({ oaza_cho: '二之江町', oaza_cho_k: 'ニノエチョウ' })))
       .toEqual({ neighbourhood: '二之江町' })
