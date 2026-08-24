@@ -12,8 +12,8 @@
     "fixtures:chiban": "node scripts/make-chiban-fixtures.ts"
   },
   "keywords": [],
-  "author": "",
-  "license": "UNLICENSED",
+  "author": "nyampire",
+  "license": "MIT",
   "type": "module",
   "dependencies": {
     "@geolonia/japanese-numeral": "^1.1.0",

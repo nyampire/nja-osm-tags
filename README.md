@@ -193,5 +193,10 @@ NJA を上げると期待値が変わる可能性があるので、`npm run fixt
 
 ## ライセンス
 
-未定です。
-`package.json` の `license` は `UNLICENSED` にしてあります。
+このリポジトリのコードは MIT ライセンスです（[LICENSE](LICENSE)）。
+
+出力されるデータのライセンスは以下のとおりです。
+
+* 住所データ: [Geolonia 住所データ](https://github.com/geolonia/japanese-addresses-v2), CC BY 4.0
+
+出典: アドレス・ベース・レジストリ, デジタル庁 - 住居表示住所・住居マスターデータセット
