@@ -3,7 +3,11 @@
  * 表が期待する quarter / neighbourhood と NJA の machiAza フィールドを突き合わせる。
  */
 import { readFileSync } from 'node:fs'
+import { applyApiBase } from '../src/apiBase.ts'
 import { normalize } from '@geolonia/normalize-japanese-addresses'
+
+// 取得先を NJA_API_BASE に合わせる（未設定なら Geolonia API）
+applyApiBase()
 
 /** ごく素朴な CSV パーサ (このファイルは引用符と改行なしフィールドのみ) */
 function parseCsv(text: string): string[][] {

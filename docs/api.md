@@ -125,6 +125,39 @@ type Options = {
 }
 ```
 
+## 取得先の切り替え
+
+`src/apiBase.ts` は NJA の住所データ取得先を環境変数 `NJA_API_BASE` で切り替えます。
+`src/index.ts` の読み込み時に適用されるので、`addressToOsmTags` を使う場合は何もする必要がありません。
+
+`normalize` を直接呼ぶコードを書く場合は `applyApiBase()` を呼んでください。
+呼び忘れるとその経路だけ Geolonia の API を叩き続けます。
+`test/apiBase.test.ts` がこの規約を検査します。
+
+### `resolveApiBase(raw)`
+
+値を NJA が受け付ける URL 文字列に正規化する純粋関数です。
+未設定・空文字・空白のみなら `undefined` を返します。
+
+```ts
+resolveApiBase('out/api/ja')            // → 'file:///<cwd>/out/api/ja'
+resolveApiBase('https://x/api/ja/')     // → 'https://x/api/ja'
+resolveApiBase(undefined)               // → undefined
+```
+
+`http://` `https://` `file://` で始まれば URL として扱い、それ以外は cwd 基準のパスとして解決します。
+末尾のスラッシュは除去します。NJA は `new URL(base + input)` で組み立て、`input` が `.json` で始まるためです。
+
+### `applyApiBase(env?)`
+
+解決した取得先を `config.japaneseAddressesApi` に書き、その値を返します。
+`file://` の場合は `{base}.json` の存在を確認し、なければ落とします。
+`https://` は起動時に安く検証できないので通します。
+
+現在の `config` の値と一致する場合は何もしないので、複数の入口から呼んでも安全です。
+
+`API_BASE_ENV` に環境変数名（`'NJA_API_BASE'`）を持たせてあります。
+
 ## 書き出し
 
 ### `toColumns(result, coord?)`

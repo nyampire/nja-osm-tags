@@ -13,7 +13,11 @@
  */
 import { writeFileSync } from 'node:fs'
 import { normalize } from '@geolonia/normalize-japanese-addresses'
+import { applyApiBase } from '../src/apiBase.ts'
 import { parseCsv } from '../src/csv.ts'
+
+// 取得先を NJA_API_BASE に合わせる（未設定なら Geolonia API）
+applyApiBase()
 
 const outPath = process.argv[2] ?? new URL('./measured.json', import.meta.url).pathname
 const targetCount = Number(process.argv[3] ?? 1000)

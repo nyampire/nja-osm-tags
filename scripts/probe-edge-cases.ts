@@ -1,4 +1,8 @@
+import { applyApiBase } from '../src/apiBase.ts'
 import { normalize } from '@geolonia/normalize-japanese-addresses'
+
+// 取得先を NJA_API_BASE に合わせる（未設定なら Geolonia API）
+applyApiBase()
 const cases = [
   ['無番地', '長野県北安曇郡小谷村千国乙無番地'],
   ['住居表示 支号あり', '東京都港区赤坂9-7-1-1'],

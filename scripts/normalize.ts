@@ -4,7 +4,11 @@
  *   npm run normalize -- '東京都千代田区紀尾井町1-3'
  *   npm run normalize            # 既定のサンプル住所を一括で流す
  */
+import { applyApiBase } from '../src/apiBase.ts'
 import { normalize, version } from '@geolonia/normalize-japanese-addresses'
+
+// 取得先を NJA_API_BASE に合わせる（未設定なら Geolonia API）
+applyApiBase()
 
 const DEFAULT_SAMPLES = [
   '東京都千代田区紀尾井町1-3', // 住居表示 (街区符号 + 住居番号)

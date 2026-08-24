@@ -9,7 +9,12 @@ import { writeFileSync } from 'node:fs'
 import { normalize } from '@geolonia/normalize-japanese-addresses'
 import { parseCsv } from '../src/csv.ts'
 import type { FixtureCase } from '../src/types.ts'
+import { applyApiBase } from '../src/apiBase.ts'
 import { maskChiban } from './maskChiban.ts'
+
+// 取得先を NJA_API_BASE に合わせる。部分ミラーで生成すると期待値が
+// 変わるので、適用された取得先は stderr に出る
+applyApiBase()
 
 const CASES: [label: string, input: string][] = [
   ['verified/丁目なし', '東京都千代田区紀尾井町1-3'],

@@ -20,6 +20,7 @@ TypeScript 7 は型チェック専用（`noEmit`）で、ビルド成果物は�
 **ネットワークが必要です。**
 NJA は住所データを `japanese-addresses-v2.geoloniamaps.com` から取得します。
 1住所あたり1回以上のリクエストが発生するため、オフラインでは動きません。
+手元にデータを構築すれば API を使わずに動かせます（[docs/local-mirror.md](docs/local-mirror.md)）。
 
 **逐次実行なので大量データは時間がかかります。**
 バッチ変換は1行ずつ NJA を呼びます。
@@ -105,6 +106,21 @@ CSV と GeoJSON で挙動が食い違うことはありません。
 
 API の詳細は [docs/api.md](docs/api.md) にあります。
 
+## 住所データの取得先
+
+既定では Geolonia の API を使います。
+環境変数 `NJA_API_BASE` を設定すると、そこを読みます。
+
+```bash
+export NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja
+```
+
+パスでも URL でも受けます。
+大量のデータを処理して API の負荷を避けたい場合は、手元に `japanese-addresses-v2` を構築してここを向けてください。
+構築手順と注意点は [docs/local-mirror.md](docs/local-mirror.md) にあります。
+
+適用した取得先は stderr に1行出るので、長時間のバッチでも API を叩いていないことを確認できます。
+
 ## ライセンス上の制約
 
 対象は住居表示住所のみです。
@@ -144,6 +160,10 @@ API の詳細は [docs/api.md](docs/api.md) にあります。
 仕様回帰のテストは OSM 公式のタグ付け例40件を期待値として固定します。
 ネットワーク統合のテストは `test/nja.setup.test.ts` に留めています。
 
+ローカルミラーのテストは `test/local-mirror.test.ts` にあり、ミラーが無い環境では skip します。
+`vitest.config.ts` で対象を `test/` に限定しています。既定の設定では `.data/` に構築した
+`japanese-addresses-v2` のテストまで拾ってしまうためです。
+
 バッチ CLI の行単位エラー処理は `test/batch-error.test.ts` で検証します。
 `addressToOsmTags` を差し替えて例外を投げさせるので、ネットワークを使いません。
 
@@ -160,6 +180,7 @@ NJA を上げると期待値が変わる可能性があるので、`npm run fixt
 | [docs/api.md](docs/api.md) | 公開 API と型の一覧 |
 | [docs/osm-tagging-spec.md](docs/osm-tagging-spec.md) | 正とする OSM のタグ体系と、NJA との対応の検証結果 |
 | [docs/known-limitations.md](docs/known-limitations.md) | 既知の限界 |
+| [docs/local-mirror.md](docs/local-mirror.md) | 住所データを手元に構築して API を使わずに動かす手順 |
 
 ## ライセンス
 
