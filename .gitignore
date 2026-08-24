@@ -11,3 +11,4 @@ scripts/measured.json
 docs/superpowers/
 # 特定のデータとバージョンでの測定値。すぐ古くなる
 docs/nja-coverage.md
+.data/
