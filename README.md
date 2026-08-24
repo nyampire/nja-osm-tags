@@ -115,6 +115,9 @@ API の詳細は [docs/api.md](docs/api.md) にあります。
 仕様回帰のテストは OSM 公式のタグ付け例40件を期待値として固定します。
 ネットワーク統合のテストは `test/nja.setup.test.ts` に留めています。
 
+バッチ CLI の行単位エラー処理は `test/batch-error.test.ts` で検証します。
+`addressToOsmTags` を差し替えて例外を投げさせるので、ネットワークを使いません。
+
 **フィクスチャは NJA v3.1.3 の出力を固定しています。**
 NJA を上げると期待値が変わる可能性があるので、`npm run fixtures` で再生成してから差分を確認してください。
 
