@@ -17,14 +17,17 @@ NJA が分割した日本の住所階層を、OpenStreetMap の `addr:*` タグ�
 型ストリッピングで `.ts` を直接実行するため、v22 や v24 では動きません。
 TypeScript 7 は型チェック専用（`noEmit`）で、ビルド成果物は作りません。
 
-**ネットワークが必要です。**
+**既定ではネットワークが必要です。**
 NJA は住所データを `japanese-addresses-v2.geoloniamaps.com` から取得します。
-1住所あたり1回以上のリクエストが発生するため、オフラインでは動きません。
-手元にデータを構築すれば API を使わずに動かせます（[docs/local-mirror.md](docs/local-mirror.md)）。
+1住所あたり1回以上のリクエストが発生します。
+手元にデータを構築して `NJA_API_BASE` を向ければ、ネットワークなしで動きます（[docs/local-mirror.md](docs/local-mirror.md)）。
 
 **逐次実行なので大量データは時間がかかります。**
 バッチ変換は1行ずつ NJA を呼びます。
-実測で1,000件が20分前後なので、6万件なら20時間程度を見込んでください。
+API 経由の実測は1,000件で20分前後でした。
+件数に比例させると6万件で20時間ですが、線形とは限りません。
+リクエスト数の下限は「1 + 自治体数 + 明細を持つ町字の数」で決まり、住所が地理的に散らばるほど上がります。
+ローカルミラーを使った場合の実測はまだ取っていません。
 
 ## 導入
 
@@ -144,7 +147,8 @@ export NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja
 
 | コマンド | 内容 |
 | --- | --- |
-| `npm test` | vitest。ネットワークが必要 |
+| `npm test` | vitest。332件のうち16件がネットワークを使う |
+| `npm run test:watch` | vitest のウォッチモード |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run normalize -- '<住所>'` | NJA の正規化結果を `metadata` 込みで出力する調査用 CLI |
 | `npm run batch -- <オプション> <input.csv>` | CSV の一括変換。`--format geojson` で GeoJSON 出力 |
@@ -153,19 +157,24 @@ export NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja
 
 ## 開発
 
-テストは4層に分かれています。
+全332件のうち309件はネットワークを使いません。
 
-純粋関数のテストは `test/fixtures/` に固定した NJA の実結果を使うので、ネットワークを使いません。
-ライセンス境界のテストは `test/license-boundary.test.ts` に独立させ、地番方式のフィクスチャ100件で番地と座標が出力されないことを検証します。
-仕様回帰のテストは OSM 公式のタグ付け例40件を期待値として固定します。
-ネットワーク統合のテストは `test/nja.setup.test.ts` に留めています。
+| 区分 | 件数 | 対象 |
+| --- | --- | --- |
+| ネットワーク不要 | 309 | `test/fixtures/` に固定した NJA の実結果を使う |
+| ネットワークが必要 | 16 | `index.test.ts` `nja.setup.test.ts` `batch.test.ts` |
+| ローカルミラーが必要 | 7 | `local-mirror.test.ts`。ミラーが無い環境では skip |
 
-ローカルミラーのテストは `test/local-mirror.test.ts` にあり、ミラーが無い環境では skip します。
-`vitest.config.ts` で対象を `test/` に限定しています。既定の設定では `.data/` に構築した
-`japanese-addresses-v2` のテストまで拾ってしまうためです。
+主要なものを挙げます。
 
+ライセンス境界のテストは `test/license-boundary.test.ts` に独立させ、地番方式のフィクスチャ100件で番地と座標が出力されないことを検証します（111件）。
+仕様回帰のテストは OSM 公式のタグ付け例40件を期待値として固定します（42件）。
 バッチ CLI の行単位エラー処理は `test/batch-error.test.ts` で検証します。
 `addressToOsmTags` を差し替えて例外を投げさせるので、ネットワークを使いません。
+取得先の切り替えは `test/apiBase.test.ts` で検証し、`normalize` を呼ぶファイルが全て `applyApiBase` を通っているかも併せて検査します。
+
+`vitest.config.ts` で対象を `test/` に限定しています。
+既定の設定では `.data/` に構築した `japanese-addresses-v2` のテストまで拾い、そちらが相対パスの `out/` に地番データを書き出してしまうためです。
 
 **フィクスチャは NJA v3.1.3 の出力を固定しています。**
 NJA を上げると期待値が変わる可能性があるので、`npm run fixtures` で再生成してから差分を確認してください。
