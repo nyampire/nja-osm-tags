@@ -154,8 +154,14 @@ describe('取得先の適用漏れ', () => {
         const path = `${root}/${name}`
         const source = readFileSync(new URL(name, dir), 'utf-8')
 
-        // 型だけの import は normalize を呼ばない
-        const callsNormalize = /(?<!\w)normalize\(/.test(source)
+        // NJA の normalize を「値として」import しているかで判定する。
+        // 呼び出し名で探すと String.prototype.normalize（src/toOsmTags.ts の
+        // NFC 正規化）を誤検出する。型だけの import（NormalizeResult）は
+        // 実行時に normalize を呼ばないので対象外。
+        const callsNormalize =
+          /import\s+(?!type\b)\{[^}]*\bnormalize\b[^}]*\}\s+from\s+'@geolonia\/normalize-japanese-addresses'/.test(
+            source,
+          )
         if (!callsNormalize) continue
 
         const applies =

@@ -180,3 +180,58 @@ describe('toOsmTags extra', () => {
     expect(keys.every((k) => k.startsWith('addr:') || k === 'note' || k === 'fixme')).toBe(true)
   })
 })
+
+/**
+ * ABR は一部の町字名を CJK互換漢字で持つ。全国751,304レコードのうち938件が該当し、
+ * 出現するのは oaza_cho（404件）と koaza（446件）のみ（2026-08-24 のデータで実測）。
+ *
+ * 「塚」U+FA10 は標準の U+585A と Unicode 上「正規等価」で、適合処理はどちらに
+ * 置き換えてもよい。つまり NFC は異体字を潰す操作ではなく、同一文字の符号化を
+ * 揃える操作である。実在する異体字（正規分解を持たないもの）は NFC でも変化しない。
+ */
+describe('toOsmTags の文字正規化', () => {
+  /** CJK互換漢字の「塚」。標準形は U+585A */
+  const TSUKA_COMPAT = '塚'
+  const TSUKA_NFC = '塚'
+  /** 「﨑」。正規分解を持たないため NFC でも変化しない。「崎」U+5D0E とは別字 */
+  const SAKI = '﨑'
+
+  it('正規等価な互換漢字は NFC 正規形に直す', () => {
+    const r = structuredClone(fixture('verified/丁目なし').result)
+    r.metadata.machiAza = {
+      machiaza_id: '0001000',
+      oaza_cho: `戸${TSUKA_COMPAT}町`,
+      oaza_cho_k: 'トツカチョウ',
+    }
+    expect(toOsmTags(r).tags['addr:neighbourhood']).toBe(`戸${TSUKA_NFC}町`)
+  })
+
+  it('note に入る残余も正規化する', () => {
+    const r = structuredClone(fixture('verified/残余あり').result)
+    r.other = `戸${TSUKA_COMPAT}ビル`
+    expect(toOsmTags(r).tags.note).toBe(`戸${TSUKA_NFC}ビル`)
+  })
+
+  it('正規分解を持たない異体字はそのまま残す', () => {
+    const r = structuredClone(fixture('verified/丁目なし').result)
+    r.metadata.machiAza = {
+      machiaza_id: '0001000',
+      oaza_cho: `山${SAKI}町`,
+      oaza_cho_k: 'ヤマサキチョウ',
+    }
+    expect(toOsmTags(r).tags['addr:neighbourhood']).toBe(`山${SAKI}町`)
+  })
+})
+
+/**
+ * NFKC を使うと互換分解まで適用され、別の文字に化ける。
+ * 実データの残余に「池田ビルⅢ」（docs/nja-coverage.md の分類A の例）があり、
+ * NFKC では「池田ビルIII」になる。建物名を書き換えてはいけない。
+ */
+describe('toOsmTags の文字正規化は NFC であって NFKC ではない', () => {
+  it('互換分解を持つ文字（ローマ数字など）は分解しない', () => {
+    const r = structuredClone(fixture('verified/残余あり').result)
+    r.other = '池田ビルⅢ 1階'
+    expect(toOsmTags(r).tags.note).toBe('池田ビルⅢ 1階')
+  })
+})

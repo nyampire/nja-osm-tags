@@ -11,9 +11,21 @@ import type {
   OsmTags,
 } from './types.ts'
 
-/** undefined と空文字列を落として代入する */
+/**
+ * undefined と空文字列を落として代入する。値は NFC 正規形に直す。
+ *
+ * ABR は一部の町字名を CJK互換漢字で持つ（「塚」U+FA10 など）。標準形と
+ * 正規等価な文字なので、そのまま出すと見た目が同じまま別のコードポイントが
+ * OSM に入り、既存データと照合できなくなる。
+ *
+ * NFC は正規等価な文字の符号化を揃えるだけで、正規分解を持たない異体字
+ * （「﨑」U+FA11 など）は変化させない。異体字の地名は保たれる。
+ *
+ * タグを出す経路をここに集約してあるので、note に載る利用者の入力文字列も
+ * 同じ規則で正規化される。
+ */
 function set(tags: OsmTags, key: keyof OsmTags, value: string | undefined): void {
-  if (value) tags[key] = value
+  if (value) tags[key] = value.normalize('NFC')
 }
 
 function names(
