@@ -8,10 +8,11 @@ export {
   OSM_TAG_COLUMNS,
   noNumberReasonLabel,
   numberSourceLabel,
+  resolveCoord,
   toColumns,
   toGeoJsonFeature,
 } from './serialize.ts'
-export type { GeoJsonFeature } from './serialize.ts'
+export type { GeoJsonFeature, ResolvedCoord } from './serialize.ts'
 export type {
   AddressNames,
   ConversionExtra,

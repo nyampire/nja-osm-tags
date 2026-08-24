@@ -72,7 +72,36 @@ npm run batch -- --address-column 所在地 --lat-column 緯度 --lng-column 経
 分類による振り分けはしないので、`_番地の根拠` と `_備考` で絞ってください。
 
 座標列を指定すると、値が `0.0` などで無効なとき NJA の代表点で補完し、精度レベルを `_座標精度` に入れます。
-地番方式の住所では補完が効きません。
+地番の位置（`point.level === 8` かつ地番方式）は補完に使いません。
+
+`--format geojson` を付けると FeatureCollection を出します。
+
+```bash
+npm run batch -- --address-column 所在地 --lat-column 緯度 --lng-column 経度 --format geojson input.csv > out.geojson
+```
+
+CSV との違いは3点です。
+元の列とタグは `properties` に入り、値が空のタグは省かれます。
+座標は `[経度, 緯度]` の順で `geometry` に入ります。
+座標が決まらない行は `geometry` を `null` にして残します（RFC 7946 が認める形）。
+
+```json
+{
+  "type": "Feature",
+  "geometry": { "type": "Point", "coordinates": [139.736, 35.679] },
+  "properties": {
+    "ID": "1",
+    "addr:city": "千代田区",
+    "addr:neighbourhood": "紀尾井町",
+    "addr:block_number": "1",
+    "addr:housenumber": "3",
+    "_番地の根拠": "照合済み"
+  }
+}
+```
+
+補完の判定は `resolveCoord` の1箇所だけです。
+CSV と GeoJSON で挙動が食い違うことはありません。
 
 API の詳細は [docs/api.md](docs/api.md) にあります。
 
@@ -102,7 +131,7 @@ API の詳細は [docs/api.md](docs/api.md) にあります。
 | `npm test` | vitest。ネットワークが必要 |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run normalize -- '<住所>'` | NJA の正規化結果を `metadata` 込みで出力する調査用 CLI |
-| `npm run batch -- <オプション> <input.csv>` | CSV の一括変換 |
+| `npm run batch -- <オプション> <input.csv>` | CSV の一括変換。`--format geojson` で GeoJSON 出力 |
 | `npm run fixtures` | テスト用フィクスチャの再生成 |
 | `npm run fixtures:chiban` | 地番方式フィクスチャの再生成。`sample/` が必要 |
 

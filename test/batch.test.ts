@@ -101,3 +101,71 @@ describe('run', () => {
     expect(rows[1]![header.indexOf('addr:province')]).toBe('東京都')
   }, 60_000)
 })
+
+describe('run --format geojson', () => {
+  it('FeatureCollection を返し、座標は [lng, lat] の順になる', async () => {
+    const out = await run({
+      format: 'geojson',
+      input: TINY,
+      addressColumn: '所在地',
+      latColumn: '緯度',
+      lngColumn: '経度',
+    })
+    const fc = JSON.parse(out)
+    expect(fc.type).toBe('FeatureCollection')
+    expect(fc.features).toHaveLength(3)
+
+    const a = fc.features[0]
+    expect(a.type).toBe('Feature')
+    expect(a.geometry.type).toBe('Point')
+    // RFC 7946 は経度が先。CSV の _lng / _lat とは順序が逆になる
+    expect(a.geometry.coordinates).toEqual([139.736, 35.679])
+    expect(a.properties['addr:city']).toBe('千代田区')
+    expect(a.properties['addr:block_number']).toBe('1')
+    expect(a.properties['_番地の根拠']).toBe('照合済み')
+    // 元データの座標を使ったので精度は入らない
+    expect(a.properties['_座標精度']).toBeUndefined()
+    // 元の列も properties に入る
+    expect(a.properties['名称']).toBe('A薬局')
+    expect(a.properties['ID']).toBe('1')
+  }, 60_000)
+
+  it('空のタグは properties に入れない', async () => {
+    const out = await run({ format: 'geojson', input: TINY, addressColumn: '所在地' })
+    const fc = JSON.parse(out)
+    // 紀尾井町には郡も区もない
+    expect(fc.features[0].properties['addr:county']).toBeUndefined()
+    expect(fc.features[0].properties['addr:suburb']).toBeUndefined()
+  }, 60_000)
+
+  it('地番方式の行は番地を出さず、町字代表点だけを座標にする', async () => {
+    const out = await run({
+      format: 'geojson',
+      input: TINY,
+      addressColumn: '所在地',
+      latColumn: '緯度',
+      lngColumn: '経度',
+    })
+    const fc = JSON.parse(out)
+    const b = fc.features[1]
+    expect(b.properties['_備考']).toBe('地番方式のため対象外')
+    expect(b.properties['addr:block_number']).toBeUndefined()
+    expect(b.properties['addr:housenumber']).toBeUndefined()
+    // 町字までは ABR 由来なので出る
+    expect(b.properties['addr:county']).toBe('東牟婁郡')
+    expect(b.properties['名称']).toBe('B薬局')
+    // 元データの座標が 0.0 なので代表点で補完される。
+    // 串本町串本は住居表示明細を持たないので level 3（町字代表点）であり、
+    // 地番の位置（level 8）ではない
+    expect(b.geometry.type).toBe('Point')
+    expect(b.properties['_座標精度']).toBe('3')
+  }, 60_000)
+
+  it('代表点で補完した場合は _座標精度 が入る', async () => {
+    const out = await run({ format: 'geojson', input: TINY, addressColumn: '所在地' })
+    const fc = JSON.parse(out)
+    const a = fc.features[0]
+    expect(a.geometry.type).toBe('Point')
+    expect(a.properties['_座標精度']).toBe('8')
+  }, 60_000)
+})

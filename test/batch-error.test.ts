@@ -88,6 +88,25 @@ describe('run の行単位エラー処理', () => {
     expect(widths.size, `列数が揃っていない: ${[...widths]}`).toBe(1)
   })
 
+  it('geojson でも失敗した行を残し、geometry を null にする', async () => {
+    const fc = JSON.parse(
+      await run({ format: 'geojson', input: ERROR_CSV, addressColumn: '所在地' }),
+    )
+    expect(fc.features).toHaveLength(3)
+
+    const failed = fc.features[1]
+    expect(failed.geometry).toBeNull()
+    expect(failed.properties['_備考']).toBe('変換に失敗: 注入した失敗')
+    // 元の列は残す
+    expect(failed.properties['所在地']).toBe('FAILトリガー')
+    // 変換できていないので addr:* は入らない
+    expect(failed.properties['addr:province']).toBeUndefined()
+
+    // 失敗の前後は変換されている
+    expect(fc.features[0].properties['addr:province']).toBe('東京都')
+    expect(fc.features[2].properties['addr:province']).toBe('東京都')
+  })
+
   it('Error 以外が投げられても文字列化して続ける', async () => {
     const rows = parseCsvText(
       await run({ input: new URL('./fixtures/tiny-throw.csv', import.meta.url), addressColumn: '所在地' }),

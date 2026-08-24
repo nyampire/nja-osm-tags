@@ -136,15 +136,41 @@ type Options = {
 toColumns(result, { lat: 35.679, lng: 139.736 })
 ```
 
-`coord` の値が数値として有効で 0 でなければそれを使い、`_座標精度` は空にします。
-無効なら `extra.point` で補完し、`_座標精度` に `point.level` を入れます。
-どちらも無ければ座標3列とも空になります。
+座標の決め方は `resolveCoord` に集約してあります。
 
-### `toGeoJsonFeature(result, lat, lng)`
+### `resolveCoord(result, coord?)`
 
-GeoJSON の Point Feature を作ります。
-座標は `[経度, 緯度]` の順です。
+出力に使う座標を1箇所で決めます。
+`coord` の値が数値として有効で 0 でなければそれを採り、`level` は付けません。
+無効なら `extra.point` で補完し、`level` に `point.level` を入れます。
+どちらも無ければ `undefined` を返します。
+
+```ts
+resolveCoord(result, { lat: 0, lng: 0 })
+// → { lat: 35.679107172, lng: 139.736394597, level: 8 }
+```
+
+`toColumns` と `toGeoJsonFeature` は両方これを呼びます。
+CSV と GeoJSON で補完の挙動が食い違わないようにするためです。
+
+### `toGeoJsonFeature(result, coord?, extraProperties?)`
+
+GeoJSON の Feature を作ります。
+座標は `[経度, 緯度]` の順です（RFC 7946）。
+
 `toColumns` と違い、出ていないタグは `properties` に入れません。
+`_番地の根拠` は必ず入り、`_備考` と `_座標精度` は値があるときだけ入ります。
+
+`extraProperties` に渡した値は `properties` の土台になります。
+バッチ CLI は元データの列をここに渡します。
+生成したタグと名前が衝突した場合は生成側が勝ちます。
+
+座標が決まらない場合は `geometry` を `null` にします。
+RFC 7946 が認めている形で、行を落とさずに残せます。
+
+```ts
+toGeoJsonFeature(result, { lat: 0, lng: 0 }, { ID: '1' })
+```
 
 ### 列の定義とラベル
 
@@ -161,7 +187,7 @@ Excel で開いて絞り込む場面を想定して、値は日本語にして�
 
 ## 型
 
-`MachiAza`、`OsmTags`、`NumberSource`、`NoNumberReason`、`AddressNames`、`ConversionExtra`、`ConversionResult`、`Options`、`GeoJsonFeature` を型として再エクスポートしています。
+`MachiAza`、`OsmTags`、`NumberSource`、`NoNumberReason`、`AddressNames`、`ConversionExtra`、`ConversionResult`、`Options`、`GeoJsonFeature`、`ResolvedCoord` を型として再エクスポートしています。
 
 ## CSV の読み書き
 

@@ -5,6 +5,9 @@
  *     --lat-column '所在地座標（緯度）' --lng-column '所在地座標（経度）' \
  *     sample/05_pharmacy_20260601.csv > out.csv
  *
+ * --format geojson で FeatureCollection を出す。座標が決まらない行は
+ * geometry を null にして残す（RFC 7946 が許す形）。
+ *
  * 分類による振り分けはしない。_番地の根拠 と _備考 で絞るほうが柔軟。
  */
 import { realpathSync } from 'node:fs'
@@ -12,9 +15,19 @@ import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { formatCsv, parseCsv } from '../src/csv.ts'
 import { addressToOsmTags } from '../src/index.ts'
-import { META_COLUMNS, OSM_TAG_COLUMNS, toColumns } from '../src/serialize.ts'
+import {
+  META_COLUMNS,
+  OSM_TAG_COLUMNS,
+  toColumns,
+  toGeoJsonFeature,
+} from '../src/serialize.ts'
+import type { GeoJsonFeature } from '../src/serialize.ts'
+
+export type OutputFormat = 'csv' | 'geojson'
 
 export type RunOptions = {
+  /** 出力形式。既定は csv */
+  format?: OutputFormat
   input: URL
   addressColumn: string
   latColumn?: string
@@ -69,8 +82,20 @@ export async function run(options: RunOptions): Promise<string> {
   const lngIndex = columnIndex(options.lngColumn)
 
   const added = [...OSM_TAG_COLUMNS, ...META_COLUMNS]
+  const geojson = options.format === 'geojson'
   const out: string[][] = [[...header, ...added]]
+  const features: GeoJsonFeature[] = []
   let rowNumber = 2 // 1行目はヘッダ
+
+  /** 元データの列を GeoJSON の properties に持ち込む。空の値は入れない */
+  const sourceProperties = (row: string[]): Record<string, string> => {
+    const props: Record<string, string> = {}
+    for (const [i, name] of header.entries()) {
+      const value = row[i]
+      if (name && value) props[name] = value
+    }
+    return props
+  }
 
   for (const row of rows.slice(1)) {
     // ファイル末尾の空行は飛ばす。1列の CSV では正当なデータ行と区別が
@@ -93,26 +118,55 @@ export async function run(options: RunOptions): Promise<string> {
 
     const address = padded[addressIndex] ?? ''
     if (!address.trim()) {
-      out.push([...padded, ...added.map(() => '')])
+      if (geojson) {
+        features.push({
+          type: 'Feature',
+          geometry: null,
+          properties: sourceProperties(padded),
+        })
+      } else {
+        out.push([...padded, ...added.map(() => '')])
+      }
       continue
     }
 
-    let columns: Record<string, string>
+    const coord = {
+      lat: latIndex >= 0 ? toNumber(padded[latIndex]) : undefined,
+      lng: lngIndex >= 0 ? toNumber(padded[lngIndex]) : undefined,
+    }
+
     try {
       const result = await addressToOsmTags(address)
-      columns = toColumns(result, {
-        lat: latIndex >= 0 ? toNumber(padded[latIndex]) : undefined,
-        lng: lngIndex >= 0 ? toNumber(padded[lngIndex]) : undefined,
-      })
+      if (geojson) {
+        features.push(toGeoJsonFeature(result, coord, sourceProperties(padded)))
+      } else {
+        const columns = toColumns(result, coord)
+        out.push([...padded, ...added.map((c) => columns[c] ?? '')])
+      }
     } catch (error) {
       // 1行の失敗で数万行のバッチを落とさない。理由を _備考 に出して続ける。
       // 利用者は _備考 で絞れば失敗行だけを取り出せる
-      columns = Object.fromEntries(added.map((c) => [c, '']))
-      columns['_備考'] = `変換に失敗: ${
+      const reason = `変換に失敗: ${
         error instanceof Error ? error.message : String(error)
       }`
+      if (geojson) {
+        features.push({
+          type: 'Feature',
+          geometry: null,
+          properties: { ...sourceProperties(padded), _備考: reason },
+        })
+      } else {
+        const columns: Record<string, string> = Object.fromEntries(
+          added.map((c) => [c, '']),
+        )
+        columns['_備考'] = reason
+        out.push([...padded, ...added.map((c) => columns[c] ?? '')])
+      }
     }
-    out.push([...padded, ...added.map((c) => columns[c] ?? '')])
+  }
+
+  if (geojson) {
+    return `${JSON.stringify({ type: 'FeatureCollection', features }, null, 2)}\n`
   }
   // BOM なし UTF-8 だと日本語 Windows の Excel で文字化けする。
   // _ 接頭辞の列は Excel で開いて絞り込むためのものなので、BOM を付ける
@@ -123,6 +177,7 @@ function parseArgs(argv: string[]): RunOptions {
   let addressColumn: string | undefined
   let latColumn: string | undefined
   let lngColumn: string | undefined
+  let format: OutputFormat | undefined
   const positional: string[] = []
 
   /** フラグの値を取り出す。欠落や別フラグの巻き込みを落とす */
@@ -140,20 +195,28 @@ function parseArgs(argv: string[]): RunOptions {
     if (arg === '--address-column') addressColumn = value(++i, arg)
     else if (arg === '--lat-column') latColumn = value(++i, arg)
     else if (arg === '--lng-column') lngColumn = value(++i, arg)
-    else if (arg.startsWith('--')) throw new Error(`不明なオプション: ${arg}`)
-    else positional.push(arg)
+    else if (arg === '--format') {
+      const v = value(++i, arg)
+      if (v !== 'csv' && v !== 'geojson') {
+        throw new Error(`--format は csv か geojson のみです: ${v}`)
+      }
+      format = v
+    } else if (arg.startsWith('--')) {
+      throw new Error(`不明なオプション: ${arg}`)
+    } else positional.push(arg)
   }
 
   const file = positional[0]
   if (!file || !addressColumn) {
     throw new Error(
-      '使い方: node bin/batch.ts --address-column <列名> [--lat-column <列名>] [--lng-column <列名>] <input.csv>',
+      '使い方: node bin/batch.ts --address-column <列名> [--lat-column <列名>] [--lng-column <列名>] [--format csv|geojson] <input.csv>',
     )
   }
   const options: RunOptions = {
     input: pathToFileURL(resolve(file)),
     addressColumn,
   }
+  if (format) options.format = format
   if (latColumn) options.latColumn = latColumn
   if (lngColumn) options.lngColumn = lngColumn
   return options

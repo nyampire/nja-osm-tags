@@ -65,11 +65,38 @@ function usable(n: number | undefined): n is number {
   return typeof n === 'number' && Number.isFinite(n) && n !== 0
 }
 
+export type ResolvedCoord = {
+  lat: number
+  lng: number
+  /** NJA の代表点で補完した場合のみ入る。元データの座標を使った場合は undefined */
+  level?: number
+}
+
+/**
+ * 座標を決める。
+ *
+ * `coord` の値が数値として有効で 0 でなければそれを使い、無効なら
+ * `extra.point` で補完する。どちらも無ければ `undefined`。
+ *
+ * CSV と GeoJSON の両方がこの述語を使う。規則を2箇所に書くと片方が腐る。
+ * 地番方式の住所では `extra.point` が空になるため、補完も効かない
+ * （ライセンス上の措置。判定は src/point.ts）。
+ */
+export function resolveCoord(
+  result: ConversionResult,
+  coord?: { lat?: number; lng?: number },
+): ResolvedCoord | undefined {
+  if (usable(coord?.lat) && usable(coord?.lng)) {
+    return { lat: coord.lat, lng: coord.lng }
+  }
+  const p = result.extra.point
+  return p ? { lat: p.lat, lng: p.lng, level: p.level } : undefined
+}
+
 /**
  * ConversionResult を CSV の列に展開する。出ていないタグは空文字列。
  *
- * 座標は coord が有効ならそれを使い、無効なら extra.point で補完する。
- * 補完したときだけ _座標精度 に point.level を入れる。
+ * 座標は resolveCoord に従う。代表点で補完したときだけ _座標精度 が入る。
  */
 export function toColumns(
   result: ConversionResult,
@@ -81,35 +108,35 @@ export function toColumns(
   out['_番地の根拠'] = numberSourceLabel(result.numberSource)
   out['_備考'] = noNumberReasonLabel(result.noNumberReason)
 
-  if (usable(coord?.lat) && usable(coord?.lng)) {
-    out._lat = String(coord.lat)
-    out._lng = String(coord.lng)
-    out._座標精度 = ''
-  } else if (result.extra.point) {
-    out._lat = String(result.extra.point.lat)
-    out._lng = String(result.extra.point.lng)
-    out._座標精度 = String(result.extra.point.level)
-  } else {
-    out._lat = ''
-    out._lng = ''
-    out._座標精度 = ''
-  }
+  const resolved = resolveCoord(result, coord)
+  out._lat = resolved ? String(resolved.lat) : ''
+  out._lng = resolved ? String(resolved.lng) : ''
+  out._座標精度 = resolved?.level !== undefined ? String(resolved.level) : ''
   return out
 }
 
 export type GeoJsonFeature = {
   type: 'Feature'
-  geometry: { type: 'Point'; coordinates: [number, number] }
+  /** 座標が決まらなかった場合は null。RFC 7946 が許す形 */
+  geometry: { type: 'Point'; coordinates: [number, number] } | null
   properties: Record<string, string>
 }
 
-/** GeoJSON の Point Feature を作る。座標は [経度, 緯度] の順 */
+/**
+ * GeoJSON の Point Feature を作る。座標は [経度, 緯度] の順。
+ *
+ * 座標は resolveCoord に従う。決まらなければ `geometry` を `null` にする。
+ * 行を落とさないためで、RFC 7946 が許す形。
+ *
+ * `extraProperties` は元データの列を持ち込むためのもの。生成した値が
+ * 同名のキーを上書きする。
+ */
 export function toGeoJsonFeature(
   result: ConversionResult,
-  lat: number,
-  lng: number,
+  coord?: { lat?: number; lng?: number },
+  extraProperties?: Record<string, string>,
 ): GeoJsonFeature {
-  const properties: Record<string, string> = {}
+  const properties: Record<string, string> = { ...extraProperties }
   for (const key of OSM_TAG_COLUMNS) {
     const value = result.tags[key]
     if (value) properties[key] = value
@@ -118,9 +145,16 @@ export function toGeoJsonFeature(
   const reason = noNumberReasonLabel(result.noNumberReason)
   if (reason) properties['_備考'] = reason
 
+  const resolved = resolveCoord(result, coord)
+  if (resolved?.level !== undefined) {
+    properties['_座標精度'] = String(resolved.level)
+  }
+
   return {
     type: 'Feature',
-    geometry: { type: 'Point', coordinates: [lng, lat] },
+    geometry: resolved
+      ? { type: 'Point', coordinates: [resolved.lng, resolved.lat] }
+      : null,
     properties,
   }
 }
