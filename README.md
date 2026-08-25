@@ -147,7 +147,7 @@ export NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja
 
 | コマンド | 内容 |
 | --- | --- |
-| `npm test` | vitest。332件のうち16件がネットワークを使う |
+| `npm test` | vitest。341件のうち16件がネットワークを使う |
 | `npm run test:watch` | vitest のウォッチモード |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run normalize -- '<住所>'` | NJA の正規化結果を `metadata` 込みで出力する調査用 CLI |
@@ -157,11 +157,11 @@ export NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja
 
 ## 開発
 
-全332件のうち309件はネットワークを使いません。
+全341件のうち318件はネットワークを使いません。
 
 | 区分 | 件数 | 対象 |
 | --- | --- | --- |
-| ネットワーク不要 | 309 | `test/fixtures/` に固定した NJA の実結果を使う |
+| ネットワーク不要 | 318 | `test/fixtures/` に固定した NJA の実結果を使う |
 | ネットワークが必要 | 16 | `index.test.ts` `nja.setup.test.ts` `batch.test.ts` |
 | ローカルミラーが必要 | 7 | `local-mirror.test.ts`。ミラーが無い環境では skip |
 

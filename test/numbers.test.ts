@@ -43,7 +43,7 @@ function res(o: {
   other?: string
   rsdt?: { blk_num?: string; rsdt_num: string; rsdt_num2?: string }
   chiban?: { prc_num1: string }
-  machiAza?: { rsdt?: true; oaza_cho?: string } | undefined
+  machiAza?: { rsdt?: true; oaza_cho?: string; machiaza_id?: string } | undefined
   hasMachiAza?: boolean
 }): NormalizeResult {
   const machiAza =
@@ -202,5 +202,51 @@ describe('decideNumbers', () => {
   it('残余の前後の空白を除く', () => {
     const d = decideNumbers(res({ rsdt: { blk_num: '1', rsdt_num: '3' }, machiAza: { rsdt: true }, other: '  東京ガーデンテラス 5F  ' }))
     expect(d.residue).toBe('東京ガーデンテラス 5F')
+  })
+})
+
+/**
+ * japanese-addresses-v2 は ABR に無い町字を国土数値情報で補完し、その
+ * レコードの machiaza_id に `MLIT:` の接頭辞を付ける。補完されたレコードは
+ * 明細（csv_ranges）を持たないので、番地は原理的に解決できない。
+ *
+ * これを rsdt-not-implemented に混ぜると「住居表示が未実施の町字」と
+ * 区別できなくなる。実際には住居表示の実施状況が不明なだけで、明細を
+ * 持つ ABR のレコードが別に存在することもある。
+ */
+describe('decideNumbers 国土数値情報由来の町字', () => {
+  const mlit = { machiaza_id: 'MLIT:242080015000', oaza_cho: '梅が丘北一番町' }
+
+  it('専用の理由を返す', () => {
+    const d = decideNumbers(res({ machiAza: mlit, other: '30' }))
+    expect(d.numberSource).toBe('none')
+    expect(d.noNumberReason).toBe('machiaza-from-mlit')
+    expect(d.blockNumber).toBeUndefined()
+    expect(d.housenumber).toBeUndefined()
+  })
+
+  it('残余はそのまま note に回す', () => {
+    const d = decideNumbers(res({ machiAza: mlit, other: '30 ○○ビル' }))
+    expect(d.residue).toBe('30 ○○ビル')
+  })
+
+  // ライセンス境界の優先順位を固定する。MLIT の判定を chiban より前に
+  // 置くと、地番方式の住所で番地が出る経路ができる
+  it('chiban があれば chiban を優先する', () => {
+    const d = decideNumbers(res({ machiAza: mlit, chiban: { prc_num1: '30' }, other: '30' }))
+    expect(d.noNumberReason).toBe('chiban')
+  })
+
+  // rsdt フラグを持つ MLIT レコードは実データに存在しない（7,617件すべてで
+  // rsdt なし）。将来 rsdt を持つようになったら明細で解決できるので、
+  // MLIT の判定より rsdt を優先する
+  it('rsdt があれば照合済みを優先する', () => {
+    const d = decideNumbers(res({ machiAza: mlit, rsdt: { blk_num: '1', rsdt_num: '2' }, other: '' }))
+    expect(d.numberSource).toBe('verified')
+  })
+
+  it('ABR 由来の町字は従来どおり住居表示未実施になる', () => {
+    const d = decideNumbers(res({ machiAza: { machiaza_id: '0015000', oaza_cho: '梅が丘北１番町' }, other: '30' }))
+    expect(d.noNumberReason).toBe('rsdt-not-implemented')
   })
 })

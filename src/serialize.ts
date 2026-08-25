@@ -51,6 +51,8 @@ export function noNumberReasonLabel(r: NoNumberReason | undefined): string {
       return '地番方式のため対象外'
     case 'rsdt-not-implemented':
       return '住居表示未実施の町字'
+    case 'machiaza-from-mlit':
+      return '国土数値情報由来の町字のため明細なし'
     case 'rsdt-detail-missing':
       return '住居表示実施済みだが番地を分解できず'
     case 'machiaza-unresolved':

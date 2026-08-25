@@ -84,6 +84,7 @@ type OsmTags = {
 | --- | --- |
 | `chiban` | 地番方式。ライセンス上、変換せず落とした |
 | `rsdt-not-implemented` | 住居表示未実施の町字 |
+| `machiaza-from-mlit` | 町字が国土数値情報由来。明細を持たないため番地を解決できない |
 | `rsdt-detail-missing` | 住居表示実施済みだが番地を分解できなかった |
 | `machiaza-unresolved` | 町字を特定できなかった |
 
@@ -97,7 +98,7 @@ type ConversionExtra = {
   point?: { lat: number; lng: number; level: number }
   prefectureCode?: number   // 全国地方公共団体コード
   cityCode?: number
-  machiazaId?: string       // ABR の町字ID
+  machiazaId?: string       // 町字ID。国土数値情報由来の町字では `MLIT:` で始まる
   kana?: AddressNames
   romaji?: AddressNames
 }

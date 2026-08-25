@@ -75,6 +75,21 @@ export function decideNumbers(result: NormalizeResult): NumberDecision {
     }
   }
 
+  // 国土数値情報で補完された町字は明細（csv_ranges）を持たないため、番地は
+  // 原理的に解決できない。rsdt フラグも無いので、この判定を置かないと
+  // 「住居表示未実施の町字」に混ざって区別できなくなる。実際には住居表示の
+  // 実施状況が不明なだけで、明細を持つ ABR のレコードが別に存在することもある。
+  //
+  // chiban と rsdt の判定より後に置く。前に置くと、地番方式の住所や明細を
+  // 持つ住所がこちらに吸われる。
+  if (machiAza.machiaza_id.startsWith('MLIT:')) {
+    return {
+      numberSource: 'none',
+      noNumberReason: 'machiaza-from-mlit',
+      residue: other,
+    }
+  }
+
   if (machiAza.rsdt !== true) {
     return {
       numberSource: 'none',

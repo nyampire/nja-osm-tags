@@ -36,6 +36,12 @@ export type NoNumberReason =
   | 'chiban'
   /** 住居表示未実施の町字 */
   | 'rsdt-not-implemented'
+  /**
+   * 町字が国土数値情報由来。明細データを持たないため番地を解決できない。
+   * japanese-addresses-v2 が ABR に無い町字を補完したレコードで、
+   * `machiaza_id` が `MLIT:` で始まる（全国7,617件、全町字の1.0%）
+   */
+  | 'machiaza-from-mlit'
   /** 住居表示実施済みだが番地を分解できなかった */
   | 'rsdt-detail-missing'
   /** 町字すら特定できず */
