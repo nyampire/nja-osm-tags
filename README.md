@@ -189,6 +189,7 @@ NJA を上げると期待値が変わる可能性があるので、`npm run fixt
 | [docs/api.md](docs/api.md) | 公開 API と型の一覧 |
 | [docs/osm-tagging-spec.md](docs/osm-tagging-spec.md) | 正とする OSM のタグ体系と、NJA との対応の検証結果 |
 | [docs/known-limitations.md](docs/known-limitations.md) | 既知の限界 |
+| [docs/chiwari.md](docs/chiwari.md) | 地割の調査記録。方針は未決定 |
 | [docs/local-mirror.md](docs/local-mirror.md) | 住所データを手元に構築して API を使わずに動かす手順 |
 
 ## ライセンス
