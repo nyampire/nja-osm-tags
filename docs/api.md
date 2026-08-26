@@ -86,7 +86,7 @@ type OsmTags = {
 | `rsdt-not-implemented` | 住居表示未実施の町字 |
 | `machiaza-from-mlit` | 町字が国土数値情報由来。明細を持たないため番地を解決できない |
 | `rsdt-detail-missing` | 住居表示実施済みだが番地を分解できなかった |
-| `machiaza-unresolved` | 町字を特定できなかった |
+| `machiaza-unresolved` | 町字を特定できなかった。NJA が入力から1文字も取らずに決めた町字も、根拠が無いのでここに入る（[town-overmatch.md](town-overmatch.md)） |
 
 ### `ConversionExtra`
 

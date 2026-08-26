@@ -235,3 +235,51 @@ describe('toOsmTags の文字正規化は NFC であって NFKC ではない', (
     expect(toOsmTags(r).tags.note).toBe('池田ビルⅢ 1階')
   })
 })
+
+describe('toOsmTags 捏造された町字', () => {
+  // 入力に町字が1文字も書かれていないのに町字が決まる自治体がある。
+  // 詳細は docs/town-overmatch.md
+  it.each([
+    'fabricated/自治体名に町',
+    'fabricated/字町町',
+    'fabricated/大字町',
+  ])('%s は町字タグを出さない', (label) => {
+    const f = fixture(label)
+    // NJA は町字を返している
+    expect(f.result.town).toBeTruthy()
+    const r = toOsmTags(f.result)
+    expect(r.tags['addr:neighbourhood']).toBeUndefined()
+    expect(r.tags['addr:quarter']).toBeUndefined()
+    expect(r.numberSource).toBe('none')
+    expect(r.noNumberReason).toBe('machiaza-unresolved')
+    expect(r.extra.machiazaId).toBeUndefined()
+    expect(r.extra.kana?.oazaCho).toBeUndefined()
+    // 七戸町。落とす前は町字代表点（level 3）が残っていた。
+    // 落としたら市区町村代表点（level 2）に差し替わる
+    if (label === 'fabricated/自治体名に町') {
+      expect(r.extra.point?.level).toBe(2)
+    }
+  })
+
+  it('入力が町字を書いていれば残す', () => {
+    const r = toOsmTags(fixture('fabricated/町字あり').result)
+    expect(r.tags['addr:neighbourhood']).toBe('大字町')
+    // machiazaId と kana は hasMachiAzaName を通るので、判定が発火すれば消える。
+    // 町字が残ったことの裏付けになる
+    expect(r.extra.machiazaId).toBe('0019000')
+    expect(r.extra.kana?.oazaCho).toBe('オオアザマチ')
+    // 番地は町字とは別の理由で落ちる。大津町の大字町は住居表示未実施で、
+    // 番地が地番方式でしか解決できないためライセンス境界に当たる。
+    // decideNumbers は chiban を hasMachiAzaName より先に判定するので、
+    // この値は判定の発火とは無関係。ここでは実測値をそのまま固定する
+    expect(r.noNumberReason).toBe('chiban')
+  })
+
+  // 市区町村より上の階層と note は変えない
+  it('市区町村までのタグは残す', () => {
+    const r = toOsmTags(fixture('fabricated/自治体名に町').result)
+    expect(r.tags['addr:province']).toBe('青森県')
+    expect(r.tags['addr:county']).toBe('上北郡')
+    expect(r.tags['addr:city']).toBe('七戸町')
+  })
+})

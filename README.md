@@ -150,7 +150,7 @@ export NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja
 
 | コマンド | 内容 |
 | --- | --- |
-| `npm test` | vitest。341件のうち16件がネットワークを使う |
+| `npm test` | vitest。384件のうち16件がネットワークを使う |
 | `npm run test:watch` | vitest のウォッチモード |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run normalize -- '<住所>'` | NJA の正規化結果を `metadata` 込みで出力する調査用 CLI |
@@ -160,17 +160,17 @@ export NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja
 
 ## 開発
 
-全341件のうち318件はネットワークを使いません。
+全384件のうち356件はネットワークを使いません。
 
 | 区分 | 件数 | 対象 |
 | --- | --- | --- |
-| ネットワーク不要 | 318 | `test/fixtures/` に固定した NJA の実結果を使う |
+| ネットワーク不要 | 356 | `test/fixtures/` に固定した NJA の実結果を使う |
 | ネットワークが必要 | 16 | `index.test.ts` `nja.setup.test.ts` `batch.test.ts` |
-| ローカルミラーが必要 | 7 | `local-mirror.test.ts`。ミラーが無い環境では skip |
+| ローカルミラーが必要 | 12 | `local-mirror.test.ts`。ミラーが無い環境では skip。うち7件は既存の3自治体ミラーで足り、`捏造される町字の母集団`（5件）だけは全国ミラーが要る |
 
 主要なものを挙げます。
 
-ライセンス境界のテストは `test/license-boundary.test.ts` に独立させ、地番方式のフィクスチャ100件で番地と座標が出力されないことを検証します（111件）。
+ライセンス境界のテストは `test/license-boundary.test.ts` に独立させ、地番方式のフィクスチャ100件で番地を出力しないこと、座標を出す場合はその level が8でないことを検証します（112件）。100件中16件は町字代表点（level 3）の座標をそのまま出力します。
 仕様回帰のテストは OSM 公式のタグ付け例40件を期待値として固定します（42件）。
 バッチ CLI の行単位エラー処理は `test/batch-error.test.ts` で検証します。
 `addressToOsmTags` を差し替えて例外を投げさせるので、ネットワークを使いません。
@@ -193,6 +193,7 @@ NJA を上げると期待値が変わる可能性があるので、`npm run fixt
 | [docs/osm-tagging-spec.md](docs/osm-tagging-spec.md) | 正とする OSM のタグ体系と、NJA との対応の検証結果 |
 | [docs/known-limitations.md](docs/known-limitations.md) | 既知の限界 |
 | [docs/chiwari.md](docs/chiwari.md) | 地割の調査記録。方針は未決定 |
+| [docs/town-overmatch.md](docs/town-overmatch.md) | 入力とは別の町字が出る不具合の調査記録 |
 | [docs/local-mirror.md](docs/local-mirror.md) | 住所データを手元に構築して API を使わずに動かす手順 |
 
 ## ライセンス

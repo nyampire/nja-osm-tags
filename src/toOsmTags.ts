@@ -1,5 +1,5 @@
 import type { NormalizeResult } from '@geolonia/normalize-japanese-addresses'
-import { hasMachiAzaName, machiAzaTags } from './machiAza.ts'
+import { dropFabricatedMachiAza, hasMachiAzaName, machiAzaTags } from './machiAza.ts'
 import { buildNotes } from './notes.ts'
 import { decideNumbers } from './numbers.ts'
 import { isPointEmittable } from './point.ts'
@@ -57,9 +57,13 @@ function names(
  * 純粋関数。ネットワークにもファイルシステムにも触れない。
  */
 export function toOsmTags(
-  result: NormalizeResult,
+  input: NormalizeResult,
   options: Options = {},
 ): ConversionResult {
+  // 入力から1文字も取らずに決まった町字はここで落とす。
+  // machiAza を見るのは machiAzaTags・decideNumbers・extra.machiazaId・names の
+  // 4箇所あるので、判定を各所に配らず入口で1回だけ潰して全員に同じものを見せる
+  const result = dropFabricatedMachiAza(input)
   const { prefecture, city, machiAza } = result.metadata
   const tags: OsmTags = {}
 

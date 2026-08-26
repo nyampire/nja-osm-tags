@@ -37,6 +37,13 @@ const CASES: [label: string, input: string][] = [
   ['chome/大字なし', '静岡県下田市二丁目'],
   ['rsdt-not-implemented/無番地', '長野県北安曇郡小谷村千国乙無番地'],
   ['rsdt-detail-missing/数字で始まらない', '大阪府高槻市別所新町別所新町２－１４－２０１'],
+  // 入力から1文字も取らずに町字が決まる自治体（docs/town-overmatch.md）。
+  // 自治体名自体に `町` を含むものを選んである
+  ['fabricated/自治体名に町', '青森県上北郡七戸町'],
+  ['fabricated/字町町', '石川県羽咋郡志賀町'],
+  ['fabricated/大字町', '熊本県菊池郡大津町'],
+  // 入力が町字を書いている場合は落としてはいけない
+  ['fabricated/町字あり', '熊本県菊池郡大津町大字町1-2'],
 ]
 
 const out: FixtureCase[] = []

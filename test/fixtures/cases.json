@@ -1073,5 +1073,216 @@
         }
       }
     }
+  },
+  {
+    "label": "fabricated/自治体名に町",
+    "input": "青森県上北郡七戸町",
+    "result": {
+      "pref": "青森県",
+      "city": "上北郡七戸町",
+      "town": "字町",
+      "level": 3,
+      "point": {
+        "lat": 40.697829,
+        "lng": 141.154675,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "青森県上北郡七戸町",
+        "prefecture": {
+          "code": 20001,
+          "pref": "青森県",
+          "pref_k": "アオモリケン",
+          "pref_r": "Aomori",
+          "point": [
+            140.740087,
+            40.824338
+          ]
+        },
+        "city": {
+          "code": 24023,
+          "county": "上北郡",
+          "county_k": "カミキタグン",
+          "county_r": "Kamikita-gun",
+          "city": "七戸町",
+          "city_k": "シチノヘマチ",
+          "city_r": "Shichinohe-machi",
+          "point": [
+            141.157991,
+            40.744714
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0207000",
+          "oaza_cho": "字町",
+          "oaza_cho_k": "アザマチ",
+          "oaza_cho_r": "Machi",
+          "point": [
+            141.154675,
+            40.697829
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "fabricated/字町町",
+    "input": "石川県羽咋郡志賀町",
+    "result": {
+      "pref": "石川県",
+      "city": "羽咋郡志賀町",
+      "town": "字町町",
+      "level": 3,
+      "point": {
+        "lat": 37.006187,
+        "lng": 136.77801000000002,
+        "level": 2
+      },
+      "other": "",
+      "metadata": {
+        "input": "石川県羽咋郡志賀町",
+        "prefecture": {
+          "code": 170003,
+          "pref": "石川県",
+          "pref_k": "イシカワケン",
+          "pref_r": "Ishikawa",
+          "point": [
+            136.625725,
+            36.594652
+          ]
+        },
+        "city": {
+          "code": 173843,
+          "county": "羽咋郡",
+          "county_k": "ハクイグン",
+          "county_r": "Hakui-gun",
+          "city": "志賀町",
+          "city_k": "シカマチ",
+          "city_r": "Shika-machi",
+          "point": [
+            136.77801000000002,
+            37.006187
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0128127",
+          "oaza_cho": "字町",
+          "oaza_cho_k": "アザマチ",
+          "koaza": "町",
+          "koaza_k": "マチ"
+        }
+      }
+    }
+  },
+  {
+    "label": "fabricated/大字町",
+    "input": "熊本県菊池郡大津町",
+    "result": {
+      "pref": "熊本県",
+      "city": "菊池郡大津町",
+      "town": "大字町",
+      "level": 3,
+      "point": {
+        "lat": 32.85917,
+        "lng": 130.863432,
+        "level": 3
+      },
+      "other": "",
+      "metadata": {
+        "input": "熊本県菊池郡大津町",
+        "prefecture": {
+          "code": 430005,
+          "pref": "熊本県",
+          "pref_k": "クマモトケン",
+          "pref_r": "Kumamoto",
+          "point": [
+            130.741134,
+            32.790374
+          ]
+        },
+        "city": {
+          "code": 434035,
+          "county": "菊池郡",
+          "county_k": "キクチグン",
+          "county_r": "Kikuchi-gun",
+          "city": "大津町",
+          "city_k": "オオヅマチ",
+          "city_r": "Ozu-machi",
+          "point": [
+            130.868284,
+            32.87899
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0019000",
+          "oaza_cho": "大字町",
+          "oaza_cho_k": "オオアザマチ",
+          "oaza_cho_r": "Machi",
+          "point": [
+            130.863432,
+            32.85917
+          ]
+        }
+      }
+    }
+  },
+  {
+    "label": "fabricated/町字あり",
+    "input": "熊本県菊池郡大津町大字町1-2",
+    "result": {
+      "pref": "熊本県",
+      "city": "菊池郡大津町",
+      "town": "大字町",
+      "addr": "1-2",
+      "level": 8,
+      "point": {
+        "lat": 0,
+        "lng": 0,
+        "level": 8
+      },
+      "other": "",
+      "metadata": {
+        "input": "熊本県菊池郡大津町大字町1-2",
+        "prefecture": {
+          "code": 430005,
+          "pref": "熊本県",
+          "pref_k": "クマモトケン",
+          "pref_r": "Kumamoto",
+          "point": [
+            130.741134,
+            32.790374
+          ]
+        },
+        "city": {
+          "code": 434035,
+          "county": "菊池郡",
+          "county_k": "キクチグン",
+          "county_r": "Kikuchi-gun",
+          "city": "大津町",
+          "city_k": "オオヅマチ",
+          "city_r": "Ozu-machi",
+          "point": [
+            130.868284,
+            32.87899
+          ]
+        },
+        "machiAza": {
+          "machiaza_id": "0019000",
+          "oaza_cho": "大字町",
+          "oaza_cho_k": "オオアザマチ",
+          "oaza_cho_r": "Machi",
+          "point": [
+            130.863432,
+            32.85917
+          ]
+        },
+        "chiban": {
+          "prc_num1": "0",
+          "prc_num2": "0",
+          "prc_num3": "0"
+        }
+      }
+    }
   }
 ]

@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { fixture, fixtures } from './helpers.ts'
 
 describe('フィクスチャ', () => {
-  it('20件ある', () => {
-    expect(fixtures).toHaveLength(20)
+  it('24件ある', () => {
+    expect(fixtures).toHaveLength(24)
   })
 
   it('各件が label / input / result を持つ', () => {
