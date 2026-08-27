@@ -11,6 +11,8 @@ scripts/measured.json
 docs/superpowers/
 # 特定のデータとバージョンでの測定値。すぐ古くなる
 docs/nja-coverage.md
+# 上流（japanese-addresses-v2）への報告の下書き。このリポジトリの成果物ではない
+japanese-addresses-v2-mlit-duplicates.md
 .data/
 # .data/ 配下のテストが相対パスで書き出す先。vitest.config.ts で拾わないように
 # してあるが、地番データを含むためコミット事故を二重に防ぐ

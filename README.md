@@ -182,8 +182,29 @@ export NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja
 **フィクスチャは NJA v3.1.3 の出力を固定しています。**
 NJA を上げると期待値が変わる可能性があるので、`npm run fixtures` で再生成してから差分を確認してください。
 
-`scripts/measure-coverage.ts` と `scripts/make-chiban-fixtures.ts` は `sample/` 配下の入力 CSV を必要とします。
-容量が大きいため gitignore しており、リポジトリには含まれません。
+### 調査スクリプト
+
+`scripts/` には実測用のスクリプトを置いています。
+文書に数値を書く前に、その数値を出したコマンドを実行してください。
+
+| スクリプト | 内容 | 必要なもの |
+| --- | --- | --- |
+| `measure-coverage.ts` | 薬局データの静的分析と NJA 実行。番地の解決具合を分類する | `sample/` の入力 CSV |
+| `summarize-batch-output.ts` | バッチ CLI の出力を集計する。タグの充填率とライセンス境界 | バッチ CLI の出力 |
+| `compare-batch-outputs.ts` | バッチ CLI の出力2本を行ごとに突き合わせる。データ版やコード変更の影響を測る | 同じ入力から作った出力2本 |
+| `measure-master-coverage.ts` | 町字マスタの明細網羅率と数字表記を母集団で測る | ローカルミラー |
+| `measure-mlit-duplicates.ts` | MLIT 由来レコードが ABR と重複している度合いを測る。自治体名を渡すと公開 API と比較する | ローカルミラー（比較時はネットワーク） |
+| `measure-town-overmatch.ts` | 町字パターンが入力より短く一致する度合いを母集団で測る | ローカルミラー |
+| `measure-town-boundary.ts` | 入力とは別の町字が出た行を実データから洗い出す | ローカルミラー、入力 CSV |
+| `compare-sheet.ts` | OSM 公式のタグ付け例と NJA の出力を突き合わせる | ネットワーク |
+| `normalize.ts` `probe-edge-cases.ts` | 1件ずつ NJA の出力を見る調査用 | — |
+| `make-fixtures.ts` `make-chiban-fixtures.ts` | テスト用フィクスチャの再生成 | 後者は `sample/` |
+
+`scripts/maskChiban.ts` は単体で走らせるものではなく、フィクスチャ生成から
+呼ばれるヘルパです。地番の値と地番由来の座標をリポジトリに残さないために使います。
+
+`sample/` は容量が大きいため gitignore しており、リポジトリには含まれません。
+ローカルミラーの構築は [docs/local-mirror.md](docs/local-mirror.md) にあります。
 
 ## 文書
 
