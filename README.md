@@ -1,7 +1,7 @@
 # nja-osm-tags
 
 [@geolonia/normalize-japanese-addresses](https://github.com/geolonia/normalize-japanese-addresses)（NJA）のラッパーです。
-NJA が分割した日本の住所階層を、OpenStreetMap の `addr:*` タグに翻訳します。
+NJA が分割した日本の住所階層を、OpenStreetMap（OSM）の `addr:*` タグに翻訳します。
 
 住所の解析そのものは NJA が行います。
 このリポジトリがやるのは、NJA の出力を OSM のタグ体系に対応づけることだけです。
@@ -13,24 +13,21 @@ NJA が分割した日本の住所階層を、OpenStreetMap の `addr:*` タグ�
 
 ## 要件
 
-**Node.js v26 以上が必要です。**
+Node.js v26 以上が必要です。
 型ストリッピングで `.ts` を直接実行するため、v22 や v24 では動きません。
-TypeScript 7 は型チェック専用（`noEmit`）で、ビルド成果物は作りません。
 
-**既定ではネットワークが必要です。**
-NJA は住所データを `japanese-addresses-v2.geoloniamaps.com` から取得します。
-1住所あたり1回以上のリクエストが発生します。
-手元にデータを構築して `NJA_API_BASE` を向ければ、ネットワークなしで動きます（[docs/local-mirror.md](docs/local-mirror.md)）。
+既定ではネットワークを使います。
+NJA が住所データを `japanese-addresses-v2.geoloniamaps.com` から取得するためで、1住所あたり1回以上のリクエストが発生します。
+手元にデータを構築して `NJA_API_BASE` を向ければ、ネットワークなしで動きます。
 
-**逐次実行なので大量データは時間がかかります。**
+逐次実行なので大量データは時間がかかります。
 バッチ変換は1行ずつ NJA を呼びます。
-API 経由の実測は1,000件で20分前後でした。
-件数に比例させると6万件で20時間ですが、線形とは限りません。
 リクエスト数の下限は「1 + 自治体数 + 明細を持つ町字の数」で決まり、住所が地理的に散らばるほど上がります。
 
-**ローカルミラーを使うと大幅に速くなります。**
-564件の変換で、API 経由が10分前後、ミラーが14秒でした。
-ミラーの構築とデータ版の違いは [docs/local-mirror.md](docs/local-mirror.md) にあります。
+手元にデータを構築すると所要時間の桁が変わります。
+同じ入力で、公開 API 経由が分オーダー、ミラーが秒オーダーでした。
+そのかわり構築に数時間と数GBのディスクが必要になるので、数万件を超える規模でなければ公開 API のままでよいと思います。
+実測値と手順は [docs/local-mirror.md](docs/local-mirror.md) にあります。
 
 ## 導入
 
@@ -66,7 +63,7 @@ extra.point   { lat: 35.679107172, lng: 139.736394597, level: 8 }
 ```
 
 `numberSource` は番地の根拠を示します。
-`verified` は ABR の住居表示明細と照合済み、`inferred` は入力文字列から分解したもので未照合、`none` は番地を出していないことを意味します。
+`verified` は ABR（アドレス・ベース・レジストリ）の住居表示明細と照合済み、`inferred` は入力文字列から分解したもので未照合、`none` は番地を出していないことを意味します。
 インポート用のデータを作るときは `verified` だけを採ることで、推定分を混ぜずに済みます。
 
 CSV を一括変換します。
@@ -107,14 +104,19 @@ CSV との違いは3点です。
 }
 ```
 
-補完の判定は `resolveCoord` の1箇所だけです。
-CSV と GeoJSON で挙動が食い違うことはありません。
+補完の判定は1箇所に集約してあるので、CSV と GeoJSON で挙動が食い違うことはありません。
 
-API の詳細は [docs/api.md](docs/api.md) にあります。
+## コマンド
+
+| コマンド | 内容 |
+| --- | --- |
+| `npm run batch -- <オプション> <input.csv>` | CSV の一括変換。`--format geojson` で GeoJSON 出力 |
+| `npm run normalize -- '<住所>'` | NJA の正規化結果を `metadata` 込みで出力する調査用 CLI |
+| `npm test` | 導入の確認 |
 
 ## 住所データの取得先
 
-既定では Geolonia の API を使います。
+既定では Geolonia の公開 API を使います。
 環境変数 `NJA_API_BASE` を設定すると、そこを読みます。
 
 ```bash
@@ -125,7 +127,7 @@ export NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja
 大量のデータを処理して API の負荷を避けたい場合は、手元に `japanese-addresses-v2` を構築してここを向けてください。
 構築手順と注意点は [docs/local-mirror.md](docs/local-mirror.md) にあります。
 
-適用した取得先は stderr に1行出るので、長時間のバッチでも API を叩いていないことを確認できます。
+適用した取得先は stderr に1行出るので、長時間のバッチでも公開 API を叩いていないことを確認できます。
 
 ## ライセンス上の制約
 
@@ -133,78 +135,17 @@ export NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja
 地番方式の住所については、番地も地番由来の座標も出力しません。
 
 日本の住所は2つの体系で解決されます。
-住居表示方式は ABR（アドレス・ベース・レジストリ）由来で、NJA は `metadata.rsdt` に返します。
+住居表示方式は ABR 由来で、NJA は `metadata.rsdt` に返します。
 地番方式は `metadata.chiban` に返ります。
 後者のデータは OSM に投入できないため、`metadata.chiban` が返った場合は `addr:block_number` と `addr:housenumber` を生成せずに落とします。
 町字までの階層は ABR 由来なので出力します。
 
 座標にも同じ制約をかけています。
-`point.level === 8` は住居表示または地番の位置を意味し、実データ160件の確認では必ず `rsdt` か `chiban` のどちらかを伴いました。
-そこで `extra.point` を出すのは `point.level !== 8` または `metadata.rsdt` が存在するときだけにしています。
+`point.level === 8` は住居表示または地番の位置を意味するので、`extra.point` を出すのは `point.level !== 8` または `metadata.rsdt` が存在するときだけにしています。
 地番の座標が制約の対象外だと確認できれば緩めてよい、保守的な措置です。
+判断の根拠は [docs/known-limitations.md](docs/known-limitations.md) にあります。
 
-判定は `src/numbers.ts` の `decideNumbers` と `src/point.ts` の `isPointEmittable` の2箇所に集約してあります。
 出力側では `numberSource` と `noNumberReason` で機械的に絞れます。
-
-## コマンド
-
-| コマンド | 内容 |
-| --- | --- |
-| `npm test` | vitest。384件のうち16件がネットワークを使う |
-| `npm run test:watch` | vitest のウォッチモード |
-| `npm run typecheck` | `tsc --noEmit` |
-| `npm run normalize -- '<住所>'` | NJA の正規化結果を `metadata` 込みで出力する調査用 CLI |
-| `npm run batch -- <オプション> <input.csv>` | CSV の一括変換。`--format geojson` で GeoJSON 出力 |
-| `npm run fixtures` | テスト用フィクスチャの再生成 |
-| `npm run fixtures:chiban` | 地番方式フィクスチャの再生成。`sample/` が必要 |
-
-## 開発
-
-全384件のうち356件はネットワークを使いません。
-
-| 区分 | 件数 | 対象 |
-| --- | --- | --- |
-| ネットワーク不要 | 356 | `test/fixtures/` に固定した NJA の実結果を使う |
-| ネットワークが必要 | 16 | `index.test.ts` `nja.setup.test.ts` `batch.test.ts` |
-| ローカルミラーが必要 | 12 | `local-mirror.test.ts`。ミラーが無い環境では skip。うち7件は既存の3自治体ミラーで足り、`捏造される町字の母集団`（5件）だけは全国ミラーが要る |
-
-主要なものを挙げます。
-
-ライセンス境界のテストは `test/license-boundary.test.ts` に独立させ、地番方式のフィクスチャ100件で番地を出力しないこと、座標を出す場合はその level が8でないことを検証します（112件）。100件中16件は町字代表点（level 3）の座標をそのまま出力します。
-仕様回帰のテストは OSM 公式のタグ付け例40件を期待値として固定します（42件）。
-バッチ CLI の行単位エラー処理は `test/batch-error.test.ts` で検証します。
-`addressToOsmTags` を差し替えて例外を投げさせるので、ネットワークを使いません。
-取得先の切り替えは `test/apiBase.test.ts` で検証し、`normalize` を呼ぶファイルが全て `applyApiBase` を通っているかも併せて検査します。
-
-`vitest.config.ts` で対象を `test/` に限定しています。
-既定の設定では `.data/` に構築した `japanese-addresses-v2` のテストまで拾い、そちらが相対パスの `out/` に地番データを書き出してしまうためです。
-
-**フィクスチャは NJA v3.1.3 の出力を固定しています。**
-NJA を上げると期待値が変わる可能性があるので、`npm run fixtures` で再生成してから差分を確認してください。
-
-### 調査スクリプト
-
-`scripts/` には実測用のスクリプトを置いています。
-文書に数値を書く前に、その数値を出したコマンドを実行してください。
-
-| スクリプト | 内容 | 必要なもの |
-| --- | --- | --- |
-| `measure-coverage.ts` | 薬局データの静的分析と NJA 実行。番地の解決具合を分類する | `sample/` の入力 CSV |
-| `summarize-batch-output.ts` | バッチ CLI の出力を集計する。タグの充填率とライセンス境界 | バッチ CLI の出力 |
-| `compare-batch-outputs.ts` | バッチ CLI の出力2本を行ごとに突き合わせる。データ版やコード変更の影響を測る | 同じ入力から作った出力2本 |
-| `measure-master-coverage.ts` | 町字マスタの明細網羅率と数字表記を母集団で測る | ローカルミラー |
-| `measure-mlit-duplicates.ts` | MLIT 由来レコードが ABR と重複している度合いを測る。自治体名を渡すと公開 API と比較する | ローカルミラー（比較時はネットワーク） |
-| `measure-town-overmatch.ts` | 町字パターンが入力より短く一致する度合いを母集団で測る | ローカルミラー |
-| `measure-town-boundary.ts` | 入力とは別の町字が出た行を実データから洗い出す | ローカルミラー、入力 CSV |
-| `compare-sheet.ts` | OSM 公式のタグ付け例と NJA の出力を突き合わせる | ネットワーク |
-| `normalize.ts` `probe-edge-cases.ts` | 1件ずつ NJA の出力を見る調査用 | — |
-| `make-fixtures.ts` `make-chiban-fixtures.ts` | テスト用フィクスチャの再生成 | 後者は `sample/` |
-
-`scripts/maskChiban.ts` は単体で走らせるものではなく、フィクスチャ生成から
-呼ばれるヘルパです。地番の値と地番由来の座標をリポジトリに残さないために使います。
-
-`sample/` は容量が大きいため gitignore しており、リポジトリには含まれません。
-ローカルミラーの構築は [docs/local-mirror.md](docs/local-mirror.md) にあります。
 
 ## 文書
 
@@ -213,9 +154,8 @@ NJA を上げると期待値が変わる可能性があるので、`npm run fixt
 | [docs/api.md](docs/api.md) | 公開 API と型の一覧 |
 | [docs/osm-tagging-spec.md](docs/osm-tagging-spec.md) | 正とする OSM のタグ体系と、NJA との対応の検証結果 |
 | [docs/known-limitations.md](docs/known-limitations.md) | 既知の限界 |
-| [docs/chiwari.md](docs/chiwari.md) | 地割の調査記録。方針は未決定 |
-| [docs/town-overmatch.md](docs/town-overmatch.md) | 入力とは別の町字が出る不具合の調査記録 |
-| [docs/local-mirror.md](docs/local-mirror.md) | 住所データを手元に構築して API を使わずに動かす手順 |
+| [docs/local-mirror.md](docs/local-mirror.md) | 住所データを手元に構築して公開 API を使わずに動かす手順 |
+| [docs/development.md](docs/development.md) | 開発者向け。テスト、フィクスチャ、調査スクリプト、調査記録 |
 
 ## ライセンス
 
