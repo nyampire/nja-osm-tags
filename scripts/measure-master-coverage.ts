@@ -7,13 +7,14 @@
  * 主にローカルミラーの `out/api/ja/{都道府県}/{市区町村}.json` を読むだけで決まる。
  * 全国で数秒で終わる。最後の4だけは本ツールを通すので NJA を呼ぶ。
  *
- * 測る量は4つ。
+ * 測る量は5つ。
  *
  *   1. 明細（`csv_ranges`）の網羅率。番地を解決できるかを左右する
  *   2. `chome` が常に漢数字かどうか（`formatChome` の前提）
  *   3. 告示の数字表記がどこから復元できるか。`oaza_cho` 自体が算用数字を
  *      持つならそれで足り、漢数字なら `oaza_cho_k`（カナ）を見るしかない
  *   4. 大字が算用数字・丁目が漢数字の混在が出力に出るか
+ *   5. カナが告示の数字表記を保持していると言えるか。3 の前提そのものの検証
  *
  * 3 は 2026-08 のデータで様子が変わった。札幌市中央区の大字は
  * `北十条西`（漢数字）から `北１０条西`（全角算用）になっている。
@@ -31,7 +32,11 @@ import { findKanjiNumbers } from '@geolonia/japanese-numeral'
 // 必要はない（test/apiBase.test.ts がこの経路を規約として固定している）
 import { API_BASE_ENV } from '../src/apiBase.ts'
 import { addressToOsmTags } from '../src/index.ts'
-import { kanaHasArabic } from '../src/numerals.ts'
+import {
+  kanaHasArabic,
+  kanjiToArabicByKana,
+  toHankakuDigits,
+} from '../src/numerals.ts'
 
 
 const base = process.env[API_BASE_ENV]
@@ -91,6 +96,8 @@ function load(name: string): MachiAza[] {
 
 const HANKAKU = /[0-9]/
 const ZENKAKU = /[０-９]/
+/** 数詞 + 助数詞。`西四線` は該当し、`三隅`（ミスミ）は該当しない */
+const COUNTER = /[一二三四五六七八九十百千]+(条|線|区|丁目|丁|号|番)/
 const hasKanjiNumber = (s: string) => findKanjiNumbers(s).length > 0
 
 /** 大字1件を数字表記で分類する */
@@ -137,12 +144,34 @@ const oazaKind = new Map<NumeralKind, number>()
 /** oaza_cho が漢数字のうち、カナが算用数字のもの */
 let kanjiOazaKanaArabic = 0
 /**
+ * `oaza_cho` の漢数字が本ツールで算用数字に書き換わるレコード。
+ * 自治体別に数える
+ */
+const rewrittenByCity = new Map<string, number>()
+/** 書き換えの例。自治体ごとに1つだけ拾う */
+const rewriteExamples: string[] = []
+/**
+ * 数詞に助数詞が続く漢数字の `oaza_cho` を、カナの書き方で3つに分ける。
+ *
+ * 「カナは告示の数字表記を保持している」が成り立つなら、カナの書き方は
+ * 告示の違いを表していることになる。同じ自治体・同じ助数詞で読み下しと
+ * 算用が混在するなら、その説明では足りない
+ */
+type KanaKind = 'カナが無い' | '読み下し' | '算用数字'
+const kanaKind = new Map<KanaKind, number>()
+/** カナが無いもののうち MLIT 由来の件数 */
+let kanaAbsentMlit = 0
+/** 自治体×助数詞ごとの、読み下しと算用の件数 */
+const counterMix = new Map<string, { spelled: number; arabic: number }>()
+/**
  * 大字が算用数字なのにカナが算用数字でないレコード。
  * `machiAzaTags` は丁目を算用にするかどうかを `oaza_cho_k` で決めるので、
  * この組では大字が算用・丁目が漢数字の混在になる
  */
 const mixedCandidates: { input: string; city: string }[] = []
 const bump = (m: Map<NumeralKind, number>, k: NumeralKind) =>
+  m.set(k, (m.get(k) ?? 0) + 1)
+const bump2 = (m: Map<KanaKind, number>, k: KanaKind) =>
   m.set(k, (m.get(k) ?? 0) + 1)
 
 for (const [cityLabel, p] of cityPaths) {
@@ -158,7 +187,45 @@ for (const [cityLabel, p] of cityPaths) {
     if (t.oaza_cho !== undefined) {
       const kind = numeralKind(t.oaza_cho)
       bump(oazaKind, kind)
-      if (kind === '漢数字' && kanaHasArabic(t.oaza_cho_k)) kanjiOazaKanaArabic++
+      if (kind === '漢数字' && kanaHasArabic(t.oaza_cho_k)) {
+        kanjiOazaKanaArabic++
+        // 実際に書き換わるかは kanjiToArabicByKana に問い合わせる。
+        // 規則を写して数えると、上流を変えたときに測定値が黙って嘘になる
+        const before = toHankakuDigits(t.oaza_cho)
+        const after = toHankakuDigits(
+          kanjiToArabicByKana(t.oaza_cho, t.oaza_cho_k),
+        )
+        if (after !== before) {
+          rewrittenByCity.set(cityLabel, (rewrittenByCity.get(cityLabel) ?? 0) + 1)
+          if (!rewriteExamples.some((e) => e.startsWith(`${cityLabel} `))) {
+            rewriteExamples.push(
+              `${cityLabel} ${before} → ${after}（カナ ${t.oaza_cho_k}）`,
+            )
+          }
+        }
+      }
+      // 5. カナの書き方の内訳。数詞に助数詞が続くものだけを見る。
+      // `三隅`（ミスミ）のように数詞でない漢数字を混ぜると意味が無くなる
+      const counter = kind === '漢数字' ? COUNTER.exec(t.oaza_cho) : null
+      if (counter) {
+        const kana = t.oaza_cho_k
+        if (!kana) {
+          bump2(kanaKind, 'カナが無い')
+          if (t.machiaza_id.startsWith('MLIT:')) kanaAbsentMlit++
+        } else if (kanaHasArabic(kana)) {
+          bump2(kanaKind, '算用数字')
+          const k = `${cityLabel}|${counter[1]}`
+          const m = counterMix.get(k) ?? { spelled: 0, arabic: 0 }
+          m.arabic++
+          counterMix.set(k, m)
+        } else {
+          bump2(kanaKind, '読み下し')
+          const k = `${cityLabel}|${counter[1]}`
+          const m = counterMix.get(k) ?? { spelled: 0, arabic: 0 }
+          m.spelled++
+          counterMix.set(k, m)
+        }
+      }
       if (
         (kind === '全角算用' || kind === '半角算用') &&
         t.chome !== undefined &&
@@ -279,3 +346,61 @@ for (const [city, m] of [...mixedByCity].sort(
 console.log('')
 console.log(`混在が出力に出るレコード ${mixedTotal}件`)
 for (const e of mixedExamples) console.log(`  ${e}`)
+
+// ---- 5. カナは告示の数字表記を保持しているか ----
+//
+// 3 の前提そのものの検証。「カナが算用数字なら告示も算用数字」と言えるなら、
+// カナの書き方は告示の違いを表していることになる。同じ自治体・同じ助数詞で
+// 読み下しと算用が混在するなら、その説明では足りない。
+const kanaTotal = [...kanaKind.values()].reduce((a, b) => a + b, 0)
+console.log('')
+console.log(
+  `## カナの数字表記（\`oaza_cho\` が漢数字かつ数詞に助数詞が続く ${kanaTotal}件）`,
+)
+console.log('')
+console.log('| カナの書き方 | 件数 | 割合 |')
+console.log('| --- | --- | --- |')
+for (const kind of ['カナが無い', '読み下し', '算用数字'] as KanaKind[]) {
+  const n = kanaKind.get(kind) ?? 0
+  console.log(`| ${kind} | ${n} | ${pct(n, kanaTotal)} |`)
+}
+const kanaAbsent = kanaKind.get('カナが無い') ?? 0
+console.log('')
+console.log(
+  `カナが無い ${kanaAbsent}件 のうち \`MLIT:\` 由来 ${kanaAbsentMlit}件（${pct(kanaAbsentMlit, kanaAbsent)}）`,
+)
+
+const mixedGroups = [...counterMix].filter(
+  ([, v]) => v.spelled > 0 && v.arabic > 0,
+)
+console.log('')
+console.log(
+  `自治体×助数詞の組 ${counterMix.size} のうち、読み下しと算用が混在する組 ${mixedGroups.length}`,
+)
+if (mixedGroups.length > 0) {
+  console.log('')
+  console.log('| 自治体 | 助数詞 | 読み下し | 算用 |')
+  console.log('| --- | --- | --- | --- |')
+  for (const [k, v] of mixedGroups.sort(
+    (a, b) => b[1].spelled + b[1].arabic - (a[1].spelled + a[1].arabic),
+  )) {
+    const [city, counter] = k.split('|')
+    console.log(`| ${city} | ${counter} | ${v.spelled} | ${v.arabic} |`)
+  }
+}
+
+const rewrittenTotal = [...rewrittenByCity.values()].reduce((a, b) => a + b, 0)
+console.log('')
+console.log(
+  `## \`oaza_cho\` の漢数字が算用数字に書き換わるレコード ${rewrittenTotal}件 / ${rewrittenByCity.size}自治体`,
+)
+console.log('')
+console.log('| 自治体 | 件数 |')
+console.log('| --- | --- |')
+for (const [city, n] of [...rewrittenByCity]
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 10)) {
+  console.log(`| ${city} | ${n} |`)
+}
+console.log('')
+for (const e of rewriteExamples.slice(0, 6)) console.log(`  ${e}`)

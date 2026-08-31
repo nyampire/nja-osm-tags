@@ -14,8 +14,14 @@ export function toHankakuDigits(text: string): string {
 }
 
 /**
- * カナに算用数字が含まれるか。
- * ABR のカナは告示の数字表記を保持しているため、これが数字表記の判定根拠になる。
+ * カナに算用数字が含まれるか。数字表記を算用にするかの判定根拠にしている。
+ *
+ * 「ABR のカナは告示の数字表記を保持している」という説明を根拠にしていたが、
+ * 母集団で測ると成り立たない。同じ自治体・同じ助数詞で読み下し（`ニシヨンセン`）と
+ * 算用（`ニシ４セン`）が混在する組が、210組のうち10組ある。
+ * カナからは告示が決まらない。
+ * 現状は「カナが算用数字なら算用にする」という推定であって、根拠のある復元ではない。
+ * 実測と方針の状態は docs/known-limitations.md にある。
  */
 export function kanaHasArabic(kana: string | undefined): boolean {
   if (!kana) return false

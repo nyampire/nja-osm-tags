@@ -10,6 +10,16 @@ const cases = sheetCases as unknown as FixtureCase[]
  * OSM 表の各住所に対する本ツールの出力（確定値）。
  * 表と一致する行も、意図的に異なる行も、両方を明示的に固定する。
  * 表と同じ住所が2回出てくる行（流山市鰭ケ崎）があるので、住所で引く。
+ *
+ * ここで固定しているのはフィクスチャ（`test/fixtures/sheet-cases.json`）の値で、
+ * フィクスチャは公開 API（2024-12-25）で生成してある。
+ * ローカルミラー（2026-08-24）では次の3行が違う値になる。
+ * どちらの版で固定するかは未決。実測と経緯は
+ * docs/osm-tagging-spec.md の「残る不一致」にある。
+ *
+ *   旭市イ                  neighbourhood=イ      → 町字が出ない
+ *   下田市二丁目            neighbourhood=二丁目  → neighbourhood=2丁目
+ *   長野市大字鶴賀権堂町    neighbourhood=大字鶴賀 → quarter=大字鶴賀 / neighbourhood=権堂町
  */
 const EXPECTED: Record<string, { quarter?: string; neighbourhood?: string }> = {
   '東京都千代田区永田町一丁目': { neighbourhood: '永田町一丁目' },
@@ -75,6 +85,7 @@ const SHEET_DIFF: Record<string, string> = {
   '大阪府堺市堺区市之町西1丁': '丁目の告示表記が ABR に無く漢数字になる',
   '神奈川県横浜市鶴見区朝日町1丁目': '丁目の告示表記が ABR に無く漢数字になる',
   '神奈川県横浜市旭区二俣川1丁目': '丁目の告示表記が ABR に無く漢数字になる',
+  // 公開 API のデータには権堂町のレコードが無い。ミラーには koaza として存在する
   '長野県長野市大字鶴賀権堂町': '接頭辞を残す方針、かつ権堂町が NJA のデータに無い',
   '長野県長野市若里': '「大字」「字」の接頭辞を残す方針',
   '茨城県龍ケ崎市寺後': 'NJA が町字を特定できない',
