@@ -62,7 +62,7 @@ NJA を上げると期待値が変わる可能性があるので、`npm run fixt
 | スクリプト | 内容 | 必要なもの |
 | --- | --- | --- |
 | `measure-coverage.ts` | 薬局データの静的分析と NJA 実行。番地の解決具合を分類する | `sample/` の入力 CSV |
-| `summarize-batch-output.ts` | バッチ CLI の出力を集計する。タグの充填率とライセンス境界 | バッチ CLI の出力 |
+| `summarize-batch-output.ts` | バッチ CLI の出力を集計する。タグの充填率とライセンス境界、`--address-column` を渡せば `note`/`fixme` が入力住所から導けるかの測定も | バッチ CLI の出力 |
 | `compare-batch-outputs.ts` | バッチ CLI の出力2本を行ごとに突き合わせる。データ版やコード変更の影響を測る | 同じ入力から作った出力2本 |
 | `measure-master-coverage.ts` | 町字マスタの明細網羅率と数字表記を母集団で測る。カナが告示の数字表記を保持しているかの検証も含む | ローカルミラー |
 | `measure-mlit-duplicates.ts` | 国土数値情報（MLIT）由来のレコードが ABR と重複している度合いを測る | ローカルミラー |
