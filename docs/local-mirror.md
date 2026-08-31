@@ -15,7 +15,7 @@ NJA の LRU キャッシュを大きくする方法は使えません。
 
 ```bash
 export NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja
-npm run batch -- --address-column 所在地 input.csv > out.csv
+node bin/batch.ts --address-column 所在地 input.csv > out.csv
 ```
 
 パスでも URL でも受けます。

@@ -69,8 +69,11 @@ extra.point   { lat: 35.679107172, lng: 139.736394597, level: 8 }
 CSV を一括変換します。
 
 ```bash
-npm run batch -- --address-column 所在地 --lat-column 緯度 --lng-column 経度 input.csv > out.csv
+node bin/batch.ts --address-column 所在地 --lat-column 緯度 --lng-column 経度 input.csv > out.csv
 ```
+
+`npm run batch` ではなく `node` を直接呼びます。
+`npm run` は実行するコマンドを標準出力に書くため、リダイレクトすると出力の先頭に混ざります。
 
 元の列を保ったまま、`addr:*` 11列と備考5列（`_番地の根拠` `_備考` `_lat` `_lng` `_座標精度`）を足します。
 分類による振り分けはしないので、`_番地の根拠` と `_備考` で絞ってください。
@@ -81,7 +84,7 @@ npm run batch -- --address-column 所在地 --lat-column 緯度 --lng-column 経
 `--format geojson` を付けると FeatureCollection を出します。
 
 ```bash
-npm run batch -- --address-column 所在地 --lat-column 緯度 --lng-column 経度 --format geojson input.csv > out.geojson
+node bin/batch.ts --address-column 所在地 --lat-column 緯度 --lng-column 経度 --format geojson input.csv > out.geojson
 ```
 
 CSV との違いは3点です。
@@ -110,8 +113,8 @@ CSV との違いは3点です。
 
 | コマンド | 内容 |
 | --- | --- |
-| `npm run batch -- <オプション> <input.csv>` | CSV の一括変換。`--format geojson` で GeoJSON 出力 |
-| `npm run normalize -- '<住所>'` | NJA の正規化結果を `metadata` 込みで出力する調査用 CLI |
+| `node bin/batch.ts <オプション> <input.csv>` | CSV の一括変換。`--format geojson` で GeoJSON 出力 |
+| `node scripts/normalize.ts '<住所>'` | NJA の正規化結果を `metadata` 込みで出力する調査用 CLI |
 | `npm test` | 導入の確認 |
 
 ## 住所データの取得先
