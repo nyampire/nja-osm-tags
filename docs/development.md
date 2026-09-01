@@ -84,7 +84,7 @@ NJA を上げると期待値が変わる可能性があるので、`npm run fixt
 
 | 文書 | 内容 |
 | --- | --- |
-| [chiwari.md](chiwari.md) | 地割の調査記録。方針は未決定 |
+| [chiwari.md](chiwari.md) | 地割の調査記録。place タグに入れるかは OSM コミュニティの議論待ち |
 | [town-overmatch.md](town-overmatch.md) | 入力とは別の町字が出る不具合の調査記録 |
 | [local-mirror.md](local-mirror.md) | 住所データを手元に構築する手順と、公開 API との結果の違い |
 
