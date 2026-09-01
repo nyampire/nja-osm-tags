@@ -145,10 +145,18 @@ export NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja
 
 座標にも同じ制約をかけています。
 `point.level === 8` は住居表示または地番の位置を意味するので、`extra.point` を出すのは `point.level !== 8` または `metadata.rsdt` が存在するときだけにしています。
-地番の座標が制約の対象外だと確認できれば緩めてよい、保守的な措置です。
+`extra.point` はバッチ CLI が `_lat` / `_lng` に使い、OSM に投入されうる値だからです。
 判断の根拠は [docs/known-limitations.md](docs/known-limitations.md) にあります。
 
 出力側では `numberSource` と `noNumberReason` で機械的に絞れます。
+
+### 制約は「OSM に入れない」であって「扱えない」ではありません
+
+アドレス・ベース・レジストリ全体は[公共データ利用規約（第1.0版）](https://www.digital.go.jp/resources/open_data/public_data_license_v1.0)ですが、地番マスターと地番マスター位置参照には[登記所備付地図データ利用規約](https://www.digital.go.jp/policies/base_registry_address_tos)が別途適用されます。
+この規約には公序良俗に関する条項があり、用途を制限しない OSM のライセンスと両立しません。
+
+したがって制約がかかるのは OSM に投入する経路だけです。
+再配布そのものは可能で、`test/fixtures/chiban-cases.json` は地番方式の住所100件を含みます（地番の値と地番由来の座標はマスクしてあります）。
 
 ## 文書
 
@@ -164,8 +172,27 @@ export NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja
 
 このリポジトリのコードは MIT ライセンスです（[LICENSE](LICENSE)）。
 
-出力されるデータのライセンスは以下のとおりです。
+### 出力される住所データ
 
-* 住所データ: [Geolonia 住所データ](https://github.com/geolonia/japanese-addresses-v2), CC BY 4.0
+* [Geolonia 住所データ](https://github.com/geolonia/japanese-addresses-v2), CC BY 4.0
 
-出典: アドレス・ベース・レジストリ, デジタル庁 - 住居表示住所・住居マスターデータセット
+出典: 「アドレス・ベース・レジストリ」（デジタル庁）住居表示住所・住居マスターデータセット をもとに株式会社 Geolonia が作成
+
+アドレス・ベース・レジストリ自体は[公共データ利用規約（第1.0版）](https://www.digital.go.jp/resources/open_data/public_data_license_v1.0)です。
+地番マスターと地番マスター位置参照には[登記所備付地図データ利用規約](https://www.digital.go.jp/policies/base_registry_address_tos)が別途適用されます（[ライセンス上の制約](#ライセンス上の制約)）。
+
+### 同梱しているテストデータ
+
+`test/fixtures/chiban-cases.json` の住所100件と `test/fixtures/tiny.csv` の3件は、厚生労働省が公開する医療機関・薬局等のオープンデータから採っています。
+
+* 出典: 厚生労働省
+* 利用条件: [公共データ利用規約（第1.0版）](https://www.digital.go.jp/resources/open_data/public_data_license_v1.0)
+
+### 同梱している OSM のタグ付け例
+
+`scripts/osm-japan-tagging-examples.csv` は、OpenStreetMap wiki の [JA:住所](https://wiki.openstreetmap.org/wiki/JA:%E4%BD%8F%E6%89%80) からリンクされている「地名のタグ付け方法の例 (OpenStreetMap Japan_tagging)」の取得済みスナップショットです。
+
+リンク元の wiki ページは Creative Commons Attribution-ShareAlike 2.0 です。
+スプレッドシート自体の利用条件は明示されていません。
+
+用途は [docs/osm-tagging-spec.md](docs/osm-tagging-spec.md) の突き合わせで、`scripts/compare-sheet.ts` と `test/osm-spec-regression.test.ts` が読みます。
