@@ -1,8 +1,12 @@
 /**
  * NJA の正規化結果をそのまま覗くための調査用 CLI。
  *
- *   npm run normalize -- '東京都千代田区紀尾井町1-3'
- *   npm run normalize            # 既定のサンプル住所を一括で流す
+ *   node scripts/normalize.ts '東京都千代田区紀尾井町1-3'
+ *   node scripts/normalize.ts   # 既定のサンプル住所を一括で流す
+ *
+ * npm script は用意しない。`npm run` は実行するコマンド自体を標準出力に
+ * 書くので、パイプやリダイレクトと組み合わせると出力の先頭に混ざる
+ * （test/package-scripts.test.ts）。
  */
 import { applyApiBase } from '../src/apiBase.ts'
 import { normalize, version } from '@geolonia/normalize-japanese-addresses'
