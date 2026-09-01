@@ -66,9 +66,9 @@ NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja node scripts/compare-sheet.t
 | 不一致 | 8 |
 
 「接頭辞を除けば一致」は「大字」「字」を残す決定による差で、意図した差です（後述）。
-`test/fixtures/sheet-cases.json` は公開 API で生成したものなので、
-`test/osm-spec-regression.test.ts` が固定している期待値はこの表と3行食い違います。
-食い違う3行は [残る不一致](#残る不一致) に挙げます。
+`test/fixtures/sheet-cases.json` も同じ版（ミラー 2026-08-24）で生成してあるので、
+`test/osm-spec-regression.test.ts` が固定している期待値はこの表と一致します。
+以前は公開 API 版のままで8行食い違っていました（[テストの期待値も同じ版で固定しています](#テストの期待値も同じ版で固定しています2026-09-01)）。
 
 ### quarter と neighbourhood は機械的に決まる
 
@@ -93,7 +93,8 @@ NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja node scripts/compare-sheet.t
 NJA は `chome = 三丁目` として返すので、上表で自然に一致します。
 
 郡山市安積町柴宮東について、表は「特殊な例外」と注記しています。
-NJA は `oaza_cho = 安積町` と `koaza = 字柴宮東` を持っており一致します。
+NJA は `oaza_cho = 安積町` と `koaza = 柴宮東` を持っており一致します。
+公開 API（2024-12-25）では `koaza = 字柴宮東` で、接頭辞のぶんだけ表と差がありました。
 
 松戸市南花島中町について、表の判断には「?」が付いています。
 NJA も `oaza_cho = 南花島中町` の一体なので一致します。
@@ -208,16 +209,29 @@ NJA はデータ上の表記をそのまま返します（`大字藤崎`、`字�
 上表の規則がそのまま当たり、quarter=`大字鶴賀` / neighbourhood=`権堂町` になります。
 表の期待値との差は「大字」の接頭辞だけで、これは残す決定によるものです。
 
-#### テストの期待値との食い違い
+#### テストの期待値も同じ版で固定しています（2026-09-01）
 
 `test/osm-spec-regression.test.ts` は `test/fixtures/sheet-cases.json` を期待値にしています。
-このフィクスチャは公開 API で生成したものなので、上の3行について現行のミラーと違う値を固定しています。
+このフィクスチャは以前は公開 API で生成したもので、この表とは食い違っていました。
+ミラー（2026-08-24）で再生成し、この表と同じ版に揃えました。
 
-| 住所 | フィクスチャ（公開 API） | ミラー |
+出力タグが変わったのは8行です。上で「残る不一致」に挙げた3行のほかに、
+郡山市の小字5行があります。
+
+| 住所 | 公開 API 2024-12-25 | ミラー 2026-08-24 |
 | --- | --- | --- |
-| 旭市イ | neighbourhood=`イ` | （出ない） |
-| 下田市二丁目 | neighbourhood=`二丁目` | neighbourhood=`2丁目` |
-| 長野市大字鶴賀権堂町 | neighbourhood=`大字鶴賀` | quarter=`大字鶴賀` / neighbourhood=`権堂町` |
+| 郡山市日和田町広野入 | neighbourhood=`字広野入` | neighbourhood=`広野入` |
+| 郡山市日和田町八丁目堰山 | neighbourhood=`字堰山` | neighbourhood=`堰山` |
+| 郡山市安積町笹川西長久保 | neighbourhood=`字西長久保` | neighbourhood=`西長久保` |
+| 郡山市安積町日出山一本松 | neighbourhood=`字一本松` | neighbourhood=`一本松` |
+| 郡山市安積町柴宮東 | neighbourhood=`字柴宮東` | neighbourhood=`柴宮東` |
 
-フィクスチャをどちらの版で固定するかは未決です。
-ミラーで再生成すると、手元に全国ミラーが無い人が `npm run fixtures` を回したときに公開 API の値に戻ります。
+ABR 側が `koaza` から `字` を落としています。
+郡山市の町字レコード6,143件のうち、`koaza` を持つ5,719件で `字` から始まるのは76件だけです。
+「大字」「字」を残す決定は変えていません。データが接頭辞を持たなくなっただけです。
+この5行は表の期待値と一致するようになり、上の集計では「接頭辞を除けば一致」から「一致」に移っています。
+
+`oaza_cho` 側の接頭辞は残っています（郡山市北畑 = `字北畑`）。
+
+再生成の版は `meta` に記録し、`test/fixture-version.test.ts` が固定します。
+全国ミラーを持たない環境で `npm run fixtures` を回すと、公開 API の値に戻る前に版の不一致で落ちます。

@@ -1,15 +1,23 @@
 /**
- * ローカルミラーが Geolonia API と同じ結果を返すことを確認する。
+ * ローカルミラーがフィクスチャを生成したときと同じ結果を返すことを確認する。
  *
  * ミラーが無い環境では skip する。
+ *
+ * **公開 API との等価性は確認していない。** 以前このファイルはそう書いていたが、
+ * 両者は等価ではない。docs/local-mirror.md の実測で、564件のうち30件（5.3%）で
+ * 出力が変わる。フィクスチャがたまたま両方で一致する住所だけだったため、
+ * 等価性を確かめているように見えていた。
+ *
+ * いま確かめているのは、ミラーが正しく構築されていて、フィクスチャを作った
+ * ときから中身が動いていないこと。部分ミラーの取りこぼしや、作り直しによる
+ * データ版の変化はここで落ちる。フィクスチャの版そのものは
+ * test/fixture-version.test.ts が固定する。
  *
  * 同一プロセスで「API で1回引いてからミラーに切り替えて引き直す」比較はできない。
  * NJA は取得したデータを LRU にキャッシュするので、2回目はミラーを読まずに
  * キャッシュを返す。実測で確認済み（空のミラーに切り替えても同じ結果が返る）。
- *
- * そこでミラー単独で引き、固定済みの API 記録（test/fixtures/）と突き合わせる。
- * フィクスチャは NJA v3.1.3 の API 出力を maskChiban で加工して保存したもの。
- * 同じマスクを通してから比べれば、ミラーが API と等価であることを確認できる。
+ * 公開 API と突き合わせたい場合は、別プロセスで両方を回して
+ * scripts/compare-batch-outputs.ts で比べること。
  *
  * このファイルは NJA の取得先を書き換えるので、他のテストと同居させない。
  */
@@ -17,10 +25,11 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { config, normalize } from '@geolonia/normalize-japanese-addresses'
 import { beforeAll, describe, expect, it } from 'vitest'
+import { dataVersion, PINNED_DATA_VERSION } from '../scripts/dataVersion.ts'
 import { maskChiban } from '../scripts/maskChiban.ts'
 import { API_BASE_ENV, applyApiBase } from '../src/apiBase.ts'
 import { machiAzaFullName, matchesEmptyString } from '../src/machiAza.ts'
-import type { FixtureCase } from '../src/types.ts'
+import type { FixtureCase, FixtureFile } from '../src/types.ts'
 
 const MIRROR = fileURLToPath(
   new URL('../.data/japanese-addresses-v2/out/api/ja', import.meta.url),
@@ -35,9 +44,10 @@ const CITY_CODES = new Map([
 ])
 
 function load(name: string): FixtureCase[] {
-  return JSON.parse(
+  const file: FixtureFile = JSON.parse(
     readFileSync(new URL(`./fixtures/${name}`, import.meta.url), 'utf-8'),
   )
+  return file.cases
 }
 
 /** ミラーの範囲に入るフィクスチャだけを取り出す */
@@ -52,11 +62,30 @@ describe.skipIf(!available)('ローカルミラー', () => {
   // （子テストを列挙するため）。applyApiBase はミラーが無いと例外を投げるので、
   // factory 直下に置くとスキップしたいはずのファイルごと fail する。
   // beforeAll に入れれば、スキップ時は呼び出し自体が起きない
-  beforeAll(() => {
+  // 手元のミラーの版。失敗したときの手がかりに使う。
+  // 判定には使わない。ミラーの `updated` はビルド時刻なので、同じ上流から
+  // 作り直しただけでも変わる（scripts/dataVersion.ts）。
+  // 版が違っても中身が同じなら下の比較は通るべきで、そこで落とすと
+  // 部分ミラーや作り直しという正当な使い方を塞ぐ
+  let mirrorVersion = ''
+
+  beforeAll(async () => {
     // 他のテストより先に取得先を差し替える。normalize の初回呼び出しより
     // 前でなければキャッシュが混ざる
     applyApiBase({ [API_BASE_ENV]: MIRROR })
+    const v = await dataVersion(`file://${MIRROR}`)
+    mirrorVersion = v.updated
   })
+
+  /** 版が食い違ったときだけ添える説明。合っていれば何も足さない */
+  const hint = () =>
+    mirrorVersion === PINNED_DATA_VERSION.updated
+      ? ''
+      : `\n手元のミラーは ${mirrorVersion} にビルドされたもので、` +
+        `フィクスチャは ${PINNED_DATA_VERSION.updated} のミラーで生成されています。\n` +
+        `上流のデータが変わった場合はこの差が出ます。` +
+        `意図した更新なら FIXTURE_ALLOW_NEW_VERSION=1 npm run fixtures で再生成し、` +
+        `scripts/dataVersion.ts の PINNED_DATA_VERSION も直してください。`
 
   const cases = inMirror()
 
@@ -66,12 +95,12 @@ describe.skipIf(!available)('ローカルミラー', () => {
     expect(config.japaneseAddressesApi).toBe(`file://${MIRROR}`)
   })
 
-  it.each(cases)('$input が API の記録と一致する', async ({ input, result }) => {
+  it.each(cases)('$input がフィクスチャと一致する', async ({ input, result }) => {
     const got = await normalize(input)
     // フィクスチャは地番の値と地番由来の座標をマスクして保存している。
     // 生成側（scripts/make-fixtures.ts）と同じ関数を通してから比べる
     maskChiban(got)
-    expect(got).toEqual(result)
+    expect(got, `${input} がフィクスチャと違います。${hint()}`).toEqual(result)
   }, 60_000)
 })
 

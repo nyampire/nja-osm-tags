@@ -8,13 +8,32 @@
 import { writeFileSync } from 'node:fs'
 import { normalize } from '@geolonia/normalize-japanese-addresses'
 import { parseCsv } from '../src/csv.ts'
-import type { FixtureCase } from '../src/types.ts'
+import type { FixtureCase, FixtureFile } from '../src/types.ts'
 import { applyApiBase } from '../src/apiBase.ts'
+import { assertPinnedDataVersion, dataVersion } from './dataVersion.ts'
 import { maskChiban } from './maskChiban.ts'
 
 // 取得先を NJA_API_BASE に合わせる。部分ミラーで生成すると期待値が
 // 変わるので、適用された取得先は stderr に出る
 applyApiBase()
+
+// 生成に使った版をファイルに書き込む。取得先が変われば NJA の出力も
+// 変わるので、版を持たないと期待値が黙って入れ替わる。
+//
+// 突き合わせは NJA を呼ぶ前に済ませる。書いてしまってからテストで
+// 落とすと、作業ツリーを汚したうえで git checkout を強いることになる
+const meta = await dataVersion()
+console.error(`住所データの版: ${meta.updated}（${meta.source}）`)
+assertPinnedDataVersion(meta)
+
+const write = (name: string, cases: FixtureCase[]) => {
+  const file: FixtureFile = { meta, cases }
+  writeFileSync(
+    new URL(`../test/fixtures/${name}`, import.meta.url),
+    JSON.stringify(file, null, 2) + '\n',
+  )
+  console.error(`${cases.length} 件を test/fixtures/${name} に書き出しました`)
+}
 
 const CASES: [label: string, input: string][] = [
   ['verified/丁目なし', '東京都千代田区紀尾井町1-3'],
@@ -53,11 +72,7 @@ for (const [label, input] of CASES) {
   out.push({ label, input, result })
   console.error(`${label}: level=${result.level}`)
 }
-writeFileSync(
-  new URL('../test/fixtures/cases.json', import.meta.url),
-  JSON.stringify(out, null, 2) + '\n',
-)
-console.error(`\n${out.length} 件を test/fixtures/cases.json に書き出しました`)
+write('cases.json', out)
 
 // --- スプレッドシート40件 ---
 const sheetRows = (
@@ -72,8 +87,4 @@ for (const row of sheetRows) {
   maskChiban(result)
   sheetOut.push({ label: address, input: address, result })
 }
-writeFileSync(
-  new URL('../test/fixtures/sheet-cases.json', import.meta.url),
-  JSON.stringify(sheetOut, null, 2) + '\n',
-)
-console.error(`${sheetOut.length} 件を test/fixtures/sheet-cases.json に書き出しました`)
+write('sheet-cases.json', sheetOut)

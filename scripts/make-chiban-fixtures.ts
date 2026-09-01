@@ -10,13 +10,24 @@
 import { writeFileSync } from 'node:fs'
 import { normalize } from '@geolonia/normalize-japanese-addresses'
 import { parseCsv } from '../src/csv.ts'
-import type { FixtureCase } from '../src/types.ts'
+import type { FixtureCase, FixtureFile } from '../src/types.ts'
 import { applyApiBase } from '../src/apiBase.ts'
+import { assertPinnedDataVersion, dataVersion } from './dataVersion.ts'
 import { maskChiban } from './maskChiban.ts'
 
 // 取得先を NJA_API_BASE に合わせる。部分ミラーで生成すると期待値が
 // 変わるので、適用された取得先は stderr に出る
 applyApiBase()
+
+// 生成に使った版を書き込む。地番方式かどうかの判定は住所データの版で
+// 変わるので（docs/local-mirror.md）、版を持たないと再生成で中身が
+// 入れ替わったことに気づけない。
+//
+// 突き合わせは走査の前に済ませる。この走査は数分かかるので、
+// 落とすなら最初に落とす
+const meta = await dataVersion()
+console.error(`住所データの版: ${meta.updated}（${meta.source}）`)
+assertPinnedDataVersion(meta)
 
 const SAMPLE = new URL('../sample/05_pharmacy_20260601.csv', import.meta.url)
 const TARGET = 100
@@ -44,8 +55,9 @@ for (const row of rows.slice(1)) {
   out.push({ label: `chiban/${out.length}`, input, result })
 }
 
+const file: FixtureFile = { meta, cases: out }
 writeFileSync(
   new URL('../test/fixtures/chiban-cases.json', import.meta.url),
-  JSON.stringify(out, null, 2) + '\n',
+  JSON.stringify(file, null, 2) + '\n',
 )
 console.error(`${out.length} 件を test/fixtures/chiban-cases.json に書き出しました`)

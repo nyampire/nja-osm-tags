@@ -2,8 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { isPointEmittable } from '../src/point.ts'
 import { toOsmTags } from '../src/toOsmTags.ts'
 import type { FixtureCase } from '../src/types.ts'
-import cases from './fixtures/cases.json' with { type: 'json' }
-import chibanCases from './fixtures/chiban-cases.json' with { type: 'json' }
+import { chibanFixtures, fixtures } from './helpers.ts'
 
 /**
  * 実データ由来のフィクスチャはすべて `machiAza.rsdt` を持たないため、
@@ -31,8 +30,8 @@ const GUARD_PROBE: FixtureCase = {
 }
 
 const all = [
-  ...(cases as unknown as FixtureCase[]),
-  ...(chibanCases as unknown as FixtureCase[]),
+  ...fixtures,
+  ...chibanFixtures,
   GUARD_PROBE,
 ]
 
@@ -44,7 +43,7 @@ describe('ライセンス境界: 地番方式の番地を出力しない', () =>
   const chiban = all.filter((c) => c.result.metadata.chiban)
 
   it('実データ由来の地番フィクスチャが100件ある', () => {
-    expect((chibanCases as unknown as FixtureCase[]).length).toBe(100)
+    expect(chibanFixtures.length).toBe(100)
   })
 
   it('ガード検証用の合成ケースが、ガードが無ければ番地を出す形になっている', () => {
@@ -98,7 +97,7 @@ describe('ライセンス境界: 地番方式の番地を出力しない', () =>
   // これがないと生成スクリプトから maskChiban が抜けても
   // スイートが緑のまま地番100件と筆座標84件がリポジトリに入る。
   it('chiban-cases.json の地番と座標がマスクされている', () => {
-    const generated = chibanCases as unknown as FixtureCase[]
+    const generated = chibanFixtures
     for (const c of generated) {
       expect(c.result.metadata.chiban).toEqual({
         prc_num1: '0',

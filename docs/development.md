@@ -52,6 +52,64 @@ Node.js のバージョン要件は README にあります。
 フィクスチャは NJA v3.1.3 の出力を固定しています。
 NJA を上げると期待値が変わる可能性があるので、`npm run fixtures` で再生成してから差分を確認してください。
 
+### 版はローカルミラーに固定しています
+
+NJA の出力は住所データの版で変わります。
+同じ40件でも、公開 API（2024-12-25）とローカルミラー（2026-08-24）では
+出力タグが8行で違います。
+
+そこで各フィクスチャは、生成に使った版を `meta` に持ちます。
+
+```json
+{ "meta": { "updated": "2026-08-24", "source": "mirror" }, "cases": [ ... ] }
+```
+
+固定値は `scripts/dataVersion.ts` の `PINNED_DATA_VERSION` 1箇所です。
+生成スクリプトとテストが同じ値を見ます。
+
+再生成にはミラーを向けてください。
+
+```bash
+NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja npm run fixtures
+```
+
+**固定値と違う版で回すと、書き込む前に落ちます。**
+書いてからテストで落とすと、作業ツリーを汚したうえで
+`git checkout test/fixtures/` を強いることになるためです。
+
+```
+$ npm run fixtures
+Error: 住所データの版が固定値と違うため、フィクスチャを書き換えません。
+  固定値  2026-08-24（mirror）
+  取得先  2024-12-25（api）
+```
+
+### ミラーの `updated` はビルド時刻です
+
+公開 API の `updated` は Geolonia が配信データを作った時刻で、上流の版を指します。
+ミラーの `updated` は**手元でビルドした時刻**です。
+`japanese-addresses-v2` の `01_make_prefecture_city.ts` が
+`Math.floor(Date.now() / 1000)` を書くので、同じ上流データから作り直しても値が変わります。
+
+そのためミラーを作り直すと、中身が同じでも生成は止まります。
+中身まで変わったかどうかは `npm test` で分かります。
+`test/local-mirror.test.ts` がミラーに引き直してフィクスチャと突き合わせ、
+食い違ったときだけ版の差を添えて知らせます。
+版そのものは失敗の判定に使いません。使うと、作り直しや部分ミラーという
+正当な使い方まで赤くなるためです。
+
+| 状態 | `npm test` | `npm run fixtures` |
+| --- | --- | --- |
+| ミラーが無い | 通る（ミラー依存のテストは skip） | 落ちる（版が `api`） |
+| 作り直したが中身は同じ | 通る | 落ちる（版が違う） |
+| 作り直して上流も変わった | 落ちる（版の差を添えて表示） | 落ちる（版が違う） |
+
+意図して版を上げるときは逃げ道を使い、`PINNED_DATA_VERSION` も直してください。
+
+```bash
+FIXTURE_ALLOW_NEW_VERSION=1 NJA_API_BASE=.data/japanese-addresses-v2/out/api/ja npm run fixtures
+```
+
 `scripts/maskChiban.ts` は単体で走らせるものではなく、フィクスチャ生成から呼ばれるヘルパです。
 地番の値と地番由来の座標をリポジトリに残さないために使います。
 

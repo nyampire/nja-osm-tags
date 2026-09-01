@@ -90,3 +90,22 @@ export type FixtureCase = {
   input: string
   result: NormalizeResult
 }
+
+/**
+ * 住所データの版。フィクスチャがどの取得先のどの時点で作られたかを表す。
+ *
+ * NJA の出力は住所データの版で変わる。版を記録しないと、別の取得先で
+ * 再生成したときに期待値が黙って入れ替わる。
+ */
+export type DataVersion = {
+  /** `ja.json` の `meta.updated`（YYYY-MM-DD） */
+  updated: string
+  /** 取得先の種別。`file://` はミラー、それ以外は公開 API */
+  source: 'mirror' | 'api'
+}
+
+/** テスト用フィクスチャのファイル。版を添えて保存する */
+export type FixtureFile = {
+  meta: DataVersion
+  cases: FixtureCase[]
+}

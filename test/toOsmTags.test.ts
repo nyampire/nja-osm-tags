@@ -1,8 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { toOsmTags } from '../src/toOsmTags.ts'
-import type { FixtureCase } from '../src/types.ts'
-import { fixture } from './helpers.ts'
-import sheetCases from './fixtures/sheet-cases.json' with { type: 'json' }
+import { fixture, sheetFixtures } from './helpers.ts'
 
 describe('toOsmTags 階層タグ', () => {
   it('特別区', () => {
@@ -166,7 +164,7 @@ describe('toOsmTags extra', () => {
     // cases.json には該当フィクスチャがないため sheet-cases.json から拾う。
     // NJA が市区町村までしか特定できなかったとき machiAza に
     // { machiaza_id: '0000000' } というプレースホルダを返すケース。
-    const c = (sheetCases as unknown as FixtureCase[]).find(
+    const c = sheetFixtures.find(
       (c) => c.label === '茨城県龍ケ崎市寺後',
     )
     if (!c) throw new Error('フィクスチャが見つかりません: 茨城県龍ケ崎市寺後')
