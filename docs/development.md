@@ -67,6 +67,7 @@ NJA を上げると期待値が変わる可能性があるので、`npm run fixt
 | `measure-master-coverage.ts` | 町字マスタの明細網羅率と数字表記を母集団で測る。カナが告示の数字表記を保持しているかの検証も含む | ローカルミラー |
 | `measure-mlit-duplicates.ts` | 国土数値情報（MLIT）由来のレコードが ABR と重複している度合いを測る | ローカルミラー |
 | `measure-town-overmatch.ts` | 町字パターンが入力より短く一致する度合いを母集団で測る | ローカルミラー |
+| `measure-chiwari-master.ts` | 町字マスタの地割レコードを母集団で数える。形の内訳と表記の揺れ | ローカルミラー |
 | `measure-town-boundary.ts` | 入力とは別の町字が出た行を実データから洗い出す | ローカルミラー、入力 CSV |
 | `compare-sheet.ts` | OpenStreetMap 公式のタグ付け例と本ツールの出力タグを突き合わせる | ネットワークまたはローカルミラー |
 | `normalize.ts` `probe-edge-cases.ts` | 1件ずつ NJA の出力を見る調査用 | — |

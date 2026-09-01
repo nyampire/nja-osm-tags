@@ -57,4 +57,32 @@ describe('文書のコマンド', () => {
       `npm run のバナーが出力に混ざる。node を直接呼ぶか npm run --silent にする:\n${offenders.join('\n')}`,
     ).toEqual([])
   })
+
+  /**
+   * 文書は測定スクリプトをパスで参照する（`scripts/measure-town-overmatch.ts`）。
+   * 参照は本文・表・リンク・コマンド例に散らばるので、スクリプトを
+   * 改名・削除すると、どこかの参照だけが残って腐る。
+   *
+   * 実測値を載せた文書にとって「その数字を出したコマンド」は根拠そのもので、
+   * 辿れなくなると値の出所を確かめられなくなる。存在だけを確認する。
+   */
+  it('文書が参照する測定スクリプトが実在する', () => {
+    const missing: string[] = []
+    const present = new Set(
+      readdirSync(new URL('../scripts/', import.meta.url)),
+    )
+    for (const { path, source } of docFiles()) {
+      source.split('\n').forEach((line, i) => {
+        for (const m of line.matchAll(/(?:\.\.\/)?scripts\/([A-Za-z0-9._-]+\.ts)/g)) {
+          const name = m[1]
+          if (name && !present.has(name)) missing.push(`${path}:${i + 1} ${m[0]}`)
+        }
+      })
+    }
+
+    expect(
+      missing,
+      `文書が実在しないスクリプトを参照している:\n${missing.join('\n')}`,
+    ).toEqual([])
+  })
 })
