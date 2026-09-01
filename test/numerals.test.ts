@@ -70,6 +70,30 @@ describe('kanjiToArabicByKana', () => {
     expect(kanjiToArabicByKana('八軒八条西', 'ハチケン８ジョウニシ')).toBe('八軒8条西')
   })
 
+  // テキストが既に算用数字を持つ場合、カナの数字トークンはそちらに対応する。
+  // 値が同じというだけで地名の漢数字を置換すると、地名が壊れる。
+  // 母集団で31フィールド・8自治体・17種が該当する
+  it('既に算用数字で書かれている数を地名の漢数字に当てない', () => {
+    expect(kanjiToArabicByKana('八軒８条西', 'ハチケン８ジョウニシ')).toBe('八軒８条西')
+    expect(kanjiToArabicByKana('不二越町２丁目', 'フジコシマチ２チョウメ')).toBe(
+      '不二越町２丁目',
+    )
+    expect(kanjiToArabicByKana('一色東１丁目', 'イシキヒガシ１チョウメ')).toBe(
+      '一色東１丁目',
+    )
+    expect(kanjiToArabicByKana('五福５区', 'ゴフク５ク')).toBe('五福５区')
+    expect(kanjiToArabicByKana('１一ノ割', '１イチノワリ')).toBe('１一ノ割')
+  })
+
+  // 消費するのは一致した1つだけ。全部消費すると、カナが複数の数を書いている
+  // レコードで変換が止まる（母集団で76件）
+  it('既出の数字が消費するのはカナのトークン1つだけ', () => {
+    expect(kanjiToArabicByKana('一丁目第５号', '１チョウメ５ゴウ')).toBe('1丁目第５号')
+    expect(kanjiToArabicByKana('二丁目第１１号', '２チョウメ１１ゴウ')).toBe(
+      '2丁目第１１号',
+    )
+  })
+
   it('同じ形で誤変換が起きない大字も引き続き正しい', () => {
     expect(kanjiToArabicByKana('八軒一条東', 'ハチケン１ジョウヒガシ')).toBe('八軒1条東')
     expect(kanjiToArabicByKana('八軒十条西', 'ハチケン１０ジョウニシ')).toBe('八軒10条西')
