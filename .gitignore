@@ -15,6 +15,8 @@ docs/nja-coverage.md
 japanese-addresses-v2-mlit-duplicates.md
 # OSM コミュニティへの提出材料の下書き。同上
 osm-wiki-chiwari-draft.md
+# 次のセッションへの引き継ぎ。作業の記録であって成果物ではない
+next-session-prompt.md
 .data/
 # .data/ 配下のテストが相対パスで書き出す先。vitest.config.ts で拾わないように
 # してあるが、地番データを含むためコミット事故を二重に防ぐ
