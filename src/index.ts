@@ -1,4 +1,5 @@
 import { normalize } from '@geolonia/normalize-japanese-addresses'
+import type { NormalizeResult } from '@geolonia/normalize-japanese-addresses'
 import { applyApiBase } from './apiBase.ts'
 import { toOsmTags } from './toOsmTags.ts'
 import type { ConversionResult, Options } from './types.ts'
@@ -10,6 +11,11 @@ import type { ConversionResult, Options } from './types.ts'
 applyApiBase()
 
 export { toOsmTags }
+export { normalize }
+export type { NormalizeResult }
+export { parseNumberElements } from './numbers.ts'
+export { judgeNumber, makeNumberJudge } from './numberJudge.ts'
+export type { NumberJudgement } from './numberJudge.ts'
 export { API_BASE_ENV, applyApiBase, resolveApiBase } from './apiBase.ts'
 export {
   META_COLUMNS,
