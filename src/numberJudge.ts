@@ -114,7 +114,11 @@ export function townName(t: TownRecord): string {
 /**
  * 町字マスタの1市区町村分を、町字名で引ける形で読む。
  *
- * 大字名だけでなく csv_ranges も残す。ファイルが無ければ null を返す。
+ * 町字名で引き、値には csv_ranges だけを残す。ファイルが無ければ null を返す。
+ *
+ * 長く動くサーバでは全国の約1,900市区町村分を持ち続けることになり、
+ * 町字の全項目を残すと 200MB を超える。判定に要るのは明細の位置だけなので、
+ * かな、ローマ字、座標などは読んだ時点で捨てる。
  */
 export function loadTowns(base: string, pref: string, city: string): Map<string, TownRecord> | null {
   const p = join(base, pref, `${city}.json`)
@@ -123,7 +127,7 @@ export function loadTowns(base: string, pref: string, city: string): Map<string,
   const json = JSON.parse(readFileSync(p, 'utf8')) as { data: TownRecord[] }
   for (const t of json.data) {
     const n = townName(t)
-    if (n && !out.has(n)) out.set(n, t)
+    if (n && !out.has(n)) out.set(n, { csv_ranges: t.csv_ranges })
   }
   return out
 }
@@ -155,6 +159,29 @@ export function loadDetail(
 }
 
 /**
+ * map を上限 max 件のキャッシュとして引く。
+ *
+ * 無ければ load で読んで入れる。引いたものは末尾に回し、上限を超えたら
+ * 先頭（最も長く引かれていないもの）から捨てる。Map の挿入順を使う。
+ */
+function cachedGet<V>(map: Map<string, V>, key: string, max: number, load: () => V): V {
+  let value: V
+  if (map.has(key)) {
+    value = map.get(key) as V
+    map.delete(key)
+  } else {
+    value = load()
+  }
+  map.set(key, value)
+  while (map.size > max) {
+    const oldest = map.keys().next()
+    if (oldest.done) break
+    map.delete(oldest.value)
+  }
+  return value
+}
+
+/**
  * 推定のまま残った行の番地を、町字の明細に照らして判定する関数を返す。
  *
  * base は out/api/ja のファイルシステムのパス。numberSource が inferred か
@@ -162,35 +189,20 @@ export function loadDetail(
  * 落ちるものが無いので、判定しない。
  *
  * 町字マスタも明細も市区町村ごとのファイルなので、読み直しを減らすために
- * キャッシュする。町字マスタは全国で約1,900件、1件が数十KBなので上限を設けない。
- * 明細は町字ごとに数KBから数百KBあるため、maxDetails 件（既定 500）までとし、
- * 超えたら古いものから捨てる。引いたものは末尾に回す。
+ * キャッシュする。どちらも上限を設け、超えたら最も長く引かれていないものから
+ * 捨てる。長く動くサーバでは、上限が無いと全国分がたまり続けるためである。
+ * 町字マスタは市区町村ごとに maxCities 件（既定 200）まで持つ。loadTowns が
+ * 明細の位置だけに絞っても、全国の約1,900件で 100MB を超える。
+ * 明細は町字ごとに数KBから数百KBあるため、maxDetails 件（既定 500）まで持つ。
  */
 export function makeNumberJudge(
   base: string,
-  options: { maxDetails?: number } = {},
+  options: { maxDetails?: number; maxCities?: number } = {},
 ): (tags: OsmTags) => NumberJudgement {
   const maxDetails = options.maxDetails ?? 500
+  const maxCities = options.maxCities ?? 200
   const towns = new Map<string, Map<string, TownRecord> | null>()
   const details = new Map<string, Set<string> | null>()
-
-  const detailOf = (cityKey: string, pref: string, city: string, kind: DetailKind, range: CsvRange) => {
-    const key = `${cityKey}/${kind}/${range.start}`
-    let value: Set<string> | null
-    if (details.has(key)) {
-      value = details.get(key) ?? null
-      details.delete(key)
-    } else {
-      value = loadDetail(base, pref, city, kind, range)
-    }
-    details.set(key, value)
-    while (details.size > maxDetails) {
-      const oldest = details.keys().next()
-      if (oldest.done) break
-      details.delete(oldest.value)
-    }
-    return value
-  }
 
   return (tags) => {
     const pref = (tags['addr:province'] || '').trim()
@@ -203,8 +215,7 @@ export function makeNumberJudge(
     if (!pref || !city || !town) return '判定不能'
 
     const cityKey = `${pref}/${city}`
-    if (!towns.has(cityKey)) towns.set(cityKey, loadTowns(base, pref, city))
-    const master = towns.get(cityKey)
+    const master = cachedGet(towns, cityKey, maxCities, () => loadTowns(base, pref, city))
     const rec = master ? master.get(town) : null
     if (!rec) return '判定不能'
 
@@ -213,7 +224,8 @@ export function makeNumberJudge(
     for (const kind of ['住居表示', '地番'] as const) {
       const range = ranges[kind]
       if (!range) continue
-      detail[kind] = detailOf(cityKey, pref, city, kind, range)
+      detail[kind] = cachedGet(details, `${cityKey}/${kind}/${range.start}`, maxDetails,
+        () => loadDetail(base, pref, city, kind, range))
     }
     return judgeNumber(blk, tags['addr:housenumber'], detail)
   }
