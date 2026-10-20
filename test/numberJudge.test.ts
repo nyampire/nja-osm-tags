@@ -161,6 +161,34 @@ describe('makeNumberJudge', () => {
       rmSync(dir, { recursive: true, force: true })
     }
   })
+  it('町字の一覧は、引いた市区町村を新しいものとして扱い、最も長く引かれていないものを捨てる', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'numberJudge-lru-cities-'))
+    const cities = ['高知市', '南国市', '土佐市']
+    const town = (city: string, data: unknown[]) =>
+      writeFileSync(join(dir, '高知県', `${city}.json`), JSON.stringify({ data }))
+    const record = { oaza_cho: '大膳町', csv_ranges: { 地番: { start: 0, length: Buffer.byteLength(head) } } }
+    try {
+      mkdirSync(join(dir, '高知県'))
+      for (const city of cities) {
+        writeFileSync(join(dir, '高知県', `${city}-地番.txt`), head)
+        town(city, [record])
+      }
+      const judge = makeNumberJudge(dir, { maxCities: 2 })
+      // 高知市、南国市、高知市の順に引くと、最も長く引かれていないのは南国市になる
+      judge(tags('高知市', '大膳町', '37'))
+      judge(tags('南国市', '大膳町', '37'))
+      judge(tags('高知市', '大膳町', '37'))
+      judge(tags('土佐市', '大膳町', '37'))
+      town('高知市', [])
+      town('南国市', [])
+      // 高知市はキャッシュに残っているので、書き換えの前の一覧で判定する
+      expect(judge(tags('高知市', '大膳町', '37'))).toBe('地番')
+      // 南国市は捨てられているので、書き換えた一覧を読み直す
+      expect(judge(tags('南国市', '大膳町', '37'))).toBe('判定不能')
+    } finally {
+      rmSync(dir, { recursive: true, force: true })
+    }
+  })
 })
 
 describe('loadTowns', () => {
