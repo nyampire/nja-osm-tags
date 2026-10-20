@@ -2,7 +2,7 @@ import { describe, expect, it, beforeAll, afterAll } from 'vitest'
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { detailNumbers, judgeNumber, makeNumberJudge } from '../src/numberJudge.ts'
+import { detailNumbers, judgeNumber, loadTowns, makeNumberJudge } from '../src/numberJudge.ts'
 
 /** 高知市大膳町。街区符号は7番までで、地番には37がある */
 const DAIZEN = {
@@ -139,6 +139,72 @@ describe('makeNumberJudge', () => {
       expect(judge(tags('高知市', '甲町', '37'))).toBe('判定不能')
     } finally {
       rmSync(dir, { recursive: true, force: true })
+    }
+  })
+  it('町字の一覧のキャッシュは maxCities を超えると古い市区町村から捨てる', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'numberJudge-cities-'))
+    try {
+      mkdirSync(join(dir, '高知県'))
+      for (const city of ['高知市', '南国市']) {
+        writeFileSync(join(dir, '高知県', `${city}-地番.txt`), head)
+        writeFileSync(join(dir, '高知県', `${city}.json`), JSON.stringify({
+          data: [{ oaza_cho: '大膳町', csv_ranges: { 地番: { start: 0, length: Buffer.byteLength(head) } } }],
+        }))
+      }
+      const judge = makeNumberJudge(dir, { maxCities: 1 })
+      expect(judge(tags('高知市', '大膳町', '37'))).toBe('地番')
+      expect(judge(tags('南国市', '大膳町', '37'))).toBe('地番')
+      // 高知市の一覧は捨てられているはずなので、町字を消した一覧が次の呼び出しに効く
+      writeFileSync(join(dir, '高知県', '高知市.json'), JSON.stringify({ data: [] }))
+      expect(judge(tags('高知市', '大膳町', '37'))).toBe('判定不能')
+    } finally {
+      rmSync(dir, { recursive: true, force: true })
+    }
+  })
+  it('町字の一覧は、引いた市区町村を新しいものとして扱い、最も長く引かれていないものを捨てる', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'numberJudge-lru-cities-'))
+    const cities = ['高知市', '南国市', '土佐市']
+    const town = (city: string, data: unknown[]) =>
+      writeFileSync(join(dir, '高知県', `${city}.json`), JSON.stringify({ data }))
+    const record = { oaza_cho: '大膳町', csv_ranges: { 地番: { start: 0, length: Buffer.byteLength(head) } } }
+    try {
+      mkdirSync(join(dir, '高知県'))
+      for (const city of cities) {
+        writeFileSync(join(dir, '高知県', `${city}-地番.txt`), head)
+        town(city, [record])
+      }
+      const judge = makeNumberJudge(dir, { maxCities: 2 })
+      // 高知市、南国市、高知市の順に引くと、最も長く引かれていないのは南国市になる
+      judge(tags('高知市', '大膳町', '37'))
+      judge(tags('南国市', '大膳町', '37'))
+      judge(tags('高知市', '大膳町', '37'))
+      judge(tags('土佐市', '大膳町', '37'))
+      town('高知市', [])
+      town('南国市', [])
+      // 高知市はキャッシュに残っているので、書き換えの前の一覧で判定する
+      expect(judge(tags('高知市', '大膳町', '37'))).toBe('地番')
+      // 南国市は捨てられているので、書き換えた一覧を読み直す
+      expect(judge(tags('南国市', '大膳町', '37'))).toBe('判定不能')
+    } finally {
+      rmSync(dir, { recursive: true, force: true })
+    }
+  })
+})
+
+describe('loadTowns', () => {
+  it('町字ごとに明細の位置だけを残す', () => {
+    // 長く動くサーバでは全国分を持ち続けるので、判定に使わない項目は捨てる
+    const base = mkdtempSync(join(tmpdir(), 'towns-'))
+    try {
+      mkdirSync(join(base, '高知県'))
+      const ranges = { 地番: { start: 0, length: 10 } }
+      writeFileSync(join(base, '高知県', '高知市.json'), JSON.stringify({ data: [
+        { oaza_cho: '大膳町', oaza_cho_k: 'ダイゼンチョウ', point: [133.5, 33.5], csv_ranges: ranges },
+      ] }))
+      const towns = loadTowns(base, '高知県', '高知市')
+      expect(towns?.get('大膳町')).toEqual({ csv_ranges: ranges })
+    } finally {
+      rmSync(base, { recursive: true, force: true })
     }
   })
 })
